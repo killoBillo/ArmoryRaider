@@ -1,0 +1,303 @@
+/*
+	ArmoryRayder Calendar css file.
+	Developed by Marco Chillemi
+	
+	url: http://www.killodesign.com
+	mail: marco[dot]chillemi[at]gmail[dot]com
+*/
+/*
+ * Bootstrap Framework fixes for desktops and tablets **********
+ */
+#main-calendar .span2 {
+    width: 14%;
+}
+/****************************************************************/
+
+.calendario {
+	position:relative;
+	border-top: none;
+}
+.calendar-tools {
+	padding:10px 20px;
+	border-bottom: 1px solid #CCC;
+	background-color: #EEE;
+}
+.calendar-tools form {
+	margin: 0;
+}
+.calendar-tools .input-append {
+	margin:0;
+}
+#date-submit {
+	font-size:14px;
+	margin-left:3px;
+}
+.viewport-calendario {
+	max-width: 93%;
+	padding: 0 0 40px 0;
+	margin: 0 auto;
+}
+.month h2 {
+	text-transform: capitalize;
+}
+.nav-calendar {}
+.nav .prev-month,
+.nav .next-month {
+	display: block;
+	text-transform: capitalize;
+	font-size:11px;
+	padding: 20px;
+	color: #505050;
+	text-decoration: underline;
+}
+	
+.squared .mese {
+	margin:20px 0 0;
+	padding:0;
+}
+.squared .giorno {
+	margin: 0 1px 1px 0;
+	float:left;
+	text-align:center;
+}
+.squared .next-month-day,
+.squared .prev-month-day {
+	opacity:0.3;
+	filter:alpha(opacity=40); /* For IE8 and earlier */	
+}
+.squared .invisible {
+	visibility: hidden; 
+}
+.giorno em {
+	font-style: normal;
+}
+.giorno a {
+	display:block;
+	position:relative;
+	border:1px solid #5e5e5e;
+	background: #e4e4e4; /* Old browsers */
+	background: -moz-linear-gradient(top,  #e4e4e4 0%, #f4f4f4 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e4e4e4), color-stop(100%,#f4f4f4)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #e4e4e4 0%,#f4f4f4 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #e4e4e4 0%,#f4f4f4 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #e4e4e4 0%,#f4f4f4 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #e4e4e4 0%,#f4f4f4 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4e4e4', endColorstr='#f4f4f4',GradientType=0 ); /* IE6-9 */
+	-webkit-box-shadow: inset 0px 0px 0px 1px #FFFFFF;
+	box-shadow: inset 0px 0px 0px 1px #FFFFFF;
+	color: #505050;
+	text-shadow: 1px 1px 0 rgba(255,255,255,0.7);
+}
+.giorno a:hover {
+	background: #f4f4f4; /* Old browsers */
+	background: -moz-linear-gradient(top,  #f4f4f4 0%, #e4e4e4 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f4f4f4), color-stop(100%,#e4e4e4)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #f4f4f4 0%,#e4e4e4 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #f4f4f4 0%,#e4e4e4 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #f4f4f4 0%,#e4e4e4 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #f4f4f4 0%,#e4e4e4 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f4f4', endColorstr='#e4e4e4',GradientType=0 ); /* IE6-9 */
+	text-decoration: none;
+}
+.giorno a:visited {
+	color: #505050;	
+}
+
+.today a {
+	border:1px solid #505050;
+	background: #24a3b2; /* Old browsers */
+	background: -moz-linear-gradient(top,  #24a3b2 0%, #2fc1d2 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#24a3b2), color-stop(100%,#2fc1d2)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #24a3b2 0%,#2fc1d2 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #24a3b2 0%,#2fc1d2 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #24a3b2 0%,#2fc1d2 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #24a3b2 0%,#2fc1d2 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#24a3b2', endColorstr='#2fc1d2',GradientType=0 ); /* IE6-9 */
+	-webkit-box-shadow: inset 0px 0px 0px 1px #8ee3ec;
+	box-shadow: inset 0px 0px 0px 1px #8ee3ec;
+	color: #f1f1f1;
+	text-shadow: 1px 1px 0 rgba(125,230,242,0.7);	
+}
+.today a:hover {
+	background: #2fc1d2; /* Old browsers */
+	background: -moz-linear-gradient(top,  #2fc1d2 0%, #24a3b2 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2fc1d2), color-stop(100%,#24a3b2)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #2fc1d2 0%,#24a3b2 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #2fc1d2 0%,#24a3b2 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #2fc1d2 0%,#24a3b2 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #2fc1d2 0%,#24a3b2 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2fc1d2', endColorstr='#24a3b2',GradientType=0 ); /* IE6-9 */
+}
+.today a:visited {
+	color: #f1f1f1;
+}
+
+#main-calendar .date-selector,
+#main-calendar .selected a {
+	border:1px solid #505050;
+	background: #424242; /* Old browsers */
+	background: -moz-linear-gradient(top,  #2e2e2e 0%, #424242 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2e2e2e), color-stop(100%,#424242)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #2e2e2e 0%,#424242 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #2e2e2e 0%,#424242 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #2e2e2e 0%,#424242 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #2e2e2e 0%,#424242 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2e2e2e', endColorstr='#424242',GradientType=0 ); /* IE6-9 */
+	-webkit-box-shadow: inset 0px 0px 0px 1px #a3a3a3;
+	box-shadow: inset 0px 0px 0px 1px #a3a3a3;
+	color: #f1f1f1;
+	text-shadow: 1px 1px 0 rgba(0,0,0,0.7);	
+}
+#main-calendar .selected a:hover {
+	background: #2e2e2e; /* Old browsers */
+	background: -moz-linear-gradient(top,  #424242 0%, #2e2e2e 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#424242), color-stop(100%,#2e2e2e)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #424242 0%,#2e2e2e 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #424242 0%,#2e2e2e 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #424242 0%,#2e2e2e 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #424242 0%,#2e2e2e 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#424242', endColorstr='#2e2e2e',GradientType=0 ); /* IE6-9 */
+}
+#main-calendar .selected a:visited {
+	color: #f1f1f1;	
+}
+
+
+.sunday a {
+	color: #c92127;
+}
+.sunday a:visited {
+	color: #c92127;
+}
+
+
+/**
+ * Labels & icons
+ */
+.day-label {
+	display:block;
+	text-transform: uppercase;
+	margin: 15px 0 0 0;
+}
+.num-label {
+	display:block;
+	margin-bottom: 10px;
+}
+
+/**
+ * Event-icons
+ */
+.event-icons {
+	display:block;
+	height: 10px;
+	margin: 1px;
+	padding: 0 2px;
+	background-color: rgba(0,0,0,0.05);
+}
+.event-icon {
+	display: none;
+	height: 16px;
+	width: 16px;
+	margin-right: 3px;
+}
+.normal {
+	background: url(../img/icons/crown.png) center center no-repeat;
+}
+.heroic {
+	background: url(../img/icons/crown-heroic.png) center center no-repeat;
+}
+.selected .event-icons {
+	background-color: rgba(255,255,255,0.05);
+}
+.notify-icon {
+	position: absolute;
+	z-index: 100;
+	top: -8px;
+	right: -6px;
+	font-family: 'Roboto';
+	font-size: 10px;
+	color: #FFF;
+	padding:5px 10px;
+	border-radius: 5px 5px 5px 0;
+	box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.3), inset 0px 0px 0px 1px #BA0B0B;
+	text-shadow: 0px 1px 0px #B50505;
+	background: #FF0000; /* Old browsers */
+	background: -moz-linear-gradient(top,  #FF0000 0%, #E00000 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FF0000), color-stop(100%,#E00000)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #FF0000 0%,#E00000 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #FF0000 0%,#E00000 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #FF0000 0%,#E00000 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #FF0000 0%,#E00000 100%); /* W3C */
+}
+.notify-icon .popover-content {
+	display:none;
+}
+.notify-icon .popover-row {
+	margin-bottom:10px;
+}
+ul.popover-notifier {
+	margin:0;
+	padding:0;
+}
+.popover-notifier .divider {
+	background-color: #E5E5E5;
+    border-bottom: 1px solid #FFFFFF;
+    height: 1px;
+    margin: 9px 1px;
+    overflow: hidden;
+}
+.popover-row img {
+	border: 1px solid #555;
+}
+.popover-row .popover-raidinfo {
+	margin-left: 10px;
+	margin-top: 5px;
+}
+.raid-name {
+	margin-top: -1px;	
+	text-transform: uppercase;
+	font-size: small;
+}
+.popover-raidname .raid-time {
+	margin-top: -4px;
+}
+.close-calendar {
+	position:absolute;
+	text-align: right;
+	right:5px;
+	bottom: 0;
+	padding:5px 16px 5px;
+	font-size:11px;
+	opacity: 0.3;
+	transition: opacity 1s;
+	-moz-transition: opacity 1s; /* Firefox 4 */
+	-webkit-transition: opacity 1s; /* Safari and Chrome */
+	-o-transition: opacity 1s; /* Opera */	
+}
+.close-calendar:hover {
+	cursor: pointer;
+	opacity: 1;	
+}
+.show-calendar {
+	text-align: right;
+	right:5px;
+	bottom: 0;
+	padding:5px 20px;
+	font-size:11px;
+	opacity: 0.3;
+	border: 1px solid #ccc;
+	background-color: #EEE;
+	margin-right: 20px;
+	border-top: none;
+	transition: opacity 1s;
+	-moz-transition: opacity 1s; /* Firefox 4 */
+	-webkit-transition: opacity 1s; /* Safari and Chrome */
+	-o-transition: opacity 1s; /* Opera */	
+}
+.show-calendar:hover {
+	cursor: pointer;
+	opacity: 1;	
+}
+
+
+
