@@ -78,7 +78,7 @@ class Guild extends CActiveRecord
 			'tag' => 'Tag',
 			'guild_master_id' => 'Guild Master',
 			'faction_id' => 'Faction',
-			'URL' => 'Url',
+			'URL' => 'Battle.net Url',
 			'img' => 'Img',
 		);
 	}

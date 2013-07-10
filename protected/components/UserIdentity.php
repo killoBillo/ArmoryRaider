@@ -34,16 +34,14 @@ class UserIdentity extends CUserIdentity
         }
         else if($user->status != 1)
         {
-        	$this->errorCode="Utente non attivato.";
+        	$this->errorCode=Yii::t('locale', 'User not activated');
         }
         else { // User/pass match
         	
         	$this->_id = $user->id;        	
         	$this->setUser($user);
-//        	$this->_name = $user->name.' '.$user->surname;
-//        	$this->_surname = $user->surname;
-//        	$this->_username = $user->username;
-//        	$this->_fullname = $user->name.' '.$user->surname;
+        	
+        	$this->errorCode=self::ERROR_NONE;        	
         	
         	/**
         	 * ASSEGNO I RUOLI ALL'UTENTE CHE LOGGA
@@ -58,9 +56,6 @@ class UserIdentity extends CUserIdentity
 	        	// assegno il ruolo guest all'utente che logga.
     	    	Rights::assign('Authenticated', $this->id);
         
-        	// implementare l'assegnazione automatica del ruolo GuildMaster se l'utente è il Guild Master.
-        	
-
         	/**
         	 * METTO IN SESSIONE ALCUNI PARAMETRI
         	 * 
@@ -93,9 +88,6 @@ class UserIdentity extends CUserIdentity
         	else
         		Yii::app()->session['locale'] = Yii::app()->language;
         	
-			 
-        	
-        	$this->errorCode=self::ERROR_NONE;
         }       
         return !$this->errorCode; 
 	}

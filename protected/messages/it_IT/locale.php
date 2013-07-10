@@ -147,6 +147,7 @@
 		// errori
 		'Username not found'=>'Utente non trovato',
 		'Invalid password'=>'Password errata',
+		'User not activated'=>'Utente non attivato',
 		'Already member of that event, don\'t try to be clever ;-]'=>'Sei già iscritto all\'evento, non fare il furbo ;-]',
 	
 		// user model and controller and user profile

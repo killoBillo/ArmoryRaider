@@ -40,7 +40,7 @@
 		
 		<div class='well'>
 			<?php echo $form->labelEx($model,'brand'); ?>
-			<?php echo $form->textField($model,'brand',array('size'=>45,'maxlength'=>45, 'class'=>'input-block-level', 'placeholder'=>'ArmoryRaider')); ?>
+			<?php echo $form->textField($model,'brand',array('size'=>45,'maxlength'=>45, 'class'=>'input-block-level', 'placeholder'=>'ArmoryRaider', 'value'=>'ArmoryRaider')); ?>
 			<?php echo $form->error($model,'brand'); ?>
 		</div>
 		<?php //echo $form->labelEx($model,'debug_mode'); ?>

@@ -27,12 +27,14 @@ $realm = $config[0]->armory_realm;
 			<?php echo $form->textField($model,'realm',array('size'=>45,'maxlength'=>45, 'class'=>'input-block-level', 'value'=>$realm)); ?>
 			<?php echo $form->error($model,'realm'); ?>
 		</div>
-		
+
+		<!--
 		<div class='well'>	
 			<?php echo $form->labelEx($model,'guild_master_id'); ?>
 			<?php echo $form->dropDownList($model, 'guild_master_id', CHtml::listData(User::model()->findAll(), 'id', 'username'), array('class'=>'input-block-level'));							//$form->textField($model,'guild_master_id'); ?>
 			<?php echo $form->error($model,'guild_master_id'); ?>
 		</div>
+		-->
 		
 		<div class='well'>	
 			<?php echo $form->labelEx($model,'faction_id'); ?>

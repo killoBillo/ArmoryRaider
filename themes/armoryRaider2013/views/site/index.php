@@ -6,6 +6,7 @@ $this->pageTitle=Yii::app()->name;
 
 <?php if(Yii::app()->user->hasFlash('guildCreated')): ?>
 	<div class="alert alert-success">
+		<button type="button" class="close" data-dismiss="alert">&times;</button>
 		<?php echo Yii::app()->user->getFlash('guildCreated'); ?>
 	</div>
 <?php endif; 
@@ -20,6 +21,10 @@ $this->pageTitle=Yii::app()->name;
 //	var_dump(Yii::app()->messages->basePath);
 //	var_dump(Yii::app()->locale->getLocaleIDs());
 
-
+//	$roles=Rights::getAssignedRoles(Yii::app()->user->Id); // check for single role
+//	foreach($roles as $role) {
+//		echo $role->name."<br>";
+//	}
+	
 	$this->widget('ext.RaiderExt.DashboardEvents',array('events'=>$events)); 
  ?>

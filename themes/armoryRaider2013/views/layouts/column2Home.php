@@ -14,6 +14,9 @@
 
 <?php 
 	if(!Yii::app()->session['config']){
+		// pubblico per la prima volta tutti gli assets nella cartella ~/images
+		Yii::app()->getAssetManager()->publish(RaiderFunctions::getImagesFolderPath(), false, -1, true);
+		
 		// se non è configurata l'app, la faccio configurare
 		echo "<div class='row-fluid'>";
 			echo "<div class='span12'>";
