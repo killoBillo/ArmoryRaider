@@ -30,6 +30,11 @@ Yii::app()->clientScript->registerScript('popovers', "
 	
 	<meta name="ArmoryRaider" content="A PHP Raider for World of WarCraft linked with Blizzard Armory">
 	
+	<!--
+		mobile CSS rules resource. 
+		http://zsprawl.com/iOS/2012/03/css-for-iphone-ipad-and-retina-displays/ 
+	-->
+	
 	<!-- Mobile Styles -->
 	<style>
 		/* Landscape phone to portrait tablet */
