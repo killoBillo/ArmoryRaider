@@ -53,7 +53,11 @@ return array(
 //			'class'=>'RWebUser', // Allows super users access implicitly.
 		),
 		'authManager'=>array( 
-			'class'=>'RDbAuthManager', // Provides support authorization item sorting. ...... 
+			'class'=>'RDbAuthManager', // Provides support authorization item sorting. ......
+		    'assignmentTable' => 'authassignment',
+    		'itemTable' => 'authitem',
+    		'itemChildTable' => 'authitemchild',
+    		'rightsTable' => 'rights',
 		),
 		'thumbnailer'=>array(
 			'class'=>'application.extensions.thumbnailer.Thumbnailer'
