@@ -123,7 +123,7 @@ class DashboardEvents extends CWidget {
 				
 				$this->html.= "<div class='pull-left post-autor '>";
 					$this->html.= "<div class='dashboard-box-mini-raidleader'>".$this->params['username']." [ ".$this->params['userGuildRole']." ]</div>";
-					$this->html.= "<div class='dashboard-box-mini-label'>".Yii::t('locale', 'created a new event')."</div>";
+					$this->html.= "<div class='dashboard-box-mini-label event-date'><span class='muted'>".Yii::t('locale', 'has created a new event')."</span></div>";
 				$this->html.= "</div>";
 				
 				$this->html.= "<div class='clearbox clearfix'></div>";
@@ -366,7 +366,7 @@ class DashboardEvents extends CWidget {
 		// genero l'html per ogni personaggio
 		$html = "<div class='$holderClass character dashboard-character'>";
 			$html.= "<div class='pull-left'>";
-				$html.= "<img class='img-circle' src='".$character->getCharacter()->portrait_URL."' height='40' width='40' alt='portrait of ".$character->getCharacter()->name."'>";
+				$html.= "<img class='img-rounded' src='".$character->getCharacter()->portrait_URL."' height='40' width='40' alt='portrait of ".$character->getCharacter()->name."'>";
 			$html.= "</div>";	
 			
 			$html.= "<div class='pg-data pull-left'>";

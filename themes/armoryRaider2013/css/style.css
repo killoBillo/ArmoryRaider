@@ -281,6 +281,7 @@ ul, ol {
 }
 #sidebar .title {
 	margin: 15px 0;
+	text-transform: uppercase;
 }
 .event,
 .character {

@@ -51,7 +51,7 @@
 		'edit profile'=>'modifica profilo',
 	
 		// RaiderExt.DashboardEvent
-		'created a new event'=>'ha creato un nuovo evento',
+		'has created a new event'=>'ha creato un nuovo evento',
 		'Members: '=>'Iscritti: ',
 		'Available: '=>'Disponibili ',
 		'Unavailable: '=>'Indisponibili ',
