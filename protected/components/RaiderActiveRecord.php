@@ -42,7 +42,7 @@ class RaiderActiveRecord extends CActiveRecord {
 				mkdir(RaiderFunctions::getImagesFolderPath($this)); 
 			
 			// se l'img viene salvata correttamente, creo i thumbnails	
-			if ($this->img->saveAs(RaiderFunctions::getImagesFolderPath($this).'\\'.$this->img->name)) {
+			if ($this->img->saveAs(RaiderFunctions::getImagesFolderPath($this).'/'.$this->img->name)) {
 				/**
 				 * creo i thumbnails con phpThumb.
 				 * - thumb dim: 640x360px per i raid in dashboard,
@@ -56,24 +56,24 @@ class RaiderActiveRecord extends CActiveRecord {
 					RaiderFunctions::thumbGen(
 						640,
 						360,
-						RaiderFunctions::getImagesFolderPath($this).'\\'.$this->img->name
+						RaiderFunctions::getImagesFolderPath($this).'/'.$this->img->name
 					);					
 					RaiderFunctions::thumbGen(
 						30,
 						30,
-						RaiderFunctions::getImagesFolderPath($this).'\\'.$this->img->name
+						RaiderFunctions::getImagesFolderPath($this).'/'.$this->img->name
 					);
 				}elseif(get_class($this) == 'User') {
 					RaiderFunctions::thumbGen(
 						30,
 						30,
-						RaiderFunctions::getImagesFolderPath($this).'\\'.$this->img->name
+						RaiderFunctions::getImagesFolderPath($this).'/'.$this->img->name
 					);
 
 					RaiderFunctions::thumbGen(
 						50,
 						50,
-						RaiderFunctions::getImagesFolderPath($this).'\\'.$this->img->name 
+						RaiderFunctions::getImagesFolderPath($this).'/'.$this->img->name 
 					);							
 				}
 					
