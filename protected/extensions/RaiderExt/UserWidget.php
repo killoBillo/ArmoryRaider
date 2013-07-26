@@ -12,7 +12,13 @@ class UserWidget extends CWidget {
 	
 	public function init() {
 		$user = User::model()->findByPk($this->userid);
-		$assetsUrl = Yii::app()->getAssetManager()->getPublishedUrl(RaiderFunctions::getImagesFolderPath());
+		
+		// se non esiste la cartella degli assets, la ripubblico, altrimenti no.
+		$imagesAssetFolder = explode('/', Yii::app()->getAssetManager()->getPublishedUrl(RaiderFunctions::getImagesFolderPath()));
+		$assetsUrl = is_dir(Yii::app()->getAssetManager()->basePath.'/'.$imagesAssetFolder[3]) 
+			? Yii::app()->getAssetManager()->getPublishedUrl(RaiderFunctions::getImagesFolderPath()) 
+			: Yii::app()->getAssetManager()->publish(RaiderFunctions::getImagesFolderPath());
+		
 		//$userRole = $user->profile->guildrole->label;
 		
 		$userImgFolder = strtolower(preg_replace('/[\s]+/','_',$user->username));
