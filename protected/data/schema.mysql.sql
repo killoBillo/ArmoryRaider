@@ -1,4 +1,16 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
+
+/*
+DROP SCHEMA IF EXISTS `armoryraider` ;
+CREATE SCHEMA IF NOT EXISTS `armoryraider` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+USE `armoryraider` ;
+*/
+
 /*Table structure for table `authassignment` */
+
+DROP TABLE IF EXISTS `authassignment`;
 
 CREATE TABLE `authassignment` (
   `itemname` varchar(64) NOT NULL,
@@ -21,6 +33,8 @@ insert  into `authassignment`(`itemname`,`userid`,`bizrule`,`data`) values ('Rai
 insert  into `authassignment`(`itemname`,`userid`,`bizrule`,`data`) values ('Raidleader','3',NULL,'N;');
 
 /*Table structure for table `authitem` */
+
+DROP TABLE IF EXISTS `authitem`;
 
 CREATE TABLE `authitem` (
   `name` varchar(64) NOT NULL,
@@ -65,12 +79,15 @@ insert  into `authitem`(`name`,`type`,`description`,`bizrule`,`data`) values ('C
 insert  into `authitem`(`name`,`type`,`description`,`bizrule`,`data`) values ('Config.*',1,NULL,NULL,'N;');
 insert  into `authitem`(`name`,`type`,`description`,`bizrule`,`data`) values ('Event.*',1,NULL,NULL,'N;');
 insert  into `authitem`(`name`,`type`,`description`,`bizrule`,`data`) values ('Event.Admin',0,NULL,NULL,'N;');
+insert  into `authitem`(`name`,`type`,`description`,`bizrule`,`data`) values ('Event.ConfirmDelete',0,NULL,NULL,'N;');
 insert  into `authitem`(`name`,`type`,`description`,`bizrule`,`data`) values ('Event.Crea',0,NULL,NULL,'N;');
 insert  into `authitem`(`name`,`type`,`description`,`bizrule`,`data`) values ('Event.Create',0,NULL,NULL,'N;');
 insert  into `authitem`(`name`,`type`,`description`,`bizrule`,`data`) values ('Event.Delete',0,NULL,NULL,'N;');
 insert  into `authitem`(`name`,`type`,`description`,`bizrule`,`data`) values ('Event.Index',0,NULL,NULL,'N;');
+insert  into `authitem`(`name`,`type`,`description`,`bizrule`,`data`) values ('Event.Show',0,NULL,NULL,'N;');
 insert  into `authitem`(`name`,`type`,`description`,`bizrule`,`data`) values ('Event.Update',0,NULL,NULL,'N;');
 insert  into `authitem`(`name`,`type`,`description`,`bizrule`,`data`) values ('Event.View',0,NULL,NULL,'N;');
+insert  into `authitem`(`name`,`type`,`description`,`bizrule`,`data`) values ('Event.ViewDay',0,NULL,NULL,'N;');
 insert  into `authitem`(`name`,`type`,`description`,`bizrule`,`data`) values ('Faction.*',1,NULL,NULL,'N;');
 insert  into `authitem`(`name`,`type`,`description`,`bizrule`,`data`) values ('Faction.Admin',0,NULL,NULL,'N;');
 insert  into `authitem`(`name`,`type`,`description`,`bizrule`,`data`) values ('Faction.Create',0,NULL,NULL,'N;');
@@ -140,8 +157,11 @@ insert  into `authitem`(`name`,`type`,`description`,`bizrule`,`data`) values ('U
 insert  into `authitem`(`name`,`type`,`description`,`bizrule`,`data`) values ('User.Profile',0,NULL,NULL,'N;');
 insert  into `authitem`(`name`,`type`,`description`,`bizrule`,`data`) values ('User.Update',0,NULL,NULL,'N;');
 insert  into `authitem`(`name`,`type`,`description`,`bizrule`,`data`) values ('User.View',0,NULL,NULL,'N;');
+insert  into `authitem`(`name`,`type`,`description`,`bizrule`,`data`) values ('Userattributes.*',1,NULL,NULL,'N;');
 
 /*Table structure for table `authitemchild` */
+
+DROP TABLE IF EXISTS `authitemchild`;
 
 CREATE TABLE `authitemchild` (
   `parent` varchar(64) NOT NULL,
@@ -166,6 +186,8 @@ insert  into `authitemchild`(`parent`,`child`) values ('Authenticated','Characte
 insert  into `authitemchild`(`parent`,`child`) values ('Raidleader','CharacterEvent.ToggleHolder');
 insert  into `authitemchild`(`parent`,`child`) values ('Guildmaster','Config.*');
 insert  into `authitemchild`(`parent`,`child`) values ('Raidleader','Event.*');
+insert  into `authitemchild`(`parent`,`child`) values ('Authenticated','Event.Show');
+insert  into `authitemchild`(`parent`,`child`) values ('Authenticated','Event.ViewDay');
 insert  into `authitemchild`(`parent`,`child`) values ('Guildmaster','Guild.*');
 insert  into `authitemchild`(`parent`,`child`) values ('Guildmaster','Guildrole.*');
 insert  into `authitemchild`(`parent`,`child`) values ('Raidleader','Raid.*');
@@ -173,264 +195,9 @@ insert  into `authitemchild`(`parent`,`child`) values ('Guildmaster','Raidleader
 insert  into `authitemchild`(`parent`,`child`) values ('Guildmaster','User.*');
 insert  into `authitemchild`(`parent`,`child`) values ('Authenticated','User.Profile');
 
-/*Table structure for table `character` */
-
-CREATE TABLE `character` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `class_id` int(11) NOT NULL,
-  `race_id` int(11) NOT NULL,
-  `gender_id` int(11) NOT NULL,
-  `faction_id` int(11) NOT NULL,
-  `guild_id` int(11) DEFAULT NULL,
-  `name` varchar(45) DEFAULT NULL,
-  `level` int(11) DEFAULT NULL,
-  `title` varchar(255) DEFAULT NULL,
-  `item_level` varchar(10) DEFAULT NULL,
-  `portrait_URL` varchar(255) DEFAULT NULL,
-  `armory_URL` varchar(255) DEFAULT NULL,
-  `is_main` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_user_id` (`user_id`),
-  KEY `fk_class_id` (`class_id`),
-  KEY `fk_faction_id` (`faction_id`),
-  KEY `fk_gender_id` (`gender_id`),
-  KEY `fk_race_id` (`race_id`),
-  KEY `fk_guild_id` (`guild_id`),
-  CONSTRAINT `fk_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_class_id` FOREIGN KEY (`class_id`) REFERENCES `class` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_faction_id` FOREIGN KEY (`faction_id`) REFERENCES `faction` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_gender_id` FOREIGN KEY (`gender_id`) REFERENCES `gender` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_race_id` FOREIGN KEY (`race_id`) REFERENCES `race` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_guild_id` FOREIGN KEY (`guild_id`) REFERENCES `guild` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*Data for the table `character` */
-
-/*Table structure for table `character_event` */
-
-CREATE TABLE `character_event` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `event_id` int(11) NOT NULL,
-  `char_id` int(11) NOT NULL,
-  `role_id` int(11) NOT NULL,
-  `available_flag` int(11) DEFAULT NULL,
-  `holder_flag` int(11) DEFAULT NULL,
-  `comment` varchar(500) DEFAULT NULL,
-  `comment_date` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`,`event_id`,`char_id`,`role_id`),
-  KEY `fk_character_id` (`char_id`),
-  KEY `fk_role_id` (`role_id`),
-  KEY `fk_event_id` (`event_id`),
-  CONSTRAINT `fk_character_id` FOREIGN KEY (`char_id`) REFERENCES `character` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_event_id` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_role_id` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*Data for the table `character_event` */
-
-/*Table structure for table `character_has_role` */
-
-CREATE TABLE `character_has_role` (
-  `character_id` int(11) NOT NULL,
-  `role_id` int(11) NOT NULL,
-  PRIMARY KEY (`character_id`,`role_id`),
-  KEY `fk_character_has_role_role1` (`role_id`),
-  KEY `fk_character_has_role_character1` (`character_id`),
-  CONSTRAINT `fk_character_has_role_character1` FOREIGN KEY (`character_id`) REFERENCES `character` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_character_has_role_role1` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*Data for the table `character_has_role` */
-
-/*Table structure for table `character_has_spec` */
-
-CREATE TABLE `character_has_spec` (
-  `character_id` int(11) NOT NULL,
-  `spec_id` int(11) NOT NULL,
-  PRIMARY KEY (`character_id`,`spec_id`),
-  KEY `fk_character_has_spec_spec1` (`spec_id`),
-  KEY `fk_character_has_spec_character1` (`character_id`),
-  CONSTRAINT `fk_character_has_spec_character1` FOREIGN KEY (`character_id`) REFERENCES `character` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_character_has_spec_spec1` FOREIGN KEY (`spec_id`) REFERENCES `spec` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*Data for the table `character_has_spec` */
-
-/*Table structure for table `class` */
-
-CREATE TABLE `class` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `color` varchar(7) DEFAULT NULL,
-  `name` varchar(45) DEFAULT NULL,
-  `icon` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
-
-/*Data for the table `class` */
-
-insert  into `class`(`id`,`color`,`name`,`icon`) values (1,'#FF7C0A','Druid',NULL);
-insert  into `class`(`id`,`color`,`name`,`icon`) values (2,'#AAD372','Hunter',NULL);
-insert  into `class`(`id`,`color`,`name`,`icon`) values (3,'#68CCEF','Mage',NULL);
-insert  into `class`(`id`,`color`,`name`,`icon`) values (4,'#F48CBA','Paladin',NULL);
-insert  into `class`(`id`,`color`,`name`,`icon`) values (5,'#AAAAAA','Priest',NULL);
-insert  into `class`(`id`,`color`,`name`,`icon`) values (6,'#FFF468','Rogue',NULL);
-insert  into `class`(`id`,`color`,`name`,`icon`) values (7,'#2359FF','Shaman',NULL);
-insert  into `class`(`id`,`color`,`name`,`icon`) values (8,'#9382C9','Warlock',NULL);
-insert  into `class`(`id`,`color`,`name`,`icon`) values (9,'#C69B6D','Warrior',NULL);
-insert  into `class`(`id`,`color`,`name`,`icon`) values (10,'#C41E3B','Death Knight',NULL);
-insert  into `class`(`id`,`color`,`name`,`icon`) values (11,'#008467','Monk',NULL);
-
-/*Table structure for table `config` */
-
-CREATE TABLE `config` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `timezone` varchar(45) DEFAULT NULL,
-  `locale` varchar(45) DEFAULT NULL,
-  `armory_region` varchar(45) DEFAULT NULL,
-  `armory_realm` varchar(45) DEFAULT NULL,
-  `brand` varchar(45) DEFAULT NULL,
-  `debug_mode` varchar(45) DEFAULT NULL,
-  `event_notification_active` varchar(45) DEFAULT NULL,
-  `welcome_message` text,
-  `template` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*Data for the table `config` */
-
-/*Table structure for table `dahboard` */
-
-CREATE TABLE `dahboard` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Tipo Eventi:',
-  `user_id` int(11) NOT NULL,
-  `event_type` int(11) NOT NULL,
-  `creation_date` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*Data for the table `dahboard` */
-
-/*Table structure for table `event` */
-
-CREATE TABLE `event` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `raid_id` int(11) DEFAULT NULL,
-  `raid_leader_id` int(11) DEFAULT NULL,
-  `event_date` datetime DEFAULT NULL,
-  `creation_date` datetime DEFAULT NULL,
-  `description` text,
-  PRIMARY KEY (`id`),
-  KEY `fk_raid_id` (`raid_id`),
-  CONSTRAINT `fk_raid_id` FOREIGN KEY (`raid_id`) REFERENCES `raid` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*Data for the table `event` */
-
-/*Table structure for table `faction` */
-
-CREATE TABLE `faction` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) DEFAULT NULL,
-  `icon` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-
-/*Data for the table `faction` */
-
-insert  into `faction`(`id`,`name`,`icon`) values (1,'Alliance',NULL);
-insert  into `faction`(`id`,`name`,`icon`) values (2,'Horde',NULL);
-
-/*Table structure for table `gender` */
-
-CREATE TABLE `gender` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) DEFAULT NULL,
-  `icon` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-
-/*Data for the table `gender` */
-
-insert  into `gender`(`id`,`name`,`icon`) values (1,'Male',NULL);
-insert  into `gender`(`id`,`name`,`icon`) values (2,'Female',NULL);
-
-/*Table structure for table `guild` */
-
-CREATE TABLE `guild` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `realm` varchar(45) DEFAULT NULL,
-  `name` varchar(45) DEFAULT NULL,
-  `tag` varchar(45) DEFAULT NULL,
-  `guild_master_id` int(11) DEFAULT NULL,
-  `faction_id` int(11) DEFAULT NULL,
-  `URL` varchar(255) DEFAULT NULL,
-  `img` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*Data for the table `guild` */
-
-/*Table structure for table `guildrole` */
-
-CREATE TABLE `guildrole` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `label` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-
-/*Data for the table `guildrole` */
-
-insert  into `guildrole`(`id`,`label`) values (1,'Guild Master');
-insert  into `guildrole`(`id`,`label`) values (2,'Default');
-
-/*Table structure for table `race` */
-
-CREATE TABLE `race` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
-
-/*Data for the table `race` */
-
-insert  into `race`(`id`,`name`) values (1,'Worgen');
-insert  into `race`(`id`,`name`) values (2,'Draenei');
-insert  into `race`(`id`,`name`) values (3,'Dwarf');
-insert  into `race`(`id`,`name`) values (4,'Gnome');
-insert  into `race`(`id`,`name`) values (5,'Human');
-insert  into `race`(`id`,`name`) values (6,'Night Elf');
-insert  into `race`(`id`,`name`) values (7,'Goblin');
-insert  into `race`(`id`,`name`) values (8,'Blood Elf');
-insert  into `race`(`id`,`name`) values (9,'Orc');
-insert  into `race`(`id`,`name`) values (10,'Tauren');
-insert  into `race`(`id`,`name`) values (11,'Troll');
-insert  into `race`(`id`,`name`) values (12,'Forsaken');
-insert  into `race`(`id`,`name`) values (13,'Pandaren');
-
-/*Table structure for table `raid` */
-
-CREATE TABLE `raid` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  `level` int(11) DEFAULT NULL,
-  `img` varchar(255) DEFAULT NULL,
-  `number_of_players` int(11) DEFAULT NULL,
-  `description` varchar(500) DEFAULT NULL,
-  `color` varchar(45) DEFAULT NULL,
-  `is_heroic` int(11) DEFAULT '0',
-  `is_active` int(11) DEFAULT '1',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
-
-/*Data for the table `raid` */
-
-insert  into `raid`(`id`,`name`,`level`,`img`,`number_of_players`,`description`,`color`,`is_heroic`,`is_active`) values (1,'Firelands',85,'firelands.jpg',10,'\"Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt \"','#FF8A00',0,1);
-insert  into `raid`(`id`,`name`,`level`,`img`,`number_of_players`,`description`,`color`,`is_heroic`,`is_active`) values (2,'Dragon Soul Normal',85,'wi-deathwingvsthrall.jpg',10,'\"Lorem Ipsum excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt\"','#FF0000',0,1);
-insert  into `raid`(`id`,`name`,`level`,`img`,`number_of_players`,`description`,`color`,`is_heroic`,`is_active`) values (3,'Dragon Soul LFR',85,'wi-deathwingvsthrall.jpg',25,'\"Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt \"','#85CF81',0,1);
-insert  into `raid`(`id`,`name`,`level`,`img`,`number_of_players`,`description`,`color`,`is_heroic`,`is_active`) values (4,'Dragon Soul Heroic',85,'wow_ds.jpg',10,'\"Sed ut perspiciatis unde omnis iste natus\"','#47548F',1,1);
-
 /*Table structure for table `rights` */
+
+DROP TABLE IF EXISTS `rights`;
 
 CREATE TABLE `rights` (
   `itemname` varchar(64) NOT NULL,
@@ -442,107 +209,539 @@ CREATE TABLE `rights` (
 
 /*Data for the table `rights` */
 
-/*Table structure for table `role` */
 
-CREATE TABLE `role` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+-- -----------------------------------------------------
+-- Table `armoryraider`.`user`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `armoryraider`.`user` ;
 
-/*Data for the table `role` */
+CREATE  TABLE IF NOT EXISTS `armoryraider`.`user` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `name` VARCHAR(45) NULL ,
+  `surname` VARCHAR(45) NULL ,
+  `username` VARCHAR(45) NULL ,
+  `password` CHAR(32) NULL ,
+  `email` VARCHAR(45) NULL ,
+  `portrait_URL` VARCHAR(255) NULL ,
+  `creation_date` DATETIME NULL ,
+  `status` INT NULL ,
+  `activation_key` VARCHAR(32) NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
 
-insert  into `role`(`id`,`name`) values (1,'Tank');
-insert  into `role`(`id`,`name`) values (2,'Healer');
-insert  into `role`(`id`,`name`) values (3,'DPS Melee');
-insert  into `role`(`id`,`name`) values (4,'DPS Ranged');
 
-/*Table structure for table `spec` */
+-- -----------------------------------------------------
+-- Table `armoryraider`.`class`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `armoryraider`.`class` ;
 
-CREATE TABLE `spec` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `class_id` int(11) DEFAULT NULL,
-  `name` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
+CREATE  TABLE IF NOT EXISTS `armoryraider`.`class` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `color` VARCHAR(7) NULL ,
+  `name` VARCHAR(45) NULL ,
+  `icon` VARCHAR(255) NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
 
-/*Data for the table `spec` */
 
-insert  into `spec`(`id`,`class_id`,`name`) values (1,1,'Balance');
-insert  into `spec`(`id`,`class_id`,`name`) values (2,1,'Feral Combat');
-insert  into `spec`(`id`,`class_id`,`name`) values (3,1,'Restoration');
-insert  into `spec`(`id`,`class_id`,`name`) values (4,2,'Beast Mastery');
-insert  into `spec`(`id`,`class_id`,`name`) values (5,2,'Marksmanship');
-insert  into `spec`(`id`,`class_id`,`name`) values (6,2,'Survival');
-insert  into `spec`(`id`,`class_id`,`name`) values (7,3,'Arcane');
-insert  into `spec`(`id`,`class_id`,`name`) values (8,3,'Fire');
-insert  into `spec`(`id`,`class_id`,`name`) values (9,3,'Frost');
-insert  into `spec`(`id`,`class_id`,`name`) values (10,4,'Holy');
-insert  into `spec`(`id`,`class_id`,`name`) values (11,4,'Protection');
-insert  into `spec`(`id`,`class_id`,`name`) values (12,4,'Retribution');
-insert  into `spec`(`id`,`class_id`,`name`) values (13,5,'Discipline');
-insert  into `spec`(`id`,`class_id`,`name`) values (14,5,'Holy');
-insert  into `spec`(`id`,`class_id`,`name`) values (15,5,'Shadow');
-insert  into `spec`(`id`,`class_id`,`name`) values (16,6,'Assassination');
-insert  into `spec`(`id`,`class_id`,`name`) values (17,6,'Combat');
-insert  into `spec`(`id`,`class_id`,`name`) values (18,6,'Subtlety');
-insert  into `spec`(`id`,`class_id`,`name`) values (19,7,'Elemental');
-insert  into `spec`(`id`,`class_id`,`name`) values (20,7,'Enhancement');
-insert  into `spec`(`id`,`class_id`,`name`) values (21,7,'Restoration');
-insert  into `spec`(`id`,`class_id`,`name`) values (22,8,'Affliction');
-insert  into `spec`(`id`,`class_id`,`name`) values (23,8,'Demonology');
-insert  into `spec`(`id`,`class_id`,`name`) values (24,8,'Destruction');
-insert  into `spec`(`id`,`class_id`,`name`) values (25,9,'Arms');
-insert  into `spec`(`id`,`class_id`,`name`) values (26,9,'Fury');
-insert  into `spec`(`id`,`class_id`,`name`) values (27,9,'Protection');
-insert  into `spec`(`id`,`class_id`,`name`) values (28,10,'Blood');
-insert  into `spec`(`id`,`class_id`,`name`) values (29,10,'Frost');
-insert  into `spec`(`id`,`class_id`,`name`) values (30,10,'Unholy');
-insert  into `spec`(`id`,`class_id`,`name`) values (31,11,'Brewmaster');
-insert  into `spec`(`id`,`class_id`,`name`) values (32,11,'Mistweaver');
-insert  into `spec`(`id`,`class_id`,`name`) values (33,11,'Windwalker');
+-- -----------------------------------------------------
+-- Table `armoryraider`.`faction`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `armoryraider`.`faction` ;
 
-/*Table structure for table `user` */
+CREATE  TABLE IF NOT EXISTS `armoryraider`.`faction` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `name` VARCHAR(45) NULL ,
+  `icon` VARCHAR(255) NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
 
-CREATE TABLE `user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) DEFAULT NULL,
-  `surname` varchar(45) DEFAULT NULL,
-  `username` varchar(45) DEFAULT NULL,
-  `password` char(32) DEFAULT NULL,
-  `email` varchar(45) DEFAULT NULL,
-  `portrait_URL` varchar(255) DEFAULT NULL,
-  `creation_date` datetime DEFAULT NULL,
-  `status` int(11) DEFAULT NULL,
-  `activation_key` varchar(32) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
-/*Data for the table `user` */
+-- -----------------------------------------------------
+-- Table `armoryraider`.`gender`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `armoryraider`.`gender` ;
 
-insert  into `user`(`id`,`name`,`surname`,`username`,`password`,`email`,`portrait_URL`,`creation_date`,`status`,`activation_key`) values (1,'admin','','admin','21232f297a57a5a743894a0e4a801fc3',NULL,NULL,NULL,1,NULL);
+CREATE  TABLE IF NOT EXISTS `armoryraider`.`gender` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `name` VARCHAR(45) NULL ,
+  `icon` VARCHAR(255) NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
 
-/*Table structure for table `userattributes` */
 
-CREATE TABLE `userattributes` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `guildrole_id` int(11) NOT NULL,
-  `portrait` varchar(45) DEFAULT NULL,
-  `second_email` varchar(45) DEFAULT NULL,
-  `phone_number` varchar(45) DEFAULT NULL,
-  `site_URL` varchar(45) DEFAULT NULL,
-  `last_login` datetime DEFAULT NULL,
-  `locale` varchar(45) DEFAULT NULL,
-  `timezone` varchar(45) DEFAULT NULL,
-  `is_raidleader` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_userattributes_user1` (`user_id`),
-  KEY `fk_userattributes_guildrole1` (`guildrole_id`),
-  CONSTRAINT `fk_userattributes_user1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_userattributes_guildrole1` FOREIGN KEY (`guildrole_id`) REFERENCES `guildrole` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+-- -----------------------------------------------------
+-- Table `armoryraider`.`race`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `armoryraider`.`race` ;
 
-/*Data for the table `userattributes` */
+CREATE  TABLE IF NOT EXISTS `armoryraider`.`race` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `name` VARCHAR(45) NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
 
-insert  into `userattributes`(`id`,`user_id`,`guildrole_id`,`portrait`,`second_email`,`phone_number`,`site_URL`,`last_login`,`locale`,`timezone`,`is_raidleader`) values (1,1,1,NULL,NULL,NULL,NULL,'0000-00-00 00:00:00','en_GB','Europe/Rome',NULL);
+
+-- -----------------------------------------------------
+-- Table `armoryraider`.`guild`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `armoryraider`.`guild` ;
+
+CREATE  TABLE IF NOT EXISTS `armoryraider`.`guild` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `realm` VARCHAR(45) NULL ,
+  `name` VARCHAR(45) NULL ,
+  `tag` VARCHAR(45) NULL ,
+  `guild_master_id` INT NULL ,
+  `faction_id` INT NULL ,
+  `URL` VARCHAR(255) NULL ,
+  `img` VARCHAR(255) NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `armoryraider`.`character`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `armoryraider`.`character` ;
+
+CREATE  TABLE IF NOT EXISTS `armoryraider`.`character` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `user_id` INT NOT NULL ,
+  `class_id` INT NOT NULL ,
+  `race_id` INT NOT NULL ,
+  `gender_id` INT NOT NULL ,
+  `faction_id` INT NOT NULL ,
+  `guild_id` INT NULL ,
+  `name` VARCHAR(45) NULL ,
+  `level` INT NULL ,
+  `title` VARCHAR(255) NULL ,
+  `item_level` VARCHAR(10) NULL ,
+  `portrait_URL` VARCHAR(255) NULL ,
+  `armory_URL` VARCHAR(255) NULL ,
+  `is_main` INT NULL ,
+  PRIMARY KEY (`id`) ,
+  INDEX `fk_user_id` (`user_id` ASC) ,
+  INDEX `fk_class_id` (`class_id` ASC) ,
+  INDEX `fk_faction_id` (`faction_id` ASC) ,
+  INDEX `fk_gender_id` (`gender_id` ASC) ,
+  INDEX `fk_race_id` (`race_id` ASC) ,
+  INDEX `fk_guild_id` (`guild_id` ASC) ,
+  CONSTRAINT `fk_user_id`
+    FOREIGN KEY (`user_id` )
+    REFERENCES `armoryraider`.`user` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_class_id`
+    FOREIGN KEY (`class_id` )
+    REFERENCES `armoryraider`.`class` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_faction_id`
+    FOREIGN KEY (`faction_id` )
+    REFERENCES `armoryraider`.`faction` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_gender_id`
+    FOREIGN KEY (`gender_id` )
+    REFERENCES `armoryraider`.`gender` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_race_id`
+    FOREIGN KEY (`race_id` )
+    REFERENCES `armoryraider`.`race` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_guild_id`
+    FOREIGN KEY (`guild_id` )
+    REFERENCES `armoryraider`.`guild` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `armoryraider`.`raid`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `armoryraider`.`raid` ;
+
+CREATE  TABLE IF NOT EXISTS `armoryraider`.`raid` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `name` VARCHAR(255) NULL ,
+  `level` INT NULL ,
+  `img` VARCHAR(255) NULL ,
+  `number_of_players` INT NULL ,
+  `description` VARCHAR(500) NULL ,
+  `color` VARCHAR(45) NULL ,
+  `is_heroic` INT NULL DEFAULT 0 ,
+  `is_active` INT NULL DEFAULT 1 ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `armoryraider`.`event`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `armoryraider`.`event` ;
+
+CREATE  TABLE IF NOT EXISTS `armoryraider`.`event` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `raid_id` INT NULL ,
+  `raid_leader_id` INT NULL ,
+  `event_date` DATETIME NULL ,
+  `creation_date` DATETIME NULL ,
+  `description` TEXT NULL ,
+  PRIMARY KEY (`id`) ,
+  INDEX `fk_raid_id` (`raid_id` ASC) ,
+  CONSTRAINT `fk_raid_id`
+    FOREIGN KEY (`raid_id` )
+    REFERENCES `armoryraider`.`raid` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `armoryraider`.`role`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `armoryraider`.`role` ;
+
+CREATE  TABLE IF NOT EXISTS `armoryraider`.`role` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `name` VARCHAR(45) NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `armoryraider`.`character_event`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `armoryraider`.`character_event` ;
+
+CREATE  TABLE IF NOT EXISTS `armoryraider`.`character_event` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `event_id` INT NOT NULL ,
+  `char_id` INT NOT NULL ,
+  `role_id` INT NOT NULL ,
+  `available_flag` INT NULL ,
+  `holder_flag` INT NULL ,
+  `comment` VARCHAR(500) NULL ,
+  `comment_date` DATETIME NULL ,
+  PRIMARY KEY (`id`, `event_id`, `char_id`, `role_id`) ,
+  INDEX `fk_character_id` (`char_id` ASC) ,
+  INDEX `fk_role_id` (`role_id` ASC) ,
+  CONSTRAINT `fk_character_id`
+    FOREIGN KEY (`char_id` )
+    REFERENCES `armoryraider`.`character` (`id` )
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_event_id`
+    FOREIGN KEY (`event_id` )
+    REFERENCES `armoryraider`.`event` (`id` )
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_role_id`
+    FOREIGN KEY (`role_id` )
+    REFERENCES `armoryraider`.`role` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `armoryraider`.`config`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `armoryraider`.`config` ;
+
+CREATE  TABLE IF NOT EXISTS `armoryraider`.`config` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `timezone` VARCHAR(45) NULL ,
+  `locale` VARCHAR(45) NULL ,
+  `armory_region` VARCHAR(45) NULL ,
+  `armory_realm` VARCHAR(45) NULL ,
+  `brand` VARCHAR(45) NULL ,
+  `debug_mode` VARCHAR(45) NULL ,
+  `event_notification_active` VARCHAR(45) NULL ,
+  `welcome_message` TEXT NULL ,
+  `template` VARCHAR(45) NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `armoryraider`.`spec`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `armoryraider`.`spec` ;
+
+CREATE  TABLE IF NOT EXISTS `armoryraider`.`spec` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `class_id` INT NULL ,
+  `name` VARCHAR(45) NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `armoryraider`.`character_has_spec`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `armoryraider`.`character_has_spec` ;
+
+CREATE  TABLE IF NOT EXISTS `armoryraider`.`character_has_spec` (
+  `character_id` INT NOT NULL ,
+  `spec_id` INT NOT NULL ,
+  PRIMARY KEY (`character_id`, `spec_id`) ,
+  INDEX `fk_character_has_spec_spec1` (`spec_id` ASC) ,
+  INDEX `fk_character_has_spec_character1` (`character_id` ASC) ,
+  CONSTRAINT `fk_character_has_spec_character1`
+    FOREIGN KEY (`character_id` )
+    REFERENCES `armoryraider`.`character` (`id` )
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_character_has_spec_spec1`
+    FOREIGN KEY (`spec_id` )
+    REFERENCES `armoryraider`.`spec` (`id` )
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `armoryraider`.`character_has_role`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `armoryraider`.`character_has_role` ;
+
+CREATE  TABLE IF NOT EXISTS `armoryraider`.`character_has_role` (
+  `character_id` INT NOT NULL ,
+  `role_id` INT NOT NULL ,
+  PRIMARY KEY (`character_id`, `role_id`) ,
+  INDEX `fk_character_has_role_role1` (`role_id` ASC) ,
+  INDEX `fk_character_has_role_character1` (`character_id` ASC) ,
+  CONSTRAINT `fk_character_has_role_character1`
+    FOREIGN KEY (`character_id` )
+    REFERENCES `armoryraider`.`character` (`id` )
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_character_has_role_role1`
+    FOREIGN KEY (`role_id` )
+    REFERENCES `armoryraider`.`role` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `armoryraider`.`dahboard`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `armoryraider`.`dahboard` ;
+
+CREATE  TABLE IF NOT EXISTS `armoryraider`.`dahboard` (
+  `id` INT NOT NULL AUTO_INCREMENT COMMENT 'Tipo Eventi:' ,
+  `user_id` INT NOT NULL ,
+  `event_type` INT NOT NULL ,
+  `creation_date` DATETIME NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `armoryraider`.`guildrole`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `armoryraider`.`guildrole` ;
+
+CREATE  TABLE IF NOT EXISTS `armoryraider`.`guildrole` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `label` VARCHAR(45) NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `armoryraider`.`userattributes`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `armoryraider`.`userattributes` ;
+
+CREATE  TABLE IF NOT EXISTS `armoryraider`.`userattributes` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `user_id` INT NOT NULL ,
+  `guildrole_id` INT NOT NULL ,
+  `portrait` VARCHAR(45) NULL ,
+  `second_email` VARCHAR(45) NULL ,
+  `phone_number` VARCHAR(45) NULL ,
+  `site_URL` VARCHAR(45) NULL ,
+  `last_login` DATETIME NULL ,
+  `locale` VARCHAR(45) NULL ,
+  `timezone` VARCHAR(45) NULL ,
+  `is_raidleader` INT NULL ,
+  PRIMARY KEY (`id`) ,
+  INDEX `fk_userattributes_user1` (`user_id` ASC) ,
+  INDEX `fk_userattributes_guildrole1` (`guildrole_id` ASC) ,
+  CONSTRAINT `fk_userattributes_user1`
+    FOREIGN KEY (`user_id` )
+    REFERENCES `armoryraider`.`user` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_userattributes_guildrole1`
+    FOREIGN KEY (`guildrole_id` )
+    REFERENCES `armoryraider`.`guildrole` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+-- -----------------------------------------------------
+-- Data for table `armoryraider`.`user`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `armoryraider`;
+INSERT INTO `armoryraider`.`user` (`id`, `name`, `surname`, `username`, `password`, `email`, `portrait_URL`, `creation_date`, `status`, `activation_key`) VALUES (1, 'admin', '', 'admin', '21232f297a57a5a743894a0e4a801fc3', NULL, NULL, NULL, 1, NULL);
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `armoryraider`.`class`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `armoryraider`;
+INSERT INTO `armoryraider`.`class` (`id`, `color`, `name`, `icon`) VALUES (1, '#FF7C0A', 'Druid', NULL);
+INSERT INTO `armoryraider`.`class` (`id`, `color`, `name`, `icon`) VALUES (2, '#AAD372', 'Hunter', NULL);
+INSERT INTO `armoryraider`.`class` (`id`, `color`, `name`, `icon`) VALUES (3, '#68CCEF', 'Mage', NULL);
+INSERT INTO `armoryraider`.`class` (`id`, `color`, `name`, `icon`) VALUES (4, '#F48CBA', 'Paladin', NULL);
+INSERT INTO `armoryraider`.`class` (`id`, `color`, `name`, `icon`) VALUES (5, '#AAAAAA', 'Priest', NULL);
+INSERT INTO `armoryraider`.`class` (`id`, `color`, `name`, `icon`) VALUES (6, '#FFF468', 'Rogue', NULL);
+INSERT INTO `armoryraider`.`class` (`id`, `color`, `name`, `icon`) VALUES (7, '#2359FF', 'Shaman', NULL);
+INSERT INTO `armoryraider`.`class` (`id`, `color`, `name`, `icon`) VALUES (8, '#9382C9', 'Warlock', NULL);
+INSERT INTO `armoryraider`.`class` (`id`, `color`, `name`, `icon`) VALUES (9, '#C69B6D', 'Warrior', NULL);
+INSERT INTO `armoryraider`.`class` (`id`, `color`, `name`, `icon`) VALUES (10, '#C41E3B', 'Death Knight', NULL);
+INSERT INTO `armoryraider`.`class` (`id`, `color`, `name`, `icon`) VALUES (11, '#008467', 'Monk', NULL);
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `armoryraider`.`faction`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `armoryraider`;
+INSERT INTO `armoryraider`.`faction` (`id`, `name`, `icon`) VALUES (1, 'Alliance', NULL);
+INSERT INTO `armoryraider`.`faction` (`id`, `name`, `icon`) VALUES (2, 'Horde', NULL);
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `armoryraider`.`gender`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `armoryraider`;
+INSERT INTO `armoryraider`.`gender` (`id`, `name`, `icon`) VALUES (1, 'Male', NULL);
+INSERT INTO `armoryraider`.`gender` (`id`, `name`, `icon`) VALUES (2, 'Female', NULL);
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `armoryraider`.`race`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `armoryraider`;
+INSERT INTO `armoryraider`.`race` (`id`, `name`) VALUES (1, 'Worgen');
+INSERT INTO `armoryraider`.`race` (`id`, `name`) VALUES (2, 'Draenei');
+INSERT INTO `armoryraider`.`race` (`id`, `name`) VALUES (3, 'Dwarf');
+INSERT INTO `armoryraider`.`race` (`id`, `name`) VALUES (4, 'Gnome');
+INSERT INTO `armoryraider`.`race` (`id`, `name`) VALUES (5, 'Human');
+INSERT INTO `armoryraider`.`race` (`id`, `name`) VALUES (6, 'Night Elf');
+INSERT INTO `armoryraider`.`race` (`id`, `name`) VALUES (7, 'Goblin');
+INSERT INTO `armoryraider`.`race` (`id`, `name`) VALUES (8, 'Blood Elf');
+INSERT INTO `armoryraider`.`race` (`id`, `name`) VALUES (9, 'Orc');
+INSERT INTO `armoryraider`.`race` (`id`, `name`) VALUES (10, 'Tauren');
+INSERT INTO `armoryraider`.`race` (`id`, `name`) VALUES (11, 'Troll');
+INSERT INTO `armoryraider`.`race` (`id`, `name`) VALUES (12, 'Forsaken');
+INSERT INTO `armoryraider`.`race` (`id`, `name`) VALUES (13, 'Pandaren');
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `armoryraider`.`raid`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `armoryraider`;
+INSERT INTO `armoryraider`.`raid` (`id`, `name`, `level`, `img`, `number_of_players`, `description`, `color`, `is_heroic`, `is_active`) VALUES (1, 'Firelands', 85, 'firelands.jpg', 10, '\"Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt \"', '#FF8A00', 0, 1);
+INSERT INTO `armoryraider`.`raid` (`id`, `name`, `level`, `img`, `number_of_players`, `description`, `color`, `is_heroic`, `is_active`) VALUES (2, 'Dragon Soul Normal', 85, 'wi-deathwingvsthrall.jpg', 10, '\"Lorem Ipsum excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt\"', '#FF0000', 0, 1);
+INSERT INTO `armoryraider`.`raid` (`id`, `name`, `level`, `img`, `number_of_players`, `description`, `color`, `is_heroic`, `is_active`) VALUES (3, 'Dragon Soul LFR', 85, 'wi-deathwingvsthrall.jpg', 25, '\"Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt \"', '#85CF81', 0, 1);
+INSERT INTO `armoryraider`.`raid` (`id`, `name`, `level`, `img`, `number_of_players`, `description`, `color`, `is_heroic`, `is_active`) VALUES (4, 'Dragon Soul Heroic', 85, 'wow_ds.jpg', 10, '\"Sed ut perspiciatis unde omnis iste natus\"', '#47548F', 1, 1);
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `armoryraider`.`role`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `armoryraider`;
+INSERT INTO `armoryraider`.`role` (`id`, `name`) VALUES (1, 'Tank');
+INSERT INTO `armoryraider`.`role` (`id`, `name`) VALUES (2, 'Healer');
+INSERT INTO `armoryraider`.`role` (`id`, `name`) VALUES (3, 'DPS Melee');
+INSERT INTO `armoryraider`.`role` (`id`, `name`) VALUES (4, 'DPS Ranged');
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `armoryraider`.`spec`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `armoryraider`;
+INSERT INTO `armoryraider`.`spec` (`id`, `class_id`, `name`) VALUES (1, 1, 'Balance');
+INSERT INTO `armoryraider`.`spec` (`id`, `class_id`, `name`) VALUES (2, 1, 'Feral Combat');
+INSERT INTO `armoryraider`.`spec` (`id`, `class_id`, `name`) VALUES (3, 1, 'Restoration');
+INSERT INTO `armoryraider`.`spec` (`id`, `class_id`, `name`) VALUES (4, 2, 'Beast Mastery');
+INSERT INTO `armoryraider`.`spec` (`id`, `class_id`, `name`) VALUES (5, 2, 'Marksmanship');
+INSERT INTO `armoryraider`.`spec` (`id`, `class_id`, `name`) VALUES (6, 2, 'Survival');
+INSERT INTO `armoryraider`.`spec` (`id`, `class_id`, `name`) VALUES (7, 3, 'Arcane');
+INSERT INTO `armoryraider`.`spec` (`id`, `class_id`, `name`) VALUES (8, 3, 'Fire');
+INSERT INTO `armoryraider`.`spec` (`id`, `class_id`, `name`) VALUES (9, 3, 'Frost');
+INSERT INTO `armoryraider`.`spec` (`id`, `class_id`, `name`) VALUES (10, 4, 'Holy');
+INSERT INTO `armoryraider`.`spec` (`id`, `class_id`, `name`) VALUES (11, 4, 'Protection');
+INSERT INTO `armoryraider`.`spec` (`id`, `class_id`, `name`) VALUES (12, 4, 'Retribution');
+INSERT INTO `armoryraider`.`spec` (`id`, `class_id`, `name`) VALUES (13, 5, 'Discipline');
+INSERT INTO `armoryraider`.`spec` (`id`, `class_id`, `name`) VALUES (14, 5, 'Holy');
+INSERT INTO `armoryraider`.`spec` (`id`, `class_id`, `name`) VALUES (15, 5, 'Shadow');
+INSERT INTO `armoryraider`.`spec` (`id`, `class_id`, `name`) VALUES (16, 6, 'Assassination');
+INSERT INTO `armoryraider`.`spec` (`id`, `class_id`, `name`) VALUES (17, 6, 'Combat');
+INSERT INTO `armoryraider`.`spec` (`id`, `class_id`, `name`) VALUES (18, 6, 'Subtlety');
+INSERT INTO `armoryraider`.`spec` (`id`, `class_id`, `name`) VALUES (19, 7, 'Elemental');
+INSERT INTO `armoryraider`.`spec` (`id`, `class_id`, `name`) VALUES (20, 7, 'Enhancement');
+INSERT INTO `armoryraider`.`spec` (`id`, `class_id`, `name`) VALUES (21, 7, 'Restoration');
+INSERT INTO `armoryraider`.`spec` (`id`, `class_id`, `name`) VALUES (22, 8, 'Affliction');
+INSERT INTO `armoryraider`.`spec` (`id`, `class_id`, `name`) VALUES (23, 8, 'Demonology');
+INSERT INTO `armoryraider`.`spec` (`id`, `class_id`, `name`) VALUES (24, 8, 'Destruction');
+INSERT INTO `armoryraider`.`spec` (`id`, `class_id`, `name`) VALUES (25, 9, 'Arms');
+INSERT INTO `armoryraider`.`spec` (`id`, `class_id`, `name`) VALUES (26, 9, 'Fury');
+INSERT INTO `armoryraider`.`spec` (`id`, `class_id`, `name`) VALUES (27, 9, 'Protection');
+INSERT INTO `armoryraider`.`spec` (`id`, `class_id`, `name`) VALUES (28, 10, 'Blood');
+INSERT INTO `armoryraider`.`spec` (`id`, `class_id`, `name`) VALUES (29, 10, 'Frost');
+INSERT INTO `armoryraider`.`spec` (`id`, `class_id`, `name`) VALUES (30, 10, 'Unholy');
+INSERT INTO `armoryraider`.`spec` (`id`, `class_id`, `name`) VALUES (31, 11, 'Brewmaster');
+INSERT INTO `armoryraider`.`spec` (`id`, `class_id`, `name`) VALUES (32, 11, 'Mistweaver');
+INSERT INTO `armoryraider`.`spec` (`id`, `class_id`, `name`) VALUES (33, 11, 'Windwalker');
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `armoryraider`.`guildrole`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `armoryraider`;
+INSERT INTO `armoryraider`.`guildrole` (`id`, `label`) VALUES (1, 'Guild Master');
+INSERT INTO `armoryraider`.`guildrole` (`id`, `label`) VALUES (2, 'Default');
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `armoryraider`.`userattributes`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `armoryraider`;
+INSERT INTO `armoryraider`.`userattributes` (`id`, `user_id`, `guildrole_id`, `portrait`, `second_email`, `phone_number`, `site_URL`, `last_login`, `locale`, `timezone`, `is_raidleader`) VALUES (1, 1, 1, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', 'en_GB', 'Europe/Rome', NULL);
+
+COMMIT;
