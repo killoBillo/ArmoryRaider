@@ -29,6 +29,9 @@
 		$valueEventHour = $event_date->format('H:i');
 	else
 		$valueEventHour = '21:00';
+		
+	
+   $raidLeaders = RaiderFunctions::getRaidleaders();
 ?>
 
 <div class="well">
@@ -49,15 +52,20 @@
 		<?php echo $form->dropDownList($model, 'raid_id', CHtml::listData(Raid::model()->findAll('is_active = 1'), 'id', 'name'), array('class'=>'input-large input-block-level'))?>
 		<?php echo $form->error($model,'raid_id'); ?>
 		
-		<?php echo $form->labelEx($model, 'raid_leader_id'); ?>
-		<?php echo $form->dropDownList($model, 'raid_leader_id', CHtml::listData(RaiderFunctions::getRaidleaders(), 'id', 'username'), array('class'=>'input-large input-block-level')); ?>
-		<?php echo $form->error($model,'raid_leader_id'); ?>		
+		<?php 
+			// mostro la lista dei raid leaders soltanto se l'array non è vuoto
+			if(!empty($raidLeaders)) { 
+				echo $form->labelEx($model, 'raid_leader_id');
+				echo $form->dropDownList($model, 'raid_leader_id', CHtml::listData(RaiderFunctions::getRaidleaders(), 'id', 'username'), array('class'=>'input-large input-block-level'));
+				echo $form->error($model,'raid_leader_id');
+			} 
+		?>		
 
-	<div class="row input-append bootstrap-timepicker">
-		<?php echo $form->labelEx($model, Yii::t('locale' ,'event hour')); ?>
-		<?php echo CHtml::textField('event_hour', $valueEventHour, array('id'=>'timepicker', 'class'=>'input-small input-block-level', 'style'=>'margin-bottom:10px;')); ?>
-		<span class="add-on"><i class="icon-time"></i></span>
-	</div>	
+		<div class="row input-append bootstrap-timepicker">
+			<?php echo $form->labelEx($model, Yii::t('locale' ,'event hour')); ?>
+			<?php echo CHtml::textField('event_hour', $valueEventHour, array('id'=>'timepicker', 'class'=>'input-small input-block-level', 'style'=>'margin-bottom:10px;')); ?>
+			<span class="add-on"><i class="icon-time"></i></span>
+		</div>	
 
 		<?php echo $form->hiddenField($model,'event_date'); ?>
 		<?php echo $form->error($model,'event_date'); ?>	

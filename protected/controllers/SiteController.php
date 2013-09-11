@@ -30,8 +30,9 @@ class SiteController extends RaiderController
 	public function actionIndex()
 	{
 		if(!Yii::app()->user->isGuest) {
-			
-		$eventList =  RaiderEvents::getLastEvents();
+
+		// recupero i prossimi 10 eventi
+		$eventList =  RaiderEvents::getLastEvents(10);
 		$this->render('index', array(
 						'events'=>$eventList,
 		));

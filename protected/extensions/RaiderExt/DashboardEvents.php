@@ -407,28 +407,5 @@ class DashboardEvents extends CWidget {
 		
 		return $html;
     }
-    
-    
-    
-    /**
-     * Pubblico l'intera cartella Images e ne memorizzo l'alias
-     * in $this->_assetsUrl
-     * 
-     * Es: string '/yiiraider/assets/42e8835c'
-     */
-//    public function getAssetsUrl()
-//    {
-//        if ($this->_assetsUrl === null) {
-//        	$assetsPath = RaiderFunctions::getImagesFolderPath();
-//        	
-//        	// ripubblico gli assets se � attivo il debug mode
-//        	if(YII_DEBUG)
-//				$this->_assetsUrl = Yii::app()->getAssetManager()->publish($assetsPath, false, -1, true);        		
-//        	else 
-//        	    $this->_assetsUrl = Yii::app()->getAssetManager()->publish($assetsPath);
-//        }
-//        	    
-//        return $this->_assetsUrl;
-//    }
 }
 ?>
