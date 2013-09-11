@@ -107,13 +107,14 @@ class DashboardEvents extends CWidget {
     
     /**
      * Questa funzione genera l'html se $this->size == 'mini'
+     * HomePage box
      */
     private function getMiniBoxHtml($k) {
 		$this->params['userImgSize']['class'] = 'img-polaroid';
 		    	
     	if($this->params['class ']== 'even') 
 			$this->html.= "<div class='row-fluid'>";
-				
+
 		$this->html.= "<div class='dashboard-box-mini lite-shadow span6'>";
 			
 			$this->html.= "<div class='dashboard-box-mini-header'>";
@@ -130,11 +131,12 @@ class DashboardEvents extends CWidget {
 			$this->html.= "</div><!-- /dashboard-box-header -->";
 			
 			$this->html.= "<div class='dashboard-box-mini-content'>";
-				$this->html.= CHtml::image($this->params['assetsUrl'].'/raid/'.$this->params['raidImgFolder'].'/thumb640x360-'.$this->params['raidImg'], 'image of '.$this->params['raidName'].' raid');	
+				$this->html.= $this->params['description']."".$this->params['raidDescription'];
+				$this->html.= CHtml::image($this->params['assetsUrl'].'/raid/'.$this->params['raidImgFolder'].'/thumb640x360-'.$this->params['raidImg'], 'image of '.$this->params['raidName'].' raid');
 			$this->html.= "</div>";
 			
 			$this->html.= "<div class='dashboard-box-mini-footer'>";
-				$this->html.= "<div class='pull-left raid-info'>".$this->params['raidName']."<br><small class='muted'>".Yii::app()->DateFormatter->formatDateTime(CDateTimeParser::parse($this->params['event_date'], 'yyyy-mm-dd'), 'full', null )." ".Yii::t('locale', 'hour')." ".$this->params['event_hour']."</small></div>";
+				$this->html.= "<div class='pull-left raid-info'>".$this->params['raidName']."<br><small class='muted'>".$this->params['event_date']." ".Yii::t('locale', 'hour')." ".$this->params['event_hour']."</small></div>";
 				$this->html.= "<div class='pull-right'><a class='btn btn-link' href='".Yii::app()->createUrl('event/show', array('id'=>$this->params['id']))."'>".Yii::t('locale', 'Show')."</a></div>";
 
 				$this->html.= "<div class='clearbox clearfix'></div>";
