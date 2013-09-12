@@ -12,9 +12,12 @@ $this->breadcrumbs=array(
 
 
 <?php 
+	if(!empty($characters))
 		echo $this->renderPartial('_form', array(
 			'id'=>$id,
 			'model'=>$model,
 			'characters'=>$characters,
 		)); 
+	else
+		$this->widget('ext.RaiderExt.CharactersList',array('userid'=>Yii::app()->user->id));
 ?>

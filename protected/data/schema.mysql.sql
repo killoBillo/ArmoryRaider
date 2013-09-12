@@ -178,6 +178,7 @@ insert  into `authitemchild`(`parent`,`child`) values ('Guildmaster','Authentica
 insert  into `authitemchild`(`parent`,`child`) values ('Raidleader','Authenticated');
 insert  into `authitemchild`(`parent`,`child`) values ('Raidleader','Character.*');
 insert  into `authitemchild`(`parent`,`child`) values ('Authenticated','Character.ChooseRoles');
+insert  into `authitemchild`(`parent`,`child`) values ('Authenticated','Character.ConfirmDelete');
 insert  into `authitemchild`(`parent`,`child`) values ('Authenticated','Character.Create');
 insert  into `authitemchild`(`parent`,`child`) values ('Raidleader','CharacterEvent.Delete');
 insert  into `authitemchild`(`parent`,`child`) values ('Authenticated','CharacterEvent.ModifyComment');

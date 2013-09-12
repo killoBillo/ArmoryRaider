@@ -162,6 +162,9 @@ ul, ol {
 .nowrap {
 	white-space: nowrap;
 }
+.pos-relative {
+	position: relative;
+}
 /**
  * Wrap & Container *****************************************************************************
  */
@@ -219,8 +222,21 @@ ul, ol {
 	font-size: small;
 }
 .dashboard-box-mini-content {
-	height: 155px;
+	/*height: 155px;*/
 	overflow: hidden;
+}
+.dashboard-box-mini-text {
+	font-family: "roboto";
+	font-size: 11px;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+	position: absolute;
+	top: 35%;
+	right: 0;
+	color: #FFF;
+	background-color: rgba(0,0,0,0.3);
+	padding: 5px;
+	margin:0 20px;
+	z-index: 100;
 }
 .dashboard-box-mini-footer .raid-info{
 	padding: 5px;
@@ -236,6 +252,9 @@ ul, ol {
 .dashboard-box-mini-raidleader,
 .dashboard-box-mini-label {
 	line-height: 20px;
+}
+.dashboard-box-mini-raidleader {
+	text-transform: uppercase;
 }
 
 /* DASHBOARD-NORMAL STYLES */

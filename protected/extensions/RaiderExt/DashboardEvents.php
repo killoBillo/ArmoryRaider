@@ -110,6 +110,7 @@ class DashboardEvents extends CWidget {
      * HomePage box
      */
     private function getMiniBoxHtml($k) {
+    	$text = ($this->params['description']) ? $this->params['description'] : $this->params['raidDescription'];
 		$this->params['userImgSize']['class'] = 'img-polaroid';
 		    	
     	if($this->params['class ']== 'even') 
@@ -131,8 +132,10 @@ class DashboardEvents extends CWidget {
 			$this->html.= "</div><!-- /dashboard-box-header -->";
 			
 			$this->html.= "<div class='dashboard-box-mini-content'>";
-				$this->html.= $this->params['description']."".$this->params['raidDescription'];
-				$this->html.= CHtml::image($this->params['assetsUrl'].'/raid/'.$this->params['raidImgFolder'].'/thumb640x360-'.$this->params['raidImg'], 'image of '.$this->params['raidName'].' raid');
+				$this->html.= "<div class='pos-relative'>";
+					$this->html.= CHtml::image($this->params['assetsUrl'].'/raid/'.$this->params['raidImgFolder'].'/thumb640x360-'.$this->params['raidImg'], 'image of '.$this->params['raidName'].' raid');
+					if(!empty($text)) $this->html.= "<div class='dashboard-box-mini-text'><i class='icon-comment icon-white'></i> $text</div>";
+				$this->html.= "</div>";
 			$this->html.= "</div>";
 			
 			$this->html.= "<div class='dashboard-box-mini-footer'>";
