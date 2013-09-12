@@ -13,7 +13,7 @@
 	
 		// Config
 		'Armory Raider Configuration'=>'Configurazione Armory Raider',
-		'Update Raider Configuration'=>'Aggiorna Configurazioen Raider',
+		'Update Raider Configuration'=>'Aggiorna Configurazione Raider',
 	
 		// Guild
 		'Setup a Guild'=>'Configura una gilda',

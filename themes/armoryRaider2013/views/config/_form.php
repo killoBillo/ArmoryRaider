@@ -4,10 +4,16 @@
 /* @var $form CActiveForm */
 ?>
 
-<?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'config-form',
-	'enableAjaxValidation'=>false,
-)); ?>
+<?php 
+	$form=$this->beginWidget('CActiveForm', array(
+		'id'=>'config-form',
+		'enableAjaxValidation'=>false,
+	));
+	
+	// configuro il placeholder per il brand
+	$brandPlaceholder = (!empty($model->brand)) ? $model->brand : "ArmoryRaider"; 
+
+?>
 
 	<?php echo $form->errorSummary($model, NULL, NULL, array('class'=>'alert alert-error')); ?>
 
@@ -40,7 +46,7 @@
 		
 		<div class='well'>
 			<?php echo $form->labelEx($model,'brand'); ?>
-			<?php echo $form->textField($model,'brand',array('size'=>45,'maxlength'=>45, 'class'=>'input-block-level', 'placeholder'=>'ArmoryRaider', 'value'=>'ArmoryRaider')); ?>
+			<?php echo $form->textField($model,'brand',array('size'=>45,'maxlength'=>45, 'class'=>'input-block-level', 'placeholder'=>$brandPlaceholder, 'value'=>$brandPlaceholder)); ?>
 			<?php echo $form->error($model,'brand'); ?>
 		</div>
 		<?php //echo $form->labelEx($model,'debug_mode'); ?>
