@@ -1,6 +1,6 @@
 <?php
 /**
- * Questo widget visualizza il calendario.
+ * Questo widget genera il calendario.
  * @author Marco Chillemi
  */
 class Calendar extends CWidget {
@@ -110,8 +110,8 @@ class Calendar extends CWidget {
 				$this->html.= "<div class='choose-date pull-left btn-groupd'>";
 				$this->html.= CHtml::beginForm(array('site/index'), 'get', array('id'=>'choose-date-form', 'class'=>'form-inline'));
 					$this->html.= '<div class="input-append date" id="dpMonths" data-date="'.$this->year.'-'.$this->month.'" data-date-format="yyyy-mm" data-date-viewmode="years" data-date-minviewmode="months">';
-						$this->html.= '<input class="span9" size="7" type="text" value="'.$this->year.'-'.$this->month.'" readonly="" name="date">';
-						$this->html.= '<span class="add-on"><i class="icon-calendar"></i></span>';
+						$this->html.= '<input class="hide" size="7" type="text" value="'.$this->year.'-'.$this->month.'" readonly="" name="date">';
+						$this->html.= '<span class="add-on btn"><i class="icon-calendar"></i></span>';
 					$this->html.= '</div><!-- /date -->';
 					$this->html.= CHtml::submitButton(
 										Yii::t('locale','Send'),
