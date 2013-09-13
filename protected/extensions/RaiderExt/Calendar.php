@@ -109,20 +109,17 @@ class Calendar extends CWidget {
 			$this->html.= "<div class='calendar-tools'>";
 				$this->html.= "<div class='choose-date pull-left btn-groupd'>";
 				$this->html.= CHtml::beginForm(array('site/index'), 'get', array('id'=>'choose-date-form', 'class'=>'form-inline'));
-//					$this->html.= '<div class="input-append date" id="dpMonths" data-date="'.$this->year.'-'.$this->month.'" data-date-format="yyyy-mm" data-date-viewmode="years" data-date-minviewmode="months">';
-						$this->html.= '<input id="input-date" class="hide" size="7" type="text" value="'.$this->year.'-'.$this->month.'" readonly="" name="date">';
-						$this->html.= '<a href="#" class="btn small" id="dpMonths" data-date="'.$this->year.'-'.$this->month.'" data-date-format="yyyy-mm" data-date-viewmode="years" data-date-minviewmode="months">'.Yii::t('locale', 'Select date').'</a>';
-//						$this->html.= '<span class="add-on btn"><i class="icon-calendar"></i></span>';
-//					$this->html.= '</div><!-- /date -->';
+					$this->html.= '<input id="input-date" class="hide" size="7" type="text" value="'.$this->year.'-'.$this->month.'" readonly="" name="date">';
 					$this->html.= CHtml::submitButton(
 										Yii::t('locale','Go'),
 										array(
 											'id'=>'date-submit',
 											'name'=>null,
-											'class'=>'btn'
+											'class'=>'hide'
 										)
 									); 				
 				$this->html.= CHtml::endForm();
+				$this->html.= '<a href="#" class="btn small" id="dpMonths" data-date="'.$this->year.'-'.$this->month.'" data-date-format="yyyy-mm" data-date-viewmode="years" data-date-minviewmode="months"><i class="icon-calendar"></i> '.Yii::t('locale', 'Select date').'</a>';
 				$this->html.= "</div><!-- choose-date -->";
 				
 				$this->html.= "<div class='nav-calendar pull-right btn-group'>";

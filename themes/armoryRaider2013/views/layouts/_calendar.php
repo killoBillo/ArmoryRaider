@@ -16,10 +16,19 @@
 	Yii::app()->clientScript->registerScript('datepicker', "
 		$('#dpMonths').datepicker()
 			.on('changeDate', function(ev){
-//				alert(ev.date.getFullYear()+'-'+(ev.date.getMonth()+1));
-//				alert($('#dpMonths').data('date'));
-				$('#input-date').val(ev.date.getFullYear()+'-'+(ev.date.getMonth()+1));
-				//$('#dpMonths').datepicker('hide');
+				dateYear = ev.date.getFullYear();
+				dateMonth = ev.date.getMonth()+1;
+				fullDate = dateYear+'-'+dateMonth;
+				
+				$('#input-date').val(fullDate);
+				
+				// se è stato selezionato anche il mese, chiudo il popup ed invio i dati in get
+				if(ev.viewMode == 'months') {
+					// chiudo il popup
+					$('#dpMonths').datepicker('hide');
+					// invio i dati in get
+					$('form#choose-date-form').submit();
+				}
 		});
 	");
 	
