@@ -108,13 +108,23 @@ class RaiderArmory {
 	        // sistemo alcuni valori prendendo le label che mi servono
 	        $gear 		= $gear['averageItemLevel']."/".$gear['averageItemLevelEquipped'];
 	        $armory_url = "http://battle.net/wow/character/$guild->realm/$this->name/simple";
+	        
+	        // workaround per getFaction() per monk, torna false, probabile bug nelle api, aperto ticket allo sviluppatore.
+	        if(is_numeric($character->getFaction())){
+	        	$faction_id = $character->getFaction();
+	        }elseif(!$character->getFaction()){
+	        	if($character->getFactionName() == "alliance")
+	        		$faction_id  = 1;
+	        	else
+	        		$faction_id = 2;
+	        }
 			
 			// Creo un array di attributi con i dati recuperati dall'armory
 			$attributes = array(
 				'class_id'		=>Classe::model()->findByAttributes(array('name'=>$character->getClassName()))->id,
 				'race_id'		=>Race::model()->findByAttributes(array('name'=>$character->getRaceName()))->id,
 				'gender_id'		=>$character->getGender(),
-				'faction_id'	=>$character->getFaction(),
+				'faction_id'	=>$faction_id, //$character->getFaction(),
 				'guild_id'		=>$guild->id,
 				'name'			=>$this->name,
 				'level'			=>$character->getLevel(),
@@ -220,6 +230,10 @@ class RaiderArmory {
 	
 	public function saveModel() {
 		return $this->model->save();
+//		if($this->model->save())
+//			return true;
+//		else 
+//			return $this->model->getErrors();
 	}
 	
 	

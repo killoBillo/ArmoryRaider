@@ -123,7 +123,7 @@ class CharacterController extends RaiderController
 			// se trovo il PG ed è valido
 			if($this->armory->isValid()) {
 				// salvo il model principale, così da avere l'id da scrivere nelle associative
-				if ($this->armory->saveModel())
+				if ($this->armory->saveModel()){
 					// salvo i model secondari e se tutto va bene gestisco l'evento e ridirigo il browser alla home.
 					if($this->armory->saveSubModels()) {
 						// gestisco l'evento e ridireziono alla home del sito (per il momento disabilito la gestione dell'evento, verrà introdotta in future release)
@@ -136,6 +136,7 @@ class CharacterController extends RaiderController
 						
 						$this->redirect(Yii::app()->homeUrl);
 					}
+				}
 			}else{
 				$name = urlencode($name);
 				$realm = urlencode($realm);
@@ -143,7 +144,6 @@ class CharacterController extends RaiderController
 				$this->redirect(array('character/create', 'name'=>$name, 'realm'=>$realm));
 			}
 		}
-		
 
 		$this->render('createStep2', array('model'=>$model));
 	}
