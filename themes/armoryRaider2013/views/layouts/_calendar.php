@@ -14,7 +14,13 @@
 	
 	
 	Yii::app()->clientScript->registerScript('datepicker', "
-		$('#dpMonths').datepicker();
+		$('#dpMonths').datepicker()
+			.on('changeDate', function(ev){
+//				alert(ev.date.getFullYear()+'-'+(ev.date.getMonth()+1));
+//				alert($('#dpMonths').data('date'));
+				$('#input-date').val(ev.date.getFullYear()+'-'+(ev.date.getMonth()+1));
+				//$('#dpMonths').datepicker('hide');
+		});
 	");
 	
 	

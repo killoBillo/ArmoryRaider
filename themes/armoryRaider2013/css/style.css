@@ -224,6 +224,8 @@ ul, ol {
 .dashboard-box-mini-content {
 	/*height: 155px;*/
 	overflow: hidden;
+	border-left: 1px solid #CCC;
+	border-right: 1px solid #CCC;
 }
 .dashboard-box-mini-text {
 	font-family: "roboto";
@@ -305,11 +307,13 @@ ul, ol {
 .character {
 	margin-bottom: 20px;
 }
+.event img,
 .character img {
 	border: 1px solid #333;
 }
 .user-widget .user-data,
-.character .pg-data {
+.character .pg-data,
+.event .event-data {
 	margin-top: -3px;
 	margin-left: 10px;
 }
@@ -323,7 +327,7 @@ ul, ol {
 .raid-time {
 	margin-top: -5px;
 	font-family: 'Roboto';
-	font-size: 11px;
+	font-size: 12px;
 }
 .event-date {
 	margin: 0 0 3px 0;

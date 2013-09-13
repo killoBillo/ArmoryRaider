@@ -106,6 +106,7 @@
 		'hide calendar'=>'nascondi calendario',
 		'show calendar'=>'mostra calendario',
 		'Change date'=>'Cambia data',
+		'Select date'=>'Scegli data',
 		'select month and year and click \'Change date\' button.'=>'scegli mese e anno e clicca sul bottone \'Cambia data\'.',
 		'Raid '=>'Raid ',
 		'Raids '=>'Raids ',
@@ -132,7 +133,8 @@
 		'Create'=>'Crea',
 		'Save'=>'Salva',
 		'Update'=>'Modifica',
-		'Delete'=>'Cancella',	
+		'Delete'=>'Cancella',
+		'Go'=>'Vai',	
 	
 		// altre
 		'Yes'=>'Si',

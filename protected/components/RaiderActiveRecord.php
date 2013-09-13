@@ -57,10 +57,15 @@ class RaiderActiveRecord extends CActiveRecord {
 						640,
 						360,
 						RaiderFunctions::getImagesFolderPath($this).'/'.$this->img->name
-					);					
+					);
 					RaiderFunctions::thumbGen(
 						30,
 						30,
+						RaiderFunctions::getImagesFolderPath($this).'/'.$this->img->name
+					);										
+					RaiderFunctions::thumbGen(
+						40,
+						40,
 						RaiderFunctions::getImagesFolderPath($this).'/'.$this->img->name
 					);
 				}elseif(get_class($this) == 'User') {
