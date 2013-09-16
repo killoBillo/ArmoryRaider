@@ -179,6 +179,14 @@ class CharacterEventController extends RaiderController
 	public function actionSignup($id) 
 	{
 		/**
+		 * Controllo se l'evento è scaduto.
+		 */
+		$event = Event::model()->findByPk($id);
+		$event_date = new DateTime($event->event_date);
+		$today = new DateTime();
+		$expired = ($today > $event_date);
+		
+		/**
 		 * controllo che l'utente non si sia già iscritto, per 
 		 * evitare trick da barra degli URL da utenti più smanettoni
 		 * Se utente già iscritto "sparo" un'eccezione http.
@@ -223,6 +231,7 @@ class CharacterEventController extends RaiderController
 				'id'=>$id,
 				'model'=>$model,
 				'characters'=>$characters,
+				'expired'=>$expired,
 			));
 			
 		}else{

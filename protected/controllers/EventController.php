@@ -222,16 +222,23 @@ class EventController extends RaiderController
 			$events[] = new RaiderEvents($model->id);
 		}
 		
-		$this->render('viewDay', array(
-				'events'=>$events,
-				'date'=>$date,
-		));
+		/**
+		 *  se c'è un solo evento ridireziono direttamente all'action Show.
+		 *  altrimenti visualizzo tutti gli eventi del giorno.
+		 */
+		if(count($events) == 1) 
+			$this->redirect(array('show', 'id'=>$events[0]->getId()));
+		else
+			$this->render('viewDay', array(
+					'events'=>$events,
+					'date'=>$date,
+			));
 	}
 	
 	
 	public function actionShow($id) 
 	{
-		$event[] = new RaiderEvents($id);
+		$event[] = new RaiderEvents($id);			
 		
 		$this->render('show', array(
 			'event'=>$event,

@@ -13,13 +13,14 @@
 	line-height:20px;
 }
 .navbar .brand {
-	color: #000;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 15px rgba(255, 255, 255, 0.55);
+	color: #FFF;
+	/*text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 15px rgba(255, 255, 255, 0.55)*/;
+	text-shadow: 0 1px 1px #4d4d4d;
     transition: all 0.2s linear 0s;
     width: 23.0769%;
 }
 .navbar .brand:hover {
-	color: #FFF;
+	color: gold;
 }
 .dropdown-menu {
 	border-radius:0;
@@ -45,6 +46,7 @@
 }
 #sidebar {
 	margin: 0;
+	width:24.5%;
 }
 .btn,
 .btn:first-child,
@@ -72,10 +74,18 @@ input.btn-success,
 input.btn-success:visited,
 input.btn-primary,
 input.btn-primary:visited,
+input.btn-danger,
+input.btn-danger:visited,
+input.btn-warning,
+input.btn-warning:visited,
 a.btn-success,
 a.btn-success:visited,
 a.btn-primary,
-a.btn-primary:visited {
+a.btn-primary:visited,
+a.btn-danger,
+a.btn-danger:visited,
+a.btn-warning,
+a.btn-warning:visited {
 	color: #FFF !important;
 }
 .items input[type='text'] {
@@ -224,8 +234,6 @@ ul, ol {
 .dashboard-box-mini-content {
 	/*height: 155px;*/
 	overflow: hidden;
-	border-left: 1px solid #CCC;
-	border-right: 1px solid #CCC;
 }
 .dashboard-box-mini-text {
 	font-family: "roboto";

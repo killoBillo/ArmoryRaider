@@ -20,5 +20,5 @@ $this->breadcrumbs=array(
 	
 	// se raidleader, aggiungo pulsante "add event"
 	if(RaiderFunctions::isRaidleader())
-		echo CHtml::link(Yii::t('locale', 'Add event'), array('event/create', 'date'=>$date), array('class'=>'btn btn-primary'));
+		echo CHtml::link(Yii::t('locale', 'Add another event'), array('event/create', 'date'=>$date), array('class'=>'btn btn-primary'));
 ?>

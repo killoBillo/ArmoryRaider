@@ -47,7 +47,7 @@ Yii::app()->clientScript->registerScript('popovers', "
 				display:none;
 			}			
 			.navbar .brand {
-				color: #000;
+				font-size: small;
 			}			
 			#wrap > .container-fluid {
 			 	margin-top: 0;
@@ -60,6 +60,7 @@ Yii::app()->clientScript->registerScript('popovers', "
 			#content-under-calendar,
 			#sidebar {
 				padding: 0 20px;
+				width: auto;
 			}
 			.dashboard-box-full .raid-infos {
 				padding: 0 10px;
@@ -91,6 +92,7 @@ Yii::app()->clientScript->registerScript('popovers', "
 			#content-under-calendar,			
 			#sidebar {
 				padding: 0 20px;
+				width: auto;
 			}
 			#footer {
 				font-size: 9px !important;
@@ -191,6 +193,7 @@ Yii::app()->clientScript->registerScript('popovers', "
 				ArmoryRaider &copy; <?php echo Yii::t('locale', 'is a product developed by'); ?>
 				<a href="http://www.killodesign.com">Marco Chillemi</a>, 
 				<?php echo Yii::t('locale', 'Rome - Italy, 2013.'); ?>
+				<?php echo ' V.'.Yii::app()->params->version.'.'; ?>
 			</p>
 		</div>
 	</div><!-- footer -->

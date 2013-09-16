@@ -2,8 +2,6 @@
 class RaiderEvents {
 	
 	private $event;
-//	private $data;
-//	public $lastEvents;
 
 	/**
 	 * Mi creo e popolo il model event con i model: 
@@ -24,11 +22,12 @@ class RaiderEvents {
 			$this->event =  Event::model()->findByPk($id);
 		else
 			$this->event = new Event();
-
+		
 
 		$this->event->raidleader 	= $this->event->users;
 		$this->event->raid 			= $this->event->raids;
-		$this->event->charEvent 	= $this->event->characterEvents;			
+		$this->event->charEvent 	= $this->event->characterEvents;
+			
 		
 		// se ci sono sottoscrizioni al raid, recupero i dati dei PG iscritti
 		if(isset($this->event->raidleader) && isset($this->event->raid) && !empty($this->event->charEvent)) {
@@ -116,6 +115,10 @@ class RaiderEvents {
 	
 	public function getCharacters() {
 		return $this->event->characters;
+	}
+	
+	public function getId() {
+		return $this->event->id;
 	}
 	
 }

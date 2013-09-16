@@ -59,7 +59,7 @@ class CharactersList extends CWidget {
 
 			
     	}else
-    		$this->html.= "<div class='alert'>".Yii::t('locale', '<h5>No characters found</h5>Create a character using the button \'Add Character\'.')."</div>";
+    		$this->html.= "<div class='alert'>".Yii::t('locale', '<h5>No characters found</h5>Create a character using the button below \'Add Character\'.')."</div>";
     	
     	
     		

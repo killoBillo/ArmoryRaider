@@ -34,7 +34,7 @@
 		
 		// RaiderExt.CharactersList
 		'My characters'=>'I miei personaggi',
-		'<h5>No characters found</h5>Create a character using the button \'Add Character\'.'=>'<h5>Nessun personaggio trovato</h5>Crea un personaggio utilizzando il pulsante \'Aggiungi personaggio\'.',
+		'<h5>No characters found</h5>Create a character using the button below \'Add Character\'.'=>'<h5>Nessun personaggio trovato</h5>Crea un personaggio utilizzando il pulsante \'Aggiungi personaggio\'.',
 		'Add Character'=>'Aggiungi personaggio',
 		'Delete character'=>'Cancella personaggio',
 		'Character armory page'=>'Guarda PG sull\'armory',
@@ -71,7 +71,7 @@
 		'Create event'=>'Crea evento',
 		'Events planned'=>'Eventi pianificati', 
 		'Update event'=>'Modifica evento',
-		'Add event'=>'Aggiungi evento',
+		'Add another event'=>'Aggiungi un evento',
 		'Confirm deletion event page'=>'Pagina conferma cancellazione evento',
 		'Do you really want to delete the event ? Related entries will be deleted, too.'=>'Vuoi davvero cancellare l\'evento? Tutte le entrate collegate verranno rimosse dal DB.',
 	
@@ -83,6 +83,9 @@
 		'Role'=>'Ruolo',
 		'Insert comment...'=>'Inserisci commento...',
 		'Edit comment'=>'Modifica commento',
+		'You cannot signup to the event yet!'=>'Non puoi ancora iscriverti all\'evento!',
+		'You cannot signup to the event!'=>'Non puoi iscriverti all\'evento!',
+		'<h5>The event has expired</h5>.'=>'<h5>L\'evento $egrave; scaduto</h5>',
 	
 		// traduzioni controller "Raid" vista "create"
 		'Create new raid'=>'Crea nuovo raid',	
