@@ -85,7 +85,7 @@
 		'Edit comment'=>'Modifica commento',
 		'You cannot signup to the event yet!'=>'Non puoi ancora iscriverti all\'evento!',
 		'You cannot signup to the event!'=>'Non puoi iscriverti all\'evento!',
-		'<h5>The event has expired</h5>.'=>'<h5>L\'evento $egrave; scaduto</h5>',
+		'<h5>The event has expired.</h5>'=>'<h5>L\'evento &egrave; scaduto.</h5>',
 	
 		// traduzioni controller "Raid" vista "create"
 		'Create new raid'=>'Crea nuovo raid',	
