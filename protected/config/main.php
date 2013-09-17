@@ -122,6 +122,6 @@ return array(
 	'params'=>array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
-		'version'=>'0.8Beta4'
+		'version'=>'0.9Beta1'
 	),
 );
