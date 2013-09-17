@@ -22,13 +22,13 @@ class ComingEvents extends CWidget {
 			
 			foreach ($events as $k=>$event) {
 				$isAlreadyMember = RaiderFunctions::isAlreadyMember($event->getEventModel()->id);
-				
 				$date = new DateTime($event->getEventModel()->event_date);
+				$raidImgFolder = strtolower(preg_replace('/[\s]+/','_',$event->getRaid()->name));
 				
 				$this->html.= "<div class='event'>";
 				
 					$this->html.= "<div class='pull-left'>";
-						$this->html.= CHtml::image($assetsURL.'/raid/'.$event->getRaid()->name.'/thumb40x40-'.$event->getRaid()->img, 'Image of '.$event->getRaid()->name, array('height'=>40, 'width'=>40, 'class'=>'img-rounded'));
+						$this->html.= CHtml::image($assetsURL.'/raid/'.$raidImgFolder.'/thumb40x40-'.$event->getRaid()->img, 'Image of '.$event->getRaid()->name, array('height'=>40, 'width'=>40, 'class'=>'img-rounded'));
 					$this->html.= "</div>";	
 
 					$this->html.= "<div class='event-data pull-left'>";
