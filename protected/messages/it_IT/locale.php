@@ -170,6 +170,7 @@
 		'Timezone'=>'Fuso orario',
 		'Language'=>'Lingua',
 		'User is a Raidleader ?'=>'L\'utente &egrave; un Raidleader ?',
+		'Select an user'=>'Seleziona un utente',
 	
 		// guildrole
 		'Add role'=>'Aggiungi ruolo',
@@ -180,6 +181,7 @@
 		// RaiderMenu.php
 		'Create New Raid'=>'Crea Nuovo Raid',
 		'Manage Raids'=>'Gestisci i Raid',
+		'Manage Raidleaders'=>'Gestisci i Raidleader',
 		'Raids Options'=>'Opzioni Raid',
 		'Events Options'=>'Opzioni Eventi',
 		'Manage Events'=>'Gestisci Eventi',

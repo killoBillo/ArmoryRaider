@@ -220,4 +220,25 @@ class UserController extends RaiderController
 			'modelUserAttr'=>$modelUserAttr,
 		));		
 	}
+	
+	
+	
+	
+	public function actionRaidleader() {
+		$modelUserAttr = new Userattributes();
+		
+		if(isset($_POST['Userattributes'])) {
+			$modelUserAttr = Userattributes::model()->findByAttributes(array('user_id'=>$_POST['Userattributes']['user_id']));
+			
+			if(isset($_POST['submit'])) {
+				$modelUserAttr->is_raidleader = $_POST['Userattributes']['is_raidleader'];
+				if($modelUserAttr->save())
+					$this->redirect(Yii::app()->homeUrl);
+			}
+		}
+			
+		$this->render('raidleader',array(
+			'modelUserAttr'=>$modelUserAttr,
+		));			
+	}
 }

@@ -25,6 +25,7 @@ $this->pageTitle=Yii::app()->name;
 //	foreach($roles as $role) {
 //		echo $role->name."<br>";
 //	}
+
 	
 	$this->widget('ext.RaiderExt.DashboardEvents',array('events'=>$events)); 
  ?>

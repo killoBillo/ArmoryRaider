@@ -118,9 +118,13 @@ class EventController extends RaiderController
 
 		if(isset($_POST['Event']))
 		{
+			$oldDate = new DateTime($_POST['Event']['event_date']);
+			$newHour = new DateTime($_POST['event_hour']);
+			$_POST['Event']['event_date'] = $oldDate->format('Y-m-d').' '.$newHour->format('H:i:s');
+			
 			$model->attributes=$_POST['Event'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('show','id'=>$model->id));
 		}
 
 		$this->render('update',array(

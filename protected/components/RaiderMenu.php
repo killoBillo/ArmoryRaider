@@ -53,6 +53,7 @@ class RaiderMenu {
 					// items
 					array('label'=>Yii::t('locale', 'Create New Raid'), 'url'=>array('raid/create')),
 					array('label'=>Yii::t('locale', 'Manage Raids'), 'url'=>array('raid/admin')),
+					array('label'=>Yii::t('locale', 'Manage Raidleaders'), 'url'=>array('user/raidleader')),
 
 					// divider
 					array('label'=>'', null, 'itemOptions'=>array('class'=>'divider')),
