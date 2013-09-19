@@ -245,6 +245,48 @@ class RaiderFunctions {
 	 	return (!empty($user) && $user->profile->guildrole_id == 1) ? true : false ;
 	 	
 	 }
+	 
+	 
+	 
+	 /**
+	  * Questa funzione mi genera una stringa casuale di n caratteri
+	  * usata per il reset password
+	  */
+	 public static function generateRandomString($length = 8) {
+		$password = '';
+		$possibleChars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
+		$i = 0; 
+		    
+		while ($i < $length) { 
+			$char = substr($possibleChars, mt_rand(0, strlen($possibleChars)-1), 1);
+		        
+		    if (!strstr($password, $char)) { 
+		      $password .= $char;
+		      $i++;
+		    }
+		}
+		
+		return $password;
+	 }
+	 
+	 
+	 
+	 
+	 /**
+	  * Utilizzo questa funzione per inviare le email
+	  */
+	 public static function sendMail($name, $email, $subject, $body) {
+	 	$name='=?UTF-8?B?'.base64_encode($name).'?=';
+	 	$subject='=?UTF-8?B?'.base64_encode($subject).'?=';
+	 	
+		$headers = 'MIME-Version: 1.0'."\r\n";
+		$headers .= 'Content-type: text/html; charset=iso-8859-1'."\r\n";
+		$headers .= "From: $name <{".Yii::app()->params['adminEmail']."}>\r\n";	
+		$headers .= "Reply-To: {".Yii::app()->params['adminEmail']."}\r\n";
+		
+		mail($email, $subject, $body, $headers);	 	
+	 }
+	 
 }
 
 ?>

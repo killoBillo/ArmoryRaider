@@ -39,14 +39,20 @@ $this->breadcrumbs=array(
 		<?php echo $form->passwordField($model,'password', array('class'=>'input-block-level', 'placeholder'=>Yii::t('locale', 'Password *'))); ?>
 		<?php echo $form->error($model,'password'); ?>
 		
-		<label class="checkbox">
+		<label class="checkbox pull-left">
 			<?php echo $form->error($model,'rememberMe'); ?>
 			<?php echo $form->checkBox($model,'rememberMe'); ?>
 			<?php echo $form->label($model,'rememberMe'); ?>
 		</label>
 		
+		<div class='reset-password-link pull-right'>
+			<?php echo '<i class="icon-wrench"></i> '.CHtml::link(Yii::t('locale', 'Forgotten password?'), Yii::app()->createUrl('/site/resetpassword'), array('class'=>''));?>	
+		</div>			
+		
 		<div class="btn-group">
 			<?php echo CHtml::submitButton(Yii::t('locale', 'Login'), array('class'=>'btn')); ?>
 			<?php echo CHtml::link(Yii::t('locale', 'Create an account'), Yii::app()->createUrl('/site/register'), array('class'=>'btn'));?>
 		</div>
+		
+		
 <?php $this->endWidget(); ?>

@@ -31,6 +31,7 @@ h1, h2, h3 {
 }
 .form-signin .checkbox label {
 	line-height:20px;
+	font-size:12px;
 }
 .form-signin .btn-group {
 	margin-top: 10px;	
@@ -44,4 +45,7 @@ h1, h2, h3 {
     border:1px solid;
     border-color: #EED3D7;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.reset-password-link {
+	font-size: 12px;
 }

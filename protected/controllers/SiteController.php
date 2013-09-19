@@ -176,7 +176,6 @@ class SiteController extends RaiderController
 	private function sendActivationEmail() {
 		$model = new User();
 		$model = User::model()->findByAttributes(array('username'=>$_POST['RegisterForm']['username']));
-//		var_dump( $model, $_POST['RegisterForm']['username']);exit;
 
 		// email params building		
 		$name = Yii::app()->name.' Register Module';
@@ -186,23 +185,9 @@ class SiteController extends RaiderController
 		$url .= CController::createUrl('site/activate', array('activation_key'=>$activation_key, 'id'=>$model->id));
 		$body = Yii::t('locale', 'Welcome to the Armory Raider, click the activation link below to activate your account.<br>');
 		$body.= "Activation link : <a href='".$url."'> LINK </a>";
-		//encoding email contents & headers	
-		$name='=?UTF-8?B?'.base64_encode($name).'?=';
-		$subject='=?UTF-8?B?'.base64_encode($subject).'?=';
 		
-		$headers = 'MIME-Version: 1.0'."\r\n";
-		$headers .= 'Content-type: text/html; charset=iso-8859-1'."\r\n";
-		$headers .= "From: $name <{".Yii::app()->params['adminEmail']."}>\r\n";	
-		$headers .= "Reply-To: {".Yii::app()->params['adminEmail']."}\r\n";
-		
-//		$headers="From: $name <{".Yii::app()->params['adminEmail']."}>\r\n".
-//			"Reply-To: {".Yii::app()->params['adminEmail']."}\r\n".
-//			"MIME-Version: 1.0\r\n".
-//			"Content-type: text/plain; charset=UTF-8";
-	
-		mail($model->email,$subject,$body,$headers);
+		RaiderFunctions::sendMail($name, $model->email, $subject, $body);
 		Yii::app()->user->setFlash('register',Yii::t('locale', 'An Email has been sent to you. Check your inbox to activate this account.'));
-//		$this->refresh();		
 	}
 	
 	
@@ -220,6 +205,124 @@ class SiteController extends RaiderController
 				if($model->validate() && $model->save()) {
 					Yii::app()->user->setFlash('register',Yii::t('locale' ,'CONGRATULATIONS, your account has been activated! You can login with your credentials.'));	
 					$this->redirect(Yii::app()->homeUrl);
+				}
+			}
+		}
+	}
+	
+	
+	
+	public function actionResetpassword($id = null) {
+		$this->layout = '//layouts/column2Login';
+		
+		/**
+		 *  se non è settato l'id, vuol dire che non abbiamo cliccato sul link nella mail
+		 *  quindi la procedura inizia dal principio:
+		 *  - chiedo la mail
+		 *  - verifico che sia associata ad una utenza
+		 *  - se lo è, verifico che non ci sia già una richiesta con
+		 *    il campo activated a 0, se c'è riuso la stessa password 
+		 *  - se non c'è, scrivo le info sulla tabella "reset_password" 
+		 *    ed invio la mail con il link per il reset. 
+		 */
+		if(!isset($id)) {
+			$model =  new User;
+			
+			if(isset($_POST['User']['email'])) {
+				if(!empty($_POST['User']['email'])) {
+					$email = $_POST['User']['email'];
+					$user = User::model()->findAll("email like :email", array(':email'=>$email));
+					
+					if(!empty($user)) {
+						// imposto un flag a false
+						$ok = false;
+						// controllo se esiste su DB una richiesta da tale utente, non ancora attivata
+						$resetPsw = ResetPassword::model()->findAll("user_id = :user_id AND activated = 0", array(':user_id'=>$user[0]->id));
+						
+						// se esiste recupero l'id e setto il flag a true
+						if(!empty($resetPsw)) {
+							$id = $resetPsw[0]->id;
+							$ok = true;
+						// se non esiste, la creo
+						}else{
+							$attributes = array(
+								'user_id'=>$user[0]->id,
+								'psw_temp'=>RaiderFunctions::generateRandomString(),
+								'activated'=>0,
+								'data_richiesta'=>date('Y-m-d H:i:s'),
+							);
+							
+							$resetPsw = new ResetPassword();
+							$resetPsw->setAttributes($attributes);
+							
+							if($resetPsw->validate() && $resetPsw->save()) {
+								// se riesco a scrivere la richiesta su db, metto il flag a true e recupero l'idù
+								$id = $resetPsw->id;
+								$ok = true;
+							}							
+						}
+	
+						// se il flag è true invio la mail e torno alla login.
+						if($ok) {
+							// costruisco i paramentri per la mail		
+							$name = Yii::app()->name.' Reset Password Module';
+							$subject = 'Reset your password';
+							$url = 'http://'.Yii::app()->request->getServerName();
+							$url .= CController::createUrl('site/reset', array('id'=>$id));
+							$body = Yii::t('locale', 'A reset password has been required for this email address, click the link below to reset your password, or ignore this email');
+							$body.= "Reset link : <a href='".$url."'> LINK </a>";
+							
+							//invio la mail
+							RaiderFunctions::sendMail($name, $user[0]->email, $subject, $body);
+							
+							Yii::app()->user->setFlash('register',Yii::t('locale' ,'An Email has been sent to you. Check your inbox to reset your password.'));	
+							$this->redirect(Yii::app()->homeUrl);
+						}					
+					}else
+						// se non trovo l'account segnalo l'accaduto all'utente 
+						Yii::app()->user->setFlash('resetpsw_err',Yii::t('locale', 'Account not found'));
+				}else 
+					// se il modulo è stato inviato vuoto o mal compilato
+					Yii::app()->user->setFlash('resetpsw_err',Yii::t('locale', 'Insert a valid email address'));
+				
+			}
+		
+			// visualizzo la vista di reset della password
+			$this->render('resetpassword', array('model'=>$model));			
+			
+		/**
+		 * se arriva l'id vuol dire che è stato cliccato il link nella email
+		 * quindi:
+		 * - metto 1 sul campo "activate" della tabella reset_password
+		 * - sostituisco la password nella tabella user
+		 * - invio l'email con la nuova password all'utente 
+		 * - nel caso in cui venga passato un id già attivato, segnalo la cosa all'utente.
+		 */ 
+		}else{
+			$resetPsw = ResetPassword::model()->findByPk($id);
+			$model = User::model()->findByPk($resetPsw->user_id);
+			
+			// se la richiesta è già stata attivata, segnalo la cosa all'utente
+			if($resetPsw->activated) {
+				Yii::app()->user->setFlash('resetpsw_err',Yii::t('locale', 'Request expired or already used'));
+				$this->render('resetpassword', array('model'=>$model));
+			// altrimenti imposto ad 1 il campo activated, modifico la password dell'utente ed invio l'email		
+			}else{
+				$resetPsw->activated = 1;
+				$model->password = $model->repeat_password = md5($resetPsw->psw_temp);
+				
+				// se salvo correttamente i model, invio la mail e ridireziono alla login
+				if($resetPsw->save() && $model->save()) {
+					// costruisco i paramentri per la mail		
+					$name = Yii::app()->name.' Reset Password Module';
+					$subject = 'Reset your password';
+					$body = sprintf(Yii::t('locale', 'HI! your new password is: %s, change it in your profile as soon as you can.'), $resetPsw->psw_temp);
+					
+					//invio la mail
+					RaiderFunctions::sendMail($name, $model->email, $subject, $body);
+					
+					Yii::app()->user->setFlash('register',Yii::t('locale' ,'A new password has been sent to you. Check your inbox.'));	
+					$this->redirect(Yii::app()->homeUrl);					
 				}
 			}
 		}

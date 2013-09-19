@@ -166,8 +166,10 @@ class DashboardEvents extends CWidget {
 				
 				$this->html.= "<div class='dashboard-box-normal-content'>";
 					$this->html.= "<div class='row-fluid'>";
+					
+						$this->html.= "<div class='span5'>".CHtml::image($this->params['assetsUrl'].'/raid/'.$this->params['raidImgFolder'].'/thumb640x360-'.$this->params['raidImg'], 'image of '.$this->params['raidName'].' raid', array('class'=>'img-rounded'))."</div>";					
 						
-						$this->html.= "<div class='lite-shadow span5'>";
+						$this->html.= "<div class='span5'>";
 							$this->html.= "<div class='dashboard-box-normal-header'>";
 								$this->html.= "<div class='pull-left'>".$this->params['raidName']." <small>".Yii::t('locale', 'hour')." ".$this->params['event_hour']."</small></div>";
 								$this->html.= "<div class='pull-right'><i class='icon-fire'></i> <small>".Yii::t('locale', 'Members: ')." ".$this->params['members']."</small></div>";
@@ -178,22 +180,20 @@ class DashboardEvents extends CWidget {
 							$this->html.= "<div class='dashboard-box-normal-footer'>";
 								$this->html.= "<div class='pull-right'><div class='btn-group'>";
 									if(RaiderFunctions::isRaidleader()) { 
-										$this->html.= CHtml::link(Yii::t('locale', 'Delete'), array('event/confirmDelete', 'id'=>$this->params['id']), array('class'=>'btn btn-mini'));
-										$this->html.= CHtml::link(Yii::t('locale', 'Update'), array('event/update', 'id'=>$this->params['id']), array('class'=>'btn btn-mini'));
+										$this->html.= CHtml::link(Yii::t('locale', 'Delete'), array('event/confirmDelete', 'id'=>$this->params['id']), array('class'=>'btn btn-mini btn-danger'));
+										$this->html.= CHtml::link(Yii::t('locale', 'Update'), array('event/update', 'id'=>$this->params['id']), array('class'=>'btn btn-mini btn-warning'));
 									}
 									$this->html.= CHtml::link(Yii::t('locale', 'Show'), array('event/show', 'id'=>$this->params['id']), array('class'=>'btn btn-mini'));
 									// stampo il pulsante di iscrizione solo se non si è già iscritti neppure con un PG altrimenti stampo il pulsante disabilitato.
 									if(!$this->params['isAlreadyMember']) 
-										$this->html.= CHtml::link(Yii::t('locale', 'Sign up'), array('characterEvent/signup', 'id'=>$this->params['id']), array('class'=>'btn btn-mini'));
+										$this->html.= CHtml::link(Yii::t('locale', 'Sign up'), array('characterEvent/signup', 'id'=>$this->params['id']), array('class'=>'btn btn-mini btn-success'));
 									else 
 										$this->html.= CHtml::link(Yii::t('locale', 'Sign up'), '', array('class'=>'btn btn-mini disabled'));
 								$this->html.= "</div></div><!-- /pull-right and btn-group -->";	
 								$this->html.= "<div class='clearbox clearfix'></div>";
 							$this->html.= "</div><!-- /dashboard-box-normal-footer -->";
-								
 						$this->html.= "</div><!-- /lite-shadow -->";
 						
-						$this->html.= "<div class='span7'>".CHtml::image($this->params['assetsUrl'].'/raid/'.$this->params['raidImgFolder'].'/thumb640x360-'.$this->params['raidImg'], 'image of '.$this->params['raidName'].' raid', array('class'=>'img-polaroid'))."</div>";
 						$this->html.= "<div class='clearbox clearfix'></div>";
 					$this->html.= "</div><!-- /row-fluid -->";	
 				$this->html.= "</div><!-- dashboard-box-normal-content -->";
@@ -247,9 +247,11 @@ class DashboardEvents extends CWidget {
 						if(RaiderFunctions::isRaidleader()) {
 							$this->html.= "<div class='row-fluid'>";
 								$this->html.= "<div class='span12 dashboard-box-full-header'>";
-									$this->html.= CHtml::link(Yii::t('locale', 'Add another event'), array('event/create', 'date'=>$this->params['event_dateTime']->format('Y-m-d')), array('class'=>'btn btn-mini btn-primary'));								
-									$this->html.= CHtml::link(Yii::t('locale', 'Delete'), array('event/confirmDelete', 'id'=>$this->params['id']), array('class'=>'btn btn-mini btn-danger'));
-									$this->html.= CHtml::link(Yii::t('locale', 'Update'), array('event/update', 'id'=>$this->params['id']), array('class'=>'btn btn-mini btn-warning'));
+									$this->html.= "<div class='btn-group'>";
+										$this->html.= CHtml::link(Yii::t('locale', 'Add another event'), array('event/create', 'date'=>$this->params['event_dateTime']->format('Y-m-d')), array('class'=>'btn btn-mini btn-primary'));								
+										$this->html.= CHtml::link(Yii::t('locale', 'Delete'), array('event/confirmDelete', 'id'=>$this->params['id']), array('class'=>'btn btn-mini btn-danger'));
+										$this->html.= CHtml::link(Yii::t('locale', 'Update'), array('event/update', 'id'=>$this->params['id']), array('class'=>'btn btn-mini btn-warning'));
+									$this->html.= "</div><!-- /btn-group -->";
 								$this->html.= "</div><!-- /span12 -->";
 							$this->html.= "</div><!-- /row-fluid -->";	
 						}						

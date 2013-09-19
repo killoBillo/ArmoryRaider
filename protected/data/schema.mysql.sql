@@ -2,12 +2,6 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 
-/*
-DROP SCHEMA IF EXISTS `armoryraider` ;
-CREATE SCHEMA IF NOT EXISTS `armoryraider` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
-USE `armoryraider` ;
-*/
-
 
 /*Table structure for table `authassignment` */
 
@@ -524,11 +518,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `dahboard`
+-- Table `dashboard`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `dahboard` ;
+DROP TABLE IF EXISTS `dashboard` ;
 
-CREATE  TABLE IF NOT EXISTS `dahboard` (
+CREATE  TABLE IF NOT EXISTS `dashboard` (
   `id` INT NOT NULL AUTO_INCREMENT COMMENT 'Tipo Eventi:' ,
   `user_id` INT NOT NULL ,
   `event_type` INT NOT NULL ,
@@ -582,6 +576,28 @@ CREATE  TABLE IF NOT EXISTS `userattributes` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `reset_password`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `reset_password` ;
+
+CREATE  TABLE IF NOT EXISTS `reset_password` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `user_id` INT NOT NULL ,
+  `psw_temp` VARCHAR(45) NOT NULL ,
+  `activated` INT NULL ,
+  `data_richiesta` DATETIME NULL ,
+  `data_attivazione` DATETIME NULL ,
+  PRIMARY KEY (`id`) ,
+  INDEX `fk_reset_password_user1` (`user_id` ASC) ,
+  CONSTRAINT `fk_reset_password_user1`
+    FOREIGN KEY (`user_id` )
+    REFERENCES `user` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
@@ -591,7 +607,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- Data for table `user`
 -- -----------------------------------------------------
 START TRANSACTION;
-INSERT INTO `user` (`id`, `name`, `surname`, `username`, `password`, `email`, `portrait_URL`, `creation_date`, `status`, `activation_key`) VALUES (1, 'admin', '', 'admin', '21232f297a57a5a743894a0e4a801fc3', NULL, NULL, NULL, 1, NULL);
+INSERT INTO `user` (`id`, `name`, `surname`, `username`, `password`, `email`, `portrait_URL`, `creation_date`, `status`, `activation_key`) VALUES (1, 'Super', 'Administrator', 'admin', '21232f297a57a5a743894a0e4a801fc3', NULL, NULL, NULL, 1, NULL);
 
 COMMIT;
 

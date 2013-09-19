@@ -34,7 +34,7 @@
 }
 .viewport-calendario {
 	max-width: 93%;
-	padding: 0 0 40px 0;
+	padding: 0 0 25px 0;
 	margin: 0 auto;
 }
 .month h2 {
@@ -263,11 +263,13 @@ ul.popover-notifier {
 }
 .close-calendar {
 	position:absolute;
+	font-family: 'Roboto';
+	font-size: 12px;
+	text-transform: capitalize;
 	text-align: right;
 	right:5px;
 	bottom: 0;
 	padding:5px 16px 5px;
-	font-size:11px;
 	opacity: 0.3;
 	transition: opacity 1s;
 	-moz-transition: opacity 1s; /* Firefox 4 */
@@ -279,11 +281,13 @@ ul.popover-notifier {
 	opacity: 1;	
 }
 .show-calendar {
+	font-family: 'Roboto';
+	font-size: 12px;	
 	text-align: right;
+	text-transform: capitalize;	
 	right:5px;
 	bottom: 0;
 	padding:5px 20px;
-	font-size:11px;
 	opacity: 0.3;
 	border: 1px solid #ccc;
 	background-color: #EEE;

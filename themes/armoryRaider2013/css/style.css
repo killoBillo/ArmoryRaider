@@ -129,6 +129,10 @@ h4 {
 h5 {
 	font-size:16px;	
 }
+h1, h2, h3, h4, h5 {
+	font-weight: lighter;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 1);
+}
 ul, ol {
 	list-style: none;
 }

@@ -48,7 +48,7 @@ class User extends RaiderActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username', 'unique'),
+			array('username, email', 'unique'),
 			array('name, surname, username, email', 'required'),
 			array('status', 'numerical', 'integerOnly'=>true),
 			array('name, surname, username, email', 'length', 'max'=>45),
