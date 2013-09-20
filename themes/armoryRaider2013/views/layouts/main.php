@@ -17,18 +17,24 @@ Yii::app()->clientScript->registerScript('popovers', "
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title><?php echo CHtml::encode($this->pageTitle); ?></title>	
-	
+	<!-- enable full page for mobile devices -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- disable IE compatibility mode -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	
+	<meta name="ArmoryRaider" content="A PHP Raider for World of WarCraft linked with Blizzard Armory">
 	
 	<link rel="stylesheet" media="screen" href="<?php echo Yii::app()->theme->baseUrl;?>/css/bootstrap.min.css">
+	<link rel="stylesheet" media="screen" href="<?php echo Yii::app()->theme->baseUrl;?>/css/font-awesome.min.css">
+	
 	<link rel="stylesheet" media="screen" href="<?php echo Yii::app()->theme->baseUrl;?>/css/style.css">
 	<link rel="stylesheet" media="screen" href="<?php echo Yii::app()->theme->baseUrl;?>/css/calendar.css">
 	<link rel="stylesheet" media="screen" href="<?php echo Yii::app()->theme->baseUrl;?>/css/datepicker.css">
+	<link rel="stylesheet" media="screen" href="<?php echo Yii::app()->theme->baseUrl;?>/css/social-buttons.css">
 	<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Roboto'>
 	<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Roboto+Slab'>
 	
-	<meta name="ArmoryRaider" content="A PHP Raider for World of WarCraft linked with Blizzard Armory">
+	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 	
 	<!--
 		mobile CSS rules resource. 

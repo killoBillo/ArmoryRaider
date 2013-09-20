@@ -180,8 +180,8 @@ class DashboardEvents extends CWidget {
 							$this->html.= "<div class='dashboard-box-normal-footer'>";
 								$this->html.= "<div class='pull-right'><div class='btn-group'>";
 									if(RaiderFunctions::isRaidleader()) { 
-										$this->html.= CHtml::link(Yii::t('locale', 'Delete'), array('event/confirmDelete', 'id'=>$this->params['id']), array('class'=>'btn btn-mini btn-danger'));
-										$this->html.= CHtml::link(Yii::t('locale', 'Update'), array('event/update', 'id'=>$this->params['id']), array('class'=>'btn btn-mini btn-warning'));
+										$this->html.= CHtml::link(Yii::t('locale', 'Delete'), array('event/confirmDelete', 'id'=>$this->params['id']), array('class'=>'btn btn-mini'));
+										$this->html.= CHtml::link(Yii::t('locale', 'Update'), array('event/update', 'id'=>$this->params['id']), array('class'=>'btn btn-mini'));
 									}
 									$this->html.= CHtml::link(Yii::t('locale', 'Show'), array('event/show', 'id'=>$this->params['id']), array('class'=>'btn btn-mini'));
 									// stampo il pulsante di iscrizione solo se non si è già iscritti neppure con un PG altrimenti stampo il pulsante disabilitato.
@@ -214,6 +214,7 @@ class DashboardEvents extends CWidget {
 		$this->params['userImgSize']['class'] = 'img-polaroid';
 		$this->params['userImgSize']['style'] = 'margin-right: 10px;';
 		
+		$path = $_SERVER['SERVER_NAME'] . '/' . $_SERVER['REQUEST_URI'];		
 		
 		$this->html.= "<div class='row-fluid'>";
 			$this->html.= "<div class='dashboard-box-full span12'>";
@@ -247,11 +248,9 @@ class DashboardEvents extends CWidget {
 						if(RaiderFunctions::isRaidleader()) {
 							$this->html.= "<div class='row-fluid'>";
 								$this->html.= "<div class='span12 dashboard-box-full-header'>";
-									$this->html.= "<div class='btn-group'>";
-										$this->html.= CHtml::link(Yii::t('locale', 'Add another event'), array('event/create', 'date'=>$this->params['event_dateTime']->format('Y-m-d')), array('class'=>'btn btn-mini btn-primary'));								
-										$this->html.= CHtml::link(Yii::t('locale', 'Delete'), array('event/confirmDelete', 'id'=>$this->params['id']), array('class'=>'btn btn-mini btn-danger'));
-										$this->html.= CHtml::link(Yii::t('locale', 'Update'), array('event/update', 'id'=>$this->params['id']), array('class'=>'btn btn-mini btn-warning'));
-									$this->html.= "</div><!-- /btn-group -->";
+									$this->html.= CHtml::link(Yii::t('locale', 'Add another event'), array('event/create', 'date'=>$this->params['event_dateTime']->format('Y-m-d')), array('class'=>'btn btn-mini'))." ";								
+									$this->html.= CHtml::link(Yii::t('locale', 'Delete'), array('event/confirmDelete', 'id'=>$this->params['id']), array('class'=>'btn btn-mini'))." ";
+									$this->html.= CHtml::link(Yii::t('locale', 'Update'), array('event/update', 'id'=>$this->params['id']), array('class'=>'btn btn-mini'));
 								$this->html.= "</div><!-- /span12 -->";
 							$this->html.= "</div><!-- /row-fluid -->";	
 						}						
@@ -312,7 +311,16 @@ class DashboardEvents extends CWidget {
 						$this->html.= "</div><!-- /row-fluid -->";						
 						
 					$this->html.= "</div><!-- /span8 -->";
-				$this->html.= "</div><!-- /row-fluid -->";						
+				$this->html.= "</div><!-- /row-fluid -->";
+				
+				// Social Networks links
+				$this->html.= "<div class='row-fluid'>";	
+					$this->html.= "<div class='span8'>";
+						$this->html.= "<button class='btn btn-mini btn-facebook' onclick='javascript:window.open(\"http://www.facebook.com/share.php?u=$path\", \"\", \"menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600\");return false;'><i class='icon-facebook'></i> | Post to Facebook</button> ";
+						$this->html.= "<button class='btn btn-mini btn-twitter' onclick='javascript:window.open(\"http://twitter.com/home?status=$path\", \"\", \"menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600\");return false;'><i class='icon-twitter'></i> | Post to Twitter</button> ";
+						$this->html.= "<button class='btn btn-mini btn-google-plus' onclick='javascript:window.open(\"https://plus.google.com/share?url=$path\", \"\", \"menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600\");return false;'><i class='icon-google-plus'></i> | Post to Google Plus</button>";
+					$this->html.= "</div><!-- /span8 -->";
+				$this->html.= "</div><!-- /row-fluid -->";
 			
 			$this->html.= "</div><!-- /dashboard-box-full -->";
 		$this->html.= "</div><!-- /row-fluid -->";

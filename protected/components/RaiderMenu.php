@@ -32,10 +32,11 @@ class RaiderMenu {
 			'id'=>'logout_menu',
 			'htmlOptions'=>array(
 				'class'=>'nav pull-right',
-			),		
+			),
+			'encodeLabel'=>false,		
 			'items'=>array(
 				array(
-					'label'=>Yii::t('locale' ,'Logout').' '.Yii::app()->user->name.' '.Yii::app()->user->surname, 
+					'label'=>'<i class="icon-unlock-alt"></i> '.Yii::t('locale' ,'Logout').' '.Yii::app()->user->name.' '.Yii::app()->user->surname, 
 					'url'=>array('/site/logout')
 				),
 			),
@@ -44,7 +45,7 @@ class RaiderMenu {
 		// Aggiungo i menu per i raidleader e l'admin.
 		if(RaiderFunctions::isRaidleader()){
 			$this->menu['items'][] = array(
-				'label'=>'Raidleader Menù <b class="caret"></b>',
+				'label'=>'<i class="icon-shield"></i> Raidleader Menù <b class="caret"></b>',
 				'url'=>'#',
 				'submenuOptions' => array( 'class' => 'dropdown-menu' ),
 				'items'=>array(
@@ -80,7 +81,7 @@ class RaiderMenu {
 		// Aggiungo i menu per l'admin.
 		if(RaiderFunctions::isAdmin()){
 			$this->menu['items'][] = array(
-				'label'=>'Admin Menù <b class="caret"></b>',
+				'label'=>'<i class="icon-bookmark"></i> Admin Menù <b class="caret"></b>',
 				'url'=>'#',
 				'submenuOptions' => array( 'class' => 'dropdown-menu' ),
 				'items'=>array(
