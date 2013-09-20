@@ -157,8 +157,10 @@ class RaiderController extends RController {
 		
 		
 		// Genero il menu
-		$this->raiderMenu = new RaiderMenu();
-		$this->raiderMenu->buildMenu();
+		if(!Yii::app()->user->isGuest) {
+			$this->raiderMenu = new RaiderMenu();
+			$this->raiderMenu->buildMenu();
+		}
 		
 		
 		// richiamo il costruttore della classe padre, in questo caso CController, RController non ha costruttore.

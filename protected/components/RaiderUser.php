@@ -12,7 +12,7 @@ class RaiderUser extends RWebUser
  		
         return parent::__get($name);
     }
- 
+
     public function login($identity,$duration=0) {
         $this->setState('__userInfo', $identity->getUser());
         parent::login($identity,$duration=0);

@@ -35,7 +35,7 @@ class RaiderMenu {
 			),		
 			'items'=>array(
 				array(
-					'label'=>Yii::t('locale' ,'Logout').' '.Yii::app()->user->name, 
+					'label'=>Yii::t('locale' ,'Logout').' '.Yii::app()->user->name.' '.Yii::app()->user->surname, 
 					'url'=>array('/site/logout')
 				),
 			),
