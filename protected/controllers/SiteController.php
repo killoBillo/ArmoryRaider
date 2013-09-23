@@ -309,6 +309,7 @@ class SiteController extends RaiderController
 			// altrimenti imposto ad 1 il campo activated, modifico la password dell'utente ed invio l'email		
 			}else{
 				$resetPsw->activated = 1;
+				$resetPsw->data_attivazione = date('Y-m-d H:i:s');
 				$model->password = $model->repeat_password = md5($resetPsw->psw_temp);
 				
 				// se salvo correttamente i model, invio la mail e ridireziono alla login
