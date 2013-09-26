@@ -77,13 +77,18 @@
 		'No more holder'=>'Non pi&ugrave titolare',
 		'Unavailable'=>'Non disponibili',
 		
-		// traduzioni controller "Event" e viste "create, viewDay, show, update, confirm, delete"
+		// traduzioni controller "Event" e viste "create, viewDay, show, update, confirm, delete, list"
 		'Create event'=>'Crea evento',
 		'Events planned'=>'Eventi pianificati', 
 		'Update event'=>'Modifica evento',
 		'Add another event'=>'Aggiungi un evento',
 		'Confirm deletion event page'=>'Pagina conferma cancellazione evento',
 		'Do you really want to delete the event ? Related entries will be deleted, too.'=>'Vuoi davvero cancellare l\'evento? Tutte le entrate collegate verranno rimosse dal DB.',
+		'Event Date'=>'Data Evento',
+		'Event Hour'=>'Orario',
+		'Events list'=>'Lista eventi',
+		'No events found'=>'Nessun evento trovato',
+	
 	
 		// traduzioni model e controller "CharacterEvent", viste "signup"
 		'Raid subscription'=>'Iscrizione al raid',
@@ -205,6 +210,10 @@
 		'Raider Options'=>'Opzioni Raider',
 		'Raider Configuration'=>'Configurazione Raider',
 		'Logout'=>'Disconnetti',
+		'Guild'=>'Gilda',
+		'Guild Roster'=>'Roster di Gilda',
+		'Events I Attended'=>'Tutte le Mie Iscrizioni',
+		'Events List'=>'Lista Eventi',
 	);
 	
 ?>

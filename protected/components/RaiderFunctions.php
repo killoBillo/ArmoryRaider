@@ -72,12 +72,16 @@ class RaiderFunctions {
 	
 	
 	/**
-	 * Mi restituisce un array di models di Characters, utilizzabile per creare una dropDownList
+	 * Mi restituisce un array di models di Characters,
+	 * Se non viene passato uno userId torna l'array dei character
+	 * dell'utente loggato. 
 	 * 
+	 * Utilizzabile, ad esempio, per creare una dropDownList
 	 * Es: CHtml::listData(RaiderFunctions::getCharacters(), 'id', 'name');
 	 */
-	public static function getCharacters() {
-		return $characters = Character::model()->findAll('user_id = :userid', array(':userid'=>Yii::app()->user->id));
+	public static function getCharacters($userid = null) {
+		$id = isset($userid) ? $userid : Yii::app()->user->id;
+		return $characters = Character::model()->findAll('user_id = :userid', array(':userid'=>$id));
 	}
 	
 	

@@ -12,7 +12,6 @@ class RaiderMenu {
 	private $logOutMenu;
 	
 	
-	
 	function __construct() {}
 	
 	
@@ -25,6 +24,19 @@ class RaiderMenu {
 			'encodeLabel'=>false,
 			'items'=>array(
 				array('label'=>'<i class="icon-home"></i> Home', 'url'=>array('/site/index')),
+				array(
+					'label'=>'<i class="icon-shield"></i> '.Yii::t('locale', 'Guild').' <b class="caret"></b>', 
+					'url'=>'',
+					'submenuOptions' => array( 'class' => 'dropdown-menu' ),
+					'items'=>array(
+						// items
+						array('label'=>Yii::t('locale', 'Guild Roster'), 'url'=>array('')),
+						array('label'=>Yii::t('locale', 'Events I Attended'), 'url'=>array('event/myevents')),
+						array('label'=>Yii::t('locale', 'Events List'), 'url'=>array('event/list')),
+					),
+			        'itemOptions' => array( 'class' => 'dropdown' ),
+    	    		'linkOptions' => array( 'class' => 'dropdown-toggle', 'data-toggle' => 'dropdown' ),					
+				),
 			),
 		);
 
@@ -45,8 +57,8 @@ class RaiderMenu {
 		// Aggiungo i menu per i raidleader e l'admin.
 		if(RaiderFunctions::isRaidleader()){
 			$this->menu['items'][] = array(
-				'label'=>'<i class="icon-shield"></i> Raidleader Menù <b class="caret"></b>',
-				'url'=>'#',
+				'label'=>'<i class="icon-group"></i> Raidleader Menù <b class="caret"></b>',
+				'url'=>'',
 				'submenuOptions' => array( 'class' => 'dropdown-menu' ),
 				'items'=>array(
 					// nav-header
@@ -82,7 +94,7 @@ class RaiderMenu {
 		if(RaiderFunctions::isAdmin()){
 			$this->menu['items'][] = array(
 				'label'=>'<i class="icon-bookmark"></i> Admin Menù <b class="caret"></b>',
-				'url'=>'#',
+				'url'=>'',
 				'submenuOptions' => array( 'class' => 'dropdown-menu' ),
 				'items'=>array(
 					// nav-header
@@ -116,7 +128,7 @@ class RaiderMenu {
 		if(RaiderFunctions::isGM() && !RaiderFunctions::isAdmin()){
 			$this->menu['items'][] = array(
 				'label'=>'Guild Master Menù <b class="caret"></b>',
-				'url'=>'#',
+				'url'=>'',
 				'submenuOptions' => array( 'class' => 'dropdown-menu' ),
 				'items'=>array(
 					// nav-header

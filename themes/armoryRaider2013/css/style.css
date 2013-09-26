@@ -10,7 +10,10 @@
  * Bootstrap framework fixes ***********************************************************
  */
 .nav li {
-	line-height:20px;
+	line-height: 20px;
+}
+.nav li a {
+	cursor: pointer;	
 }
 .navbar .brand {
 	color: #FFF;

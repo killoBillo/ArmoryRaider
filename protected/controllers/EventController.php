@@ -240,6 +240,9 @@ class EventController extends RaiderController
 	}
 	
 	
+	/**
+	 * Visualizza evento singolo
+	 */
 	public function actionShow($id) 
 	{
 		$event[] = new RaiderEvents($id);			
@@ -248,4 +251,34 @@ class EventController extends RaiderController
 			'event'=>$event,
 		));
 	}
+	
+	
+	/**
+	 * Lista di tutti gli eventi
+	 */
+	public function actionList() {
+		$models = Event::model()->findAll();
+		
+		$this->render('list', array('models'=>$models));		
+	}
+	
+	
+	/**
+	 * Lista degli eventi a cui l'utente si è iscritto
+	 */
+	public function actionMyEvents() {
+		$chars = RaiderFunctions::getCharacters();
+		$char_event = array();
+		$events = array();
+		
+		foreach ($chars as $char) {
+			$char_event[] = CharacterEvent::model()->findByAttributes(array('char_id'=>$char->id));
+		}
+		
+		foreach ($char_event as $model) {
+			$events[] = Event::model()->findByPk($model->event_id);
+		}
+		
+		$this->render('list', array('models'=>$events));		
+	}	
 }
