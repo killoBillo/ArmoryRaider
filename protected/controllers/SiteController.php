@@ -329,5 +329,24 @@ class SiteController extends RaiderController
 		}
 	}
 	
+
 	
+	
+	
+	/**
+	 * Roster di gilda
+	 */
+	public function actionRoster() {
+		$users = User::model()->findAll();
+		$chars = array();
+		
+		foreach ($users as $k=>$user) {
+			$chars[$k] = RaiderFunctions::getCharacters($user->id);
+		}
+		
+		$this->render('pages/roster', array(
+			'users'=>$users,
+			'chars'=>$chars,
+		));
+	}	
 }

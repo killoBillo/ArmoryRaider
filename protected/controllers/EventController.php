@@ -276,7 +276,8 @@ class EventController extends RaiderController
 		}
 		
 		foreach ($char_event as $model) {
-			$events[] = Event::model()->findByPk($model->event_id);
+			if(!empty($model))
+				$events[] = Event::model()->findByPk($model->event_id);
 		}
 		
 		$this->render('list', array('models'=>$events));		

@@ -199,7 +199,7 @@ Yii::app()->clientScript->registerScript('popovers', "
 				ArmoryRaider &copy; <?php echo Yii::t('locale', 'is a product developed by'); ?>
 				<a href="http://www.killodesign.com">Marco Chillemi</a>, 
 				<?php echo Yii::t('locale', 'Rome - Italy, 2013.'); ?>
-				<?php echo ' V.'.Yii::app()->params->version.'.'; ?>
+				<?php echo ' V'.Yii::app()->params->version.'.'; ?>
 			</p>
 		</div>
 	</div><!-- footer -->
