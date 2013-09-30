@@ -29,6 +29,8 @@ class RaiderMenu {
 					'url'=>'',
 					'submenuOptions' => array( 'class' => 'dropdown-menu' ),
 					'items'=>array(
+						// nav-header
+						array('label'=>Yii::t('locale', 'Roster and Lists'), null, 'itemOptions'=>array('class'=>'nav-header nowrap')),
 						// items
 						array('label'=>Yii::t('locale', 'Guild Roster'), 'url'=>array('site/roster')),
 						array('label'=>Yii::t('locale', 'Events I Attended'), 'url'=>array('event/myevents')),

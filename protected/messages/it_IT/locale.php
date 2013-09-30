@@ -88,6 +88,8 @@
 		'Event Hour'=>'Orario',
 		'Events list'=>'Lista eventi',
 		'No events found'=>'Nessun evento trovato',
+		'Date Time'=>'Data Ora',
+		'R.L.'=>'R.L.',
 	
 	
 		// traduzioni model e controller "CharacterEvent", viste "signup"
@@ -211,9 +213,18 @@
 		'Raider Configuration'=>'Configurazione Raider',
 		'Logout'=>'Disconnetti',
 		'Guild'=>'Gilda',
-		'Guild Roster'=>'Roster di Gilda',
+		'Guild Roster'=>'Elenco di Gilda',
 		'Events I Attended'=>'Tutte le Mie Iscrizioni',
 		'Events List'=>'Lista Eventi',
+		'Roster and Lists'=>'Elenchi e Liste',
+	
+		// Roster
+		'Class'=>'Classe',
+		'Race'=>'Razza',
+		'Level'=>'Livello',
+		'Item Level'=>'Livello oggetti',
+		'Img'=>'Img',
+		
 	);
 	
 ?>

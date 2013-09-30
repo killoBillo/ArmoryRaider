@@ -337,6 +337,7 @@ class SiteController extends RaiderController
 	 * Roster di gilda
 	 */
 	public function actionRoster() {
+		$this->layout='//layouts/column2Page';
 		$users = User::model()->findAll();
 		$chars = array();
 		

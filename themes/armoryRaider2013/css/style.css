@@ -304,9 +304,8 @@ ul, ol {
 	padding: 15px;
 	margin-bottom: 20px;
 }
-
-.char-roster {
-	margin-top:20px;
+table {
+	font: 12px 'Roboto';
 }
 /**
  * Sidebar *****************************************************************************

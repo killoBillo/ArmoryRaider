@@ -268,18 +268,23 @@ class EventController extends RaiderController
 	 */
 	public function actionMyEvents() {
 		$chars = RaiderFunctions::getCharacters();
-		$char_event = array();
+		$char_events = array();
 		$events = array();
 		
 		foreach ($chars as $char) {
-			$char_event[] = CharacterEvent::model()->findByAttributes(array('char_id'=>$char->id));
+			$char_events[] = CharacterEvent::model()->findAll('char_id = '.$char->id);
 		}
 		
-		foreach ($char_event as $model) {
-			if(!empty($model))
-				$events[] = Event::model()->findByPk($model->event_id);
+		foreach ($char_events as $k=>$char_event) {
+			if(!empty($char_event)) {
+				foreach ($char_event as $k=>$event) {
+					$events[] = Event::model()->findByPk($event->event_id);
+				}
+			}
 		}
 		
-		$this->render('list', array('models'=>$events));		
+		$this->render('myevents', array(
+			'models'=>$events,
+		));		
 	}	
 }
