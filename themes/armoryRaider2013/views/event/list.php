@@ -14,7 +14,7 @@
 	
 		if(!empty($models)) {
 			//disegno la tabella
-			$html.= "<table class='table table-hover shadow'>";
+			$html.= "<table class='table table-hover shadow table-white'>";
 				$html.= "<thead>";
 					$html.= "<tr>";
 						$html.= "<th><i class='icon-calendar'></i> ".Yii::t('locale', 'Event Date')."</th>";

@@ -72,6 +72,8 @@ insert  into `authitem`(`name`,`type`,`description`,`bizrule`,`data`) values ('E
 insert  into `authitem`(`name`,`type`,`description`,`bizrule`,`data`) values ('Event.Create',0,NULL,NULL,'N;');
 insert  into `authitem`(`name`,`type`,`description`,`bizrule`,`data`) values ('Event.Delete',0,NULL,NULL,'N;');
 insert  into `authitem`(`name`,`type`,`description`,`bizrule`,`data`) values ('Event.Index',0,NULL,NULL,'N;');
+insert  into `authitem`(`name`,`type`,`description`,`bizrule`,`data`) values ('Event.List',0,NULL,NULL,'N;');
+insert  into `authitem`(`name`,`type`,`description`,`bizrule`,`data`) values ('Event.MyEvents',0,NULL,NULL,'N;');
 insert  into `authitem`(`name`,`type`,`description`,`bizrule`,`data`) values ('Event.Show',0,NULL,NULL,'N;');
 insert  into `authitem`(`name`,`type`,`description`,`bizrule`,`data`) values ('Event.Update',0,NULL,NULL,'N;');
 insert  into `authitem`(`name`,`type`,`description`,`bizrule`,`data`) values ('Event.View',0,NULL,NULL,'N;');
@@ -183,6 +185,8 @@ insert  into `authitemchild`(`parent`,`child`) values ('Raidleader','Raid.*');
 insert  into `authitemchild`(`parent`,`child`) values ('Guildmaster','Raidleader');
 insert  into `authitemchild`(`parent`,`child`) values ('Guildmaster','User.*');
 insert  into `authitemchild`(`parent`,`child`) values ('Authenticated','User.Profile');
+insert  into `authitemchild`(`parent`,`child`) values ('Authenticated','Event.List');
+insert  into `authitemchild`(`parent`,`child`) values ('Authenticated','Event.MyEvents');
 
 /*Table structure for table `rights` */
 

@@ -14,7 +14,7 @@
 	
 		if(!empty($models)) {
 			//disegno la tabella
-			$html.= "<table class='table table-hover shadow'>";
+			$html.= "<table class='table table-hover shadow table-white'>";
 				$html.= "<thead>";
 					$html.= "<tr>";
 						$html.= "<th><i class='icon-user'></i> ".Yii::t('locale', 'Character')."</th>";					

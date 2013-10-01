@@ -212,7 +212,7 @@ class SiteController extends RaiderController
 	
 	
 	
-	public function actionResetpassword($id = null) {
+	public function actionResetPassword($id = null) {
 		$this->layout = '//layouts/column2Login';
 		
 		/**
@@ -268,8 +268,8 @@ class SiteController extends RaiderController
 							$name = Yii::app()->name.' Reset Password Module';
 							$subject = 'Reset your password';
 							$url = 'http://'.Yii::app()->request->getServerName();
-							$url .= CController::createUrl('site/reset', array('id'=>$id));
-							$body = Yii::t('locale', 'A reset password has been required for this email address, click the link below to reset your password, or ignore this email');
+							$url .= CController::createUrl('site/resetpassword', array('id'=>$id));
+							$body = Yii::t('locale', 'A reset password has been required for this email address, click the link below to reset your password, or ignore this email.<br>');
 							$body.= "Reset link : <a href='".$url."'> LINK </a>";
 							
 							//invio la mail
@@ -317,7 +317,7 @@ class SiteController extends RaiderController
 					// costruisco i paramentri per la mail		
 					$name = Yii::app()->name.' Reset Password Module';
 					$subject = 'Reset your password';
-					$body = sprintf(Yii::t('locale', 'HI! your new password is: %s, change it in your profile as soon as you can.'), $resetPsw->psw_temp);
+					$body = sprintf(Yii::t('locale', 'HI! your new password is: <strong>%s</strong>.<br>Change it in your profile as soon as you can.'), $resetPsw->psw_temp);
 					
 					//invio la mail
 					RaiderFunctions::sendMail($name, $model->email, $subject, $body);

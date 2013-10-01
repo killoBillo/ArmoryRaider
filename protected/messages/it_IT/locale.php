@@ -28,6 +28,7 @@
 		'Remember me'=>'Ricordami',
 		'Username *'=>'Nome Utente *',
 		'Password *'=>'Password *',
+		'%s already taken.'=>'%s gi&agrave; in uso.',
 		'An Email has been sent to you. Check your inbox to activate this account.'=>'Ti &egrave; stata inviata una email, controlla la tua casella di posta per attivare questo account',
 		'Welcome to the Armory Raider, click the activation link below to activate your account.<br>'=>'Benvenuto nell\'Armory Raider, clicca il link di attivazione qui sotto per attivare il tuo account.<br>',
 		'CONGRATULATIONS, your account has been activated! You can login with your credentials.'=>'CONGRATULAZIONI, il tuo account &egrave; stato attivato! Puoi accedere con le tue credenziali.',
@@ -37,10 +38,10 @@
 		'Insert a valid email address'=>'Inserisci un indirizzo email valido',
 		'Account not found'=>'Account non trovato',
 		'An Email has been sent to you. Check your inbox to reset your password.'=>'Ti &egrave; stata inviata una email, controlla la tua casella di posta per resettare la password',
-		'A reset password has been required for this email address, click the link below to reset your password, or ignore this email'=>'E\' stato richiesto un reset password da questo indirizzo email, clicca il link seguente per resettare la password, oppure ignora questa email.',
+		'A reset password has been required for this email address, click the link below to reset your password, or ignore this email.<br>'=>'E\' stato richiesto un reset password da questo indirizzo email, clicca il link seguente per resettare la password, oppure ignora questa email.<br>',
 		'Request expired or already used'=>'Richiesta scaduta o gi&agrave; utilizzata',
 		'A new password has been sent to you. Check your inbox.'=>'Ti &egrave; stata inviata una nuova password, controlla la tua casella email.',
-		'HI! your new password is: %s, change it in your profile as soon as you can.'=>'Ciao, la tua nuova password &egrave;: %s, ti consigliamo di cambiarla prima possible',
+		'HI! your new password is: <strong>%s</strong>.<br>Change it in your profile as soon as you can.'=>'Ciao, la tua nuova password &egrave;: <strong>%s</strong>.<br>Ti consigliamo di cambiarla prima possibile.',
 		
 		// RaiderExt.CharactersList
 		'My characters'=>'I miei personaggi',
@@ -224,6 +225,7 @@
 		'Level'=>'Livello',
 		'Item Level'=>'Livello oggetti',
 		'Img'=>'Img',
+		'No characters found'=>'Nessun personaggio trovato',
 		
 	);
 	

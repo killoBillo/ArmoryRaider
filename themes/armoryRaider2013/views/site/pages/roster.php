@@ -22,7 +22,6 @@
 		$html.= "</div><!-- /userWidget -->";
 		// fine HTML utente
 		
-		
 		$html.= "<table class='table table-hover shadow'>";
 			$html.= "<thead>";
 				$html.= "<tr>";
@@ -37,25 +36,33 @@
 			$html.= "</thead>";
 			$html.= "<tbody>";
 			
-			foreach ($chars[$k] as $k1=>$model) {
-    			//recupero le info sul personaggio
-				$character = new RaiderCharacter($model->id);
-				// preparo qualche variabile
-				$charArmoryUrl = $character->getCharacter()->armory_URL;
-				$guildArmoryUrl = $character->getGuild()->URL;
-								
-				// genero HTML per ogni personaggio
-				$html.= "<tr'>";
-					$html.= "<td><img class='img-polaroid' src='".$character->getCharacter()->portrait_URL."' height='20' width='20' alt='portrait of ".$character->getCharacter()->name."'></td>";
-					$html.= "<td>".CHtml::link($character->getCharacter()->name, $charArmoryUrl, array('class'=>'tooltip-link', 'title'=>Yii::t('locale', 'Character armory page')))."</td>";
-					$html.= "<td style='color: ".$character->getClass()->color."'>".$character->getClass()->name."</td>";
-					$html.= "<td>".$character->getRace()->name."</td>";
-					$html.= "<td>".$character->getCharacter()->level."</td>";
-					$html.= "<td>".$character->getCharacter()->item_level."</td>";
-					$html.= "<td>".CHtml::link($character->getGuild()->name, $guildArmoryUrl, array('class'=>'tooltip-link', 'title'=>Yii::t('locale', 'Guild armory page')))."</td>";
-				$html.= "</tr>";					
-				// fine HTML personaggio
-			};
+			if(empty($chars)) {
+				foreach ($chars[$k] as $k1=>$model) {
+	    			//recupero le info sul personaggio
+					$character = new RaiderCharacter($model->id);
+					// preparo qualche variabile
+					$charArmoryUrl = $character->getCharacter()->armory_URL;
+					$guildArmoryUrl = $character->getGuild()->URL;
+									
+					// genero HTML per ogni personaggio
+					$html.= "<tr>";
+						$html.= "<td><img class='img-polaroid' src='".$character->getCharacter()->portrait_URL."' height='20' width='20' alt='portrait of ".$character->getCharacter()->name."'></td>";
+						$html.= "<td>".CHtml::link($character->getCharacter()->name, $charArmoryUrl, array('class'=>'tooltip-link', 'title'=>Yii::t('locale', 'Character armory page')))."</td>";
+						$html.= "<td style='color: ".$character->getClass()->color."'>".$character->getClass()->name."</td>";
+						$html.= "<td>".$character->getRace()->name."</td>";
+						$html.= "<td>".$character->getCharacter()->level."</td>";
+						$html.= "<td>".$character->getCharacter()->item_level."</td>";
+						$html.= "<td>".CHtml::link($character->getGuild()->name, $guildArmoryUrl, array('class'=>'tooltip-link', 'title'=>Yii::t('locale', 'Guild armory page')))."</td>";
+					$html.= "</tr>";					
+					// fine HTML personaggio
+				};
+			}else{
+				// genero HTML se non vengono trovati personaggi
+				$html.= "<tr class='warning'>";
+					$html.= "<td colspan='100%'>".Yii::t('locale', 'No characters found')."</td>";
+				$html.= "</tr>";
+				// fine HTML per nessun personaggio
+			}
 			
 			$html.= "</tbody>";				
 		$html.= "</table>";

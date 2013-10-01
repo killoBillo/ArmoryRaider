@@ -134,12 +134,12 @@ class DashboardEvents extends CWidget {
 			$this->html.= "<div class='dashboard-box-mini-content'>";
 				$this->html.= "<div class='pos-relative'>";
 					$this->html.= CHtml::image($this->params['assetsUrl'].'/raid/'.$this->params['raidImgFolder'].'/thumb640x360-'.$this->params['raidImg'], 'image of '.$this->params['raidName'].' raid');
-					if(!empty($text)) $this->html.= "<div class='dashboard-box-mini-text'><i class='icon-comment icon-white'></i> $text</div>";
+					if(!empty($text)) $this->html.= "<div class='dashboard-box-mini-text'><i class='icon-comment'></i> $text</div>";
 				$this->html.= "</div>";
 			$this->html.= "</div>";
 			
 			$this->html.= "<div class='dashboard-box-mini-footer'>";
-				$this->html.= "<div class='pull-left raid-info'>".$this->params['raidName']."<br><small class='muted'>".$this->params['event_date']." ".Yii::t('locale', 'hour')." ".$this->params['event_hour']."</small></div>";
+				$this->html.= "<div class='pull-left raid-info'>".$this->params['raidName']."<br><small class='muted event-date'>".$this->params['event_date']." ".Yii::t('locale', 'hour')." ".$this->params['event_hour']."</small></div>";
 				$this->html.= "<div class='pull-right'><a class='btn btn-link' href='".Yii::app()->createUrl('event/show', array('id'=>$this->params['id']))."'>".Yii::t('locale', 'Show')."</a></div>";
 
 				$this->html.= "<div class='clearbox clearfix'></div>";
@@ -311,17 +311,20 @@ class DashboardEvents extends CWidget {
 						$this->html.= "</div><!-- /row-fluid -->";						
 						
 					$this->html.= "</div><!-- /span8 -->";
+					
+					// Social Networks links
+					$this->html.= "<div class='span4'>";
+						$this->html.= "<button class='btn btn-mini btn-facebook' onclick='javascript:window.open(\"http://www.facebook.com/share.php?u=$path\", \"\", \"menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600\");return false;'><i class='icon-facebook'></i> | Post to Facebook</button> ";
+					$this->html.= "</div><!-- /span4 -->";
+					$this->html.= "<div class='span4'>";
+						$this->html.= "<button class='btn btn-mini btn-twitter' onclick='javascript:window.open(\"http://twitter.com/home?status=$path\", \"\", \"menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600\");return false;'><i class='icon-twitter'></i> | Post to Twitter</button> ";
+					$this->html.= "</div><!-- /span4 -->";
+					$this->html.= "<div class='span4'>";						
+						$this->html.= "<button class='btn btn-mini btn-google-plus' onclick='javascript:window.open(\"https://plus.google.com/share?url=$path\", \"\", \"menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600\");return false;'><i class='icon-google-plus'></i> | Post to Google Plus</button>";
+					$this->html.= "</div><!-- /span4 -->";
+					
 				$this->html.= "</div><!-- /row-fluid -->";
 				
-				// Social Networks links
-				$this->html.= "<div class='row-fluid'>";	
-					$this->html.= "<div class='span8'>";
-						$this->html.= "<button class='btn btn-mini btn-facebook' onclick='javascript:window.open(\"http://www.facebook.com/share.php?u=$path\", \"\", \"menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600\");return false;'><i class='icon-facebook'></i> | Post to Facebook</button> ";
-						$this->html.= "<button class='btn btn-mini btn-twitter' onclick='javascript:window.open(\"http://twitter.com/home?status=$path\", \"\", \"menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600\");return false;'><i class='icon-twitter'></i> | Post to Twitter</button> ";
-						$this->html.= "<button class='btn btn-mini btn-google-plus' onclick='javascript:window.open(\"https://plus.google.com/share?url=$path\", \"\", \"menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600\");return false;'><i class='icon-google-plus'></i> | Post to Google Plus</button>";
-					$this->html.= "</div><!-- /span8 -->";
-				$this->html.= "</div><!-- /row-fluid -->";
-			
 			$this->html.= "</div><!-- /dashboard-box-full -->";
 		$this->html.= "</div><!-- /row-fluid -->";
     }

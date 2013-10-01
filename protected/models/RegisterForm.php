@@ -25,7 +25,7 @@ class RegisterForm extends CFormModel
 	{
 		return array(
 			// username and password are required
-			array('username', 'unica'),
+			array('username, email', 'unica'),
 			array('name, surname, username, email, password, verifypassword', 'required'),
 			array('password, verifypassword', 'length', 'min'=>5, 'max'=>32),
 			array('verifypassword', 'compare', 'compareAttribute'=>'password'),
@@ -46,12 +46,11 @@ class RegisterForm extends CFormModel
 	public function unica($attribute,$params){
 		if(!$this->hasErrors())
 		{
-			$this->_identity = User::model()->findByAttributes(array('username'=>$this->username));
+			$this->_identity = User::model()->findByAttributes(array($attribute=>$this->$attribute));
 			if(!empty($this->_identity))
-				$this->addError('username', 'Username already taken.');
+				$this->addError($attribute, sprintf(Yii::t('locale','%s already taken.'), $attribute));
 		}
 	}
-	
 	
 	public function saveModel() {
 		$user = new User();
