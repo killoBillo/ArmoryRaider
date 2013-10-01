@@ -118,7 +118,7 @@ class RaiderFunctions {
 	 */
 	public static function thumbGen($width, $height, $src, $blured = false) {
 		// trovo il nome del file sorgente con la seguente regexp.
-		$pattern = '([\w-\.\ ]+\.+(?i)(jpg|png|gif|bmp)$)';
+		$pattern = '([\w-\.\ ]+\.+(?i)(jpg|jpeg|png|gif|bmp)$)';
 		preg_match($pattern, $src, $filename, PREG_OFFSET_CAPTURE);
 		
 		// modifico il path eliminando il nome del file sorgente.
