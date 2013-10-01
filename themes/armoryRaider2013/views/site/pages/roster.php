@@ -7,6 +7,7 @@
 	foreach ($users as $k=>$user) {
 		$userImgFolder = strtolower(preg_replace('/[\s]+/','_',$user->username));
 		$portrait = ($user->portrait_URL) ? $userImgFolder.'/thumb50x50-'.$user->portrait_URL : 'thumb50x50-unknown.jpg';
+		$guildRole = $user->profile->guildrole;
 		
 		// genero HTML utente
 		$html.= "<div class='user-widget well'>";
@@ -15,7 +16,7 @@
 			$html.= "</div>";
 			
 			$html.= "<div class='user-data pull-left'>";
-				$html.= "<div class='username'>".$user->username."<br><small>".$user->name." ".$user->surname."</small></div>";
+				$html.= "<div class='username'>".$user->username."<br><small>".$user->name." ".$user->surname." [ ".$guildRole->label." ]</small></div>";
 			$html.= "</div><!-- /user-data -->";
 			
 			$html.= "<div class='clearbox clearfix'></div>";
