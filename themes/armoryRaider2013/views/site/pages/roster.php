@@ -23,7 +23,7 @@
 		$html.= "</div><!-- /userWidget -->";
 		// fine HTML utente
 		
-		$html.= "<table class='table table-hover shadow'>";
+		$html.= "<table class='table table-hover shadow table-white'>";
 			$html.= "<thead>";
 				$html.= "<tr>";
 					$html.= "<th> ".Yii::t('locale', 'Img')."</th>";
@@ -37,7 +37,7 @@
 			$html.= "</thead>";
 			$html.= "<tbody>";
 			
-			if(empty($chars)) {
+			if(!empty($chars[$k])) {
 				foreach ($chars[$k] as $k1=>$model) {
 	    			//recupero le info sul personaggio
 					$character = new RaiderCharacter($model->id);

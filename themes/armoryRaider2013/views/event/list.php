@@ -16,7 +16,7 @@
 			//disegno la tabella
 			$html.= "<table class='table table-hover shadow table-white'>";
 				$html.= "<thead>";
-					$html.= "<tr>";
+					$html.= "<tr class='alert alert-error'>";
 						$html.= "<th><i class='icon-calendar'></i> ".Yii::t('locale', 'Event Date')."</th>";
 						$html.= "<th><i class='icon-time'></i> ".Yii::t('locale', 'Event Hour')."</th>";
 						$html.= "<th><i class='icon-legal'></i> ".Yii::t('locale', 'Raid')."</th>";

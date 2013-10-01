@@ -338,7 +338,7 @@ class SiteController extends RaiderController
 	 */
 	public function actionRoster() {
 		$this->layout='//layouts/column2Page';
-		$users = User::model()->findAll();
+		$users = User::model()->findAll('id != :id',array(':id'=>'1'));
 		$chars = array();
 		
 		foreach ($users as $k=>$user) {
