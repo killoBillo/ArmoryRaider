@@ -44,11 +44,11 @@ return array(
 		),
 		'rights'=>array(
 			'superuserName'=>'admin',
-			'authenticatedName'=>'Guest', // Name of the authenticated user role.
-//			'userClass'=>'User',
-//			'userIdColum'=>'id',
-//			'userNameColum'=>'username',
+			'authenticatedName'=>'Authenticated', // Name of the authenticated user role.
+//			'userIdColumn'=>'id', // Name of the user id column in the database.
+//			'userNameColumn'=>'username',  // Name of the user name column in the database. 
 			'install'=>false,
+//			'debug'=>false,
 		),
 	),
 

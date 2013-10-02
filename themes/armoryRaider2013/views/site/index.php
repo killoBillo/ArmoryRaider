@@ -16,7 +16,7 @@ $this->pageTitle=Yii::app()->name;
 //	var_dump('linguaggio utente: ',User::model()->findByPk(Yii::app()->user->id)->profile->locale);
 //	var_dump('linguaggio applicazione: ',Yii::app()->getLanguage());
 //	var_dump(Yii::app()->getLocaleDataPath());
-//	var_dump(Yii::app()->user->id, Yii::app()->user->username);
+//	var_dump(Yii::app()->user->id, Yii::app()->user->getName());
 //	var_dump(Yii::app()->locale->getLanguage(Yii::app()->getLanguage()));
 //	var_dump(Yii::app()->messages->basePath);
 //	var_dump(Yii::app()->locale->getLocaleIDs());
