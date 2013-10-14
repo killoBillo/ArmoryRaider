@@ -46,7 +46,7 @@ class CharactersList extends CWidget {
 					$this->html.= "<div class='btn-group pull-right'>";
 						$this->html.= "<a class='btn btn-mini dropdown-toggle' data-toggle='dropdown' href='#'><span class='caret'></span></a>";
 						$this->html.= "<ul class='dropdown-menu'>";
-							$this->html.= "<li><a href='".$charArmoryUrl."'><i class='icon-screenshot'></i> ".Yii::t('locale', 'Character armory page')."</a></li>";
+							$this->html.= "<li><a href='".CHtml::encode($charArmoryUrl)."'><i class='icon-screenshot'></i> ".Yii::t('locale', 'Character armory page')."</a></li>";
 							$this->html.= "<li><a href='".$guildArmoryUrl."'><i class='icon-share'></i> ".Yii::t('locale', 'Guild armory page')."</a></li>";
 							$this->html.= "<li class='divider'></li>";
 							$this->html.= "<li><a href='".Yii::app()->createUrl('character/confirmDelete',array('id'=>$character->getCharacter()->id))."'><i class='icon-trash'></i> ".Yii::t('locale', 'Delete character')."</a></li>";
