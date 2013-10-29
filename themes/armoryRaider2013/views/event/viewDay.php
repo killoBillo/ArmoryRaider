@@ -10,7 +10,7 @@ $this->breadcrumbs=array(
 ?>
 
 
-<h1><?php echo Yii::t('locale', 'Events planned').' <small>'.Yii::app()->DateFormatter->formatDateTime(CDateTimeParser::parse($date, 'yyyy-mm-dd'), 'full', null ).'</small>'; ?></h1>
+<h1><?php echo Yii::t('locale', 'Events planned').' <small>'.Yii::app()->DateFormatter->formatDateTime(CDateTimeParser::parse($date, 'yyyy-MM-dd'), 'full', null ).'</small>'; ?></h1>
 <br>
 <?php 
 	$this->widget('ext.RaiderExt.DashboardEvents',array(

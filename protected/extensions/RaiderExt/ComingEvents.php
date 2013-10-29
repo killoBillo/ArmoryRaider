@@ -33,7 +33,7 @@ class ComingEvents extends CWidget {
 
 					$this->html.= "<div class='event-data pull-left'>";
 						$this->html.= "<div class='event-title'>".$event->getRaid()->name."</div>";
-						$this->html.= "<div class='event-date'>".Yii::app()->DateFormatter->formatDateTime(CDateTimeParser::parse($date->format('Y-m-d'), 'yyyy-mm-dd'), 'full', null )." ".Yii::t('locale', 'hour')." ".$date->format('H:i')."</div>";
+						$this->html.= "<div class='event-date'>".Yii::app()->DateFormatter->formatDateTime(CDateTimeParser::parse($date->format('Y-m-d'), 'yyyy-MM-dd'), 'full', null )." ".Yii::t('locale', 'hour')." ".$date->format('H:i')."</div>";
 						$this->html.= "<div class='event-links'>";	
 							$this->html.= "<div class='pull-left'><a class='btn btn-mini' href='".Yii::app()->createUrl('event/show', array('id'=>$event->getEventModel()->id))."'>".Yii::t('locale', 'Show')."</a></div>";
 							// stampo il pulsante di iscrizione solo se se non iscritti, altrimenti lo stampo disabled 

@@ -36,10 +36,10 @@ class DashboardEvents extends CWidget {
 			//event
 			$this->params['id'] 			= $event['id'];
 			$this->params['event_dateTime']	= new DateTime($event['event_date']);
-			$this->params['event_date']		= Yii::app()->DateFormatter->formatDateTime(CDateTimeParser::parse($this->params['event_dateTime']->format('Y-m-d'), 'yyyy-mm-dd'), 'full', null );
+			$this->params['event_date']		= Yii::app()->DateFormatter->formatDateTime(CDateTimeParser::parse($this->params['event_dateTime']->format('Y-m-d'), 'yyyy-MM-dd'), 'full', null );
 			$this->params['event_hour']		= $this->params['event_dateTime']->format('H:i');
 			$this->params['creation_date']	= new DateTime($event['creation_date']);
-			$this->params['event_crDate']	= Yii::app()->DateFormatter->formatDateTime(CDateTimeParser::parse($this->params['creation_date']->format('Y-m-d'), 'yyyy-mm-dd'), 'full', null ); 
+			$this->params['event_crDate']	= Yii::app()->DateFormatter->formatDateTime(CDateTimeParser::parse($this->params['creation_date']->format('Y-m-d'), 'yyyy-MM-dd'), 'full', null ); 
 			$this->params['description']	= $event['description'];
 			
 			//raidleader info
@@ -428,7 +428,7 @@ class DashboardEvents extends CWidget {
 			// se è stato scritto un commento, lo inserisco nell'html
 			if(!empty($charEvent->comment)) {
 				$html.= "<div class='pg-comment'>";
-					$html.= "<i class='icon-comment'></i> <small>".Yii::app()->DateFormatter->formatDateTime(CDateTimeParser::parse($charEvent->comment_date, 'yyyy-mm-dd'), 'full', null )."</small><br>$charEvent->comment";
+					$html.= "<i class='icon-comment'></i> <small>".Yii::app()->DateFormatter->formatDateTime(CDateTimeParser::parse($charEvent->comment_date, 'yyyy-MM-dd'), 'full', null )."</small><br>$charEvent->comment";
 				$html.= "</div>";			
 			}
 			

@@ -35,7 +35,7 @@
 					$raidleader = User::model()->findByPk($model->raid_leader_id);
 					
 					$html.= "<tr>";
-						$html.= "<td>".Yii::app()->DateFormatter->formatDateTime(CDateTimeParser::parse($dateString, 'yyyy-mm-dd'), 'full', null )."</td>";
+						$html.= "<td>".Yii::app()->DateFormatter->formatDateTime(CDateTimeParser::parse($dateString, 'yyyy-MM-dd'), 'full', null )."</td>";
 						$html.= "<td>$hourString</td>";
 						$html.= "<td>".CHtml::image($assetsURL.'/raid/'.$raidImgFolder.'/thumb40x40-'.$raid->img, 'Image of '.$raid->name, array('height'=>20, 'width'=>20, 'class'=>'img-polaroid'))." ".$raid->name."</td>";
 						$html.= "<td>".$raidleader->username."</td>";

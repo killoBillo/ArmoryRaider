@@ -10,7 +10,7 @@ $hourString = $eventDate->format('H:i');
 ?>
 
 
-<h1><?php echo "<span class='uppercase'>$raidName</span> <small>".Yii::app()->DateFormatter->formatDateTime(CDateTimeParser::parse($dateString, 'yyyy-mm-dd'), 'full', null )." ".Yii::t('locale', 'hour')." $hourString</small>" ;?></h1>
+<h1><?php echo "<span class='uppercase'>$raidName</span> <small>".Yii::app()->DateFormatter->formatDateTime(CDateTimeParser::parse($dateString, 'yyyy-MM-dd'), 'full', null )." ".Yii::t('locale', 'hour')." $hourString</small>" ;?></h1>
 
 <?php 
 	$this->widget('ext.RaiderExt.DashboardEvents',array(

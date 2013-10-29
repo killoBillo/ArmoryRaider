@@ -40,7 +40,7 @@
 					
 					$html.= "<tr>";
 						$html.= "<td><img class='img-polaroid' src='".$char->portrait_URL."' height='20' width='20' alt='portrait of ".$char->name."'> ".$char->name."</td>";
-						$html.= "<td>".Yii::app()->DateFormatter->formatDateTime(CDateTimeParser::parse($dateString, 'yyyy-mm-dd'), 'medium', null )." - ".$hourString."</td>";
+						$html.= "<td>".Yii::app()->DateFormatter->formatDateTime(CDateTimeParser::parse($dateString, 'yyyy-MM-dd'), 'medium', null )." - ".$hourString."</td>";
 						$html.= "<td>".CHtml::image($assetsURL.'/raid/'.$raidImgFolder.'/thumb40x40-'.$raid->img, 'Image of '.$raid->name, array('height'=>20, 'width'=>20, 'class'=>'img-polaroid'))." ".$raid->name."</td>";
 						$html.= "<td>".$role."</td>";
 						$html.= "<td>".$raidleader->username."</td>";
