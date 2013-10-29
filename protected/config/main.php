@@ -28,11 +28,11 @@ return array(
 	// gestisce il login utilizzando il file RequireLogin.php in /components
 	// risorsa web: 
 	// http://www.larryullman.com/2010/07/20/forcing-login-for-all-pages-in-yii/
-	'behaviors' => array(
-	    'onBeginRequest' => array(
-	        'class' => 'application.components.RequireLogin'
-	    )
-	),	
+//	'behaviors' => array(
+//	    'onBeginRequest' => array(
+//	        'class' => 'application.components.RequireLogin'
+//	    )
+//	),	
 
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool

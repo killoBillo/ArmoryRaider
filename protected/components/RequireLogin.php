@@ -17,7 +17,14 @@ class RequireLogin extends CBehavior
 		 * - site/register
 		 * - site/resetPassword
 		 */ 
-	    if (Yii::app()->user->isGuest && (!isset($_GET['r']) || !in_array($_GET['r'],array('site/login', 'site/register', 'site/resetpassword')))) {
+		$allowedActions = array(
+			'site/login', 
+			'site/register', 
+			'site/resetpassword', 
+			'site/activate'
+		);
+		
+	    if (Yii::app()->user->isGuest && (!isset($_GET['r']) || !in_array($_GET['r'], $allowedActions))) {
         	Yii::app()->user->loginRequired();
     	}
 	}
