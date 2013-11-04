@@ -67,7 +67,7 @@ class DashboardEvents extends CWidget {
 			// calcolo gli utenti iscritti disponibili e non disponibili
 			$this->params['available'] 		= 0;
 			$this->params['unavailable'] 	= 0;
-			foreach ($this->params['charEvent'] as $k=>$model) {
+			foreach ($this->params['charEvent'] as $k1=>$model) {
 				if($model->available_flag)
 					$this->params['available']++;
 				else
