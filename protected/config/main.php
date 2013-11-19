@@ -72,16 +72,21 @@ return array(
 			'class'=>'application.extensions.thumbnailer.Thumbnailer'
 		),
 		// uncomment the following to enable URLs in path-format
-		/*
 		'urlManager'=>array(
-			'urlFormat'=>'path',
-			'rules'=>array(
-				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
-				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
-				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
-			),
+		    'urlFormat'=>'path',
+		    'rules'=>array(
+		        // REST patterns
+		        array('api/ping', 'pattern'=>'api/ping', 'verb'=>'GET'),
+		        array('api/login', 'pattern'=>'api/<model:\w+>/<username:\w+>/<password:\w+>', 'verb'=>'GET'),
+		        array('api/list', 'pattern'=>'api/<model:\w+>', 'verb'=>'GET'),
+		        array('api/view', 'pattern'=>'api/<model:\w+>/<id:\d+>', 'verb'=>'GET'),
+		        array('api/update', 'pattern'=>'api/<model:\w+>/<id:\d+>', 'verb'=>'PUT'),
+		        array('api/delete', 'pattern'=>'api/<model:\w+>/<id:\d+>', 'verb'=>'DELETE'),
+		        array('api/create', 'pattern'=>'api/<model:\w+>', 'verb'=>'POST'),
+		        // Other controllers
+		        '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+		    ),
 		),
-		*/
 		'db'=>array(
 //			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
 			'connectionString' => 'mysql:host=127.0.0.1;dbname=armoryraider',
