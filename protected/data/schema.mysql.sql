@@ -201,7 +201,6 @@ CREATE TABLE `rights` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-
 -- -----------------------------------------------------
 -- Table `user`
 -- -----------------------------------------------------
@@ -365,6 +364,7 @@ CREATE  TABLE IF NOT EXISTS `raid` (
   `number_of_players` INT NULL ,
   `description` VARCHAR(500) NULL ,
   `color` VARCHAR(45) NULL ,
+  `type` VARCHAR(45) NULL COMMENT 'Raid type: Normal, Heroic, Flex, ecc' ,
   `is_heroic` INT NULL DEFAULT 0 ,
   `is_active` INT NULL DEFAULT 1 ,
   PRIMARY KEY (`id`) )
@@ -668,17 +668,6 @@ INSERT INTO `race` (`id`, `name`) VALUES (10, 'Tauren');
 INSERT INTO `race` (`id`, `name`) VALUES (11, 'Troll');
 INSERT INTO `race` (`id`, `name`) VALUES (12, 'Forsaken');
 INSERT INTO `race` (`id`, `name`) VALUES (13, 'Pandaren');
-
-COMMIT;
-
--- -----------------------------------------------------
--- Data for table `raid`
--- -----------------------------------------------------
-START TRANSACTION;
-INSERT INTO `raid` (`id`, `name`, `level`, `img`, `number_of_players`, `description`, `color`, `is_heroic`, `is_active`) VALUES (1, 'Firelands', 85, 'firelands.jpg', 10, '\"Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt \"', '#FF8A00', 0, 1);
-INSERT INTO `raid` (`id`, `name`, `level`, `img`, `number_of_players`, `description`, `color`, `is_heroic`, `is_active`) VALUES (2, 'Dragon Soul Normal', 85, 'wi-deathwingvsthrall.jpg', 10, '\"Lorem Ipsum excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt\"', '#FF0000', 0, 1);
-INSERT INTO `raid` (`id`, `name`, `level`, `img`, `number_of_players`, `description`, `color`, `is_heroic`, `is_active`) VALUES (3, 'Dragon Soul LFR', 85, 'wi-deathwingvsthrall.jpg', 25, '\"Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt \"', '#85CF81', 0, 1);
-INSERT INTO `raid` (`id`, `name`, `level`, `img`, `number_of_players`, `description`, `color`, `is_heroic`, `is_active`) VALUES (4, 'Dragon Soul Heroic', 85, 'wow_ds.jpg', 10, '\"Sed ut perspiciatis unde omnis iste natus\"', '#47548F', 1, 1);
 
 COMMIT;
 

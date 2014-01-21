@@ -73,6 +73,7 @@
 		'No unavailable users'=>'Nessun utente non disponibile',
 		'Delete subscription'=>'Rimuovi sottoscrizione',
 		'Edit comment'=>'Modifica commento',
+		'Change role'=>'Cambia ruolo',
 		'Set as unavailable'=>'Segna come non disponibile',
 		'Set as holder'=>'Imposta come titolare',
 		'No more holder'=>'Non pi&ugrave titolare',
@@ -91,7 +92,6 @@
 		'No events found'=>'Nessun evento trovato',
 		'Date Time'=>'Data Ora',
 		'R.L.'=>'R.L.',
-	
 	
 		// traduzioni model e controller "CharacterEvent", viste "signup"
 		'Raid subscription'=>'Iscrizione al raid',

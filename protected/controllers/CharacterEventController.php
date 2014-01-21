@@ -286,4 +286,17 @@ class CharacterEventController extends RaiderController
 		
 		$this->render('modifyComment', array('model'=>$model));
 	}
+	
+	public function actionModifyRole($id) {
+		$model = $this->loadModel($id);	
+		
+		if(isset($_POST['CharacterEvent'])){
+			$model->setAttributes($_POST['CharacterEvent']);
+			
+			if($model->save())
+				$this->redirect(array('event/show','id'=>$model->event_id));			
+		}
+		
+		$this->render('modifyRole', array('model'=>$model));		
+	}
 }

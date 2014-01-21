@@ -95,6 +95,11 @@ a.btn-warning:visited {
 	padding: 0;
 	border-radius: 0;
 }
+.label {
+	font-family: 'Roboto';
+	font-size: 9px;
+	text-transform: uppercase;
+}
 /**
  * Yii Framework **********************************************************************
  */
@@ -172,6 +177,9 @@ ul, ol {
 }
 .strong {
 	font-weight: bold;
+}
+.normal-weight {
+	font-weight: normal;
 }
 .hide {
 	display:none;
@@ -316,6 +324,12 @@ table {
 }
 .table-white {
 	background-color: #FFF !important;	
+}
+.unavailable {
+	margin-top: 10px;
+	padding-top: 30px;
+	box-shadow: 0 -1px 0 #F0F0F0;
+	border-top: 1px solid #FFF;
 }
 /**
  * Sidebar *****************************************************************************

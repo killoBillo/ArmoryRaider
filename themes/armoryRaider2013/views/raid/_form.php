@@ -43,11 +43,30 @@
 		<?php echo $form->textField($model,'number_of_players', array('class'=>'input-large input-block-level', 'placeholder'=>'Number Of Players *')); ?>
 		<?php echo $form->error($model,'number_of_players'); ?>
 		
+		<div>
+			<?php echo $form->textField($model,'type', array('class'=>'input-large input-block-level', 'placeholder'=>'Raid type (Heroic, Normal, Flex, ...)')); ?>
+			<?php echo $form->error($model,'type'); ?>
+		</div>
+		
 		<!-- 
 		<?php echo $form->textField($model,'color',array('class'=>'input-large input-block-level', 'placeholder'=>'Color')); ?>
 		<?php echo $form->error($model,'color'); ?>
 		 -->		
 
+		<!-- 
+		<?php echo $form->labelEx($model, Yii::t('locale', 'Heroic raid ?')); ?>
+		<div class="switch" data-on-label="<?php echo Yii::t('locale', 'Yes'); ?>" data-off-label="<?php echo Yii::t('locale', 'No'); ?>">
+			<?php echo $form->checkBox($model, 'is_heroic'); ?>
+			<?php echo $form->error($model,'is_heroic'); ?>
+		</div> 
+		-->
+		
+		<?php echo $form->labelEx($model, Yii::t('locale', 'Active ?')); ?>
+		<div class="switch" data-on-label="<?php echo Yii::t('locale', 'Yes'); ?>" data-off-label="<?php echo Yii::t('locale', 'No'); ?>">
+			<?php echo $form->checkBox($model, 'is_active'); ?>
+			<?php echo $form->error($model,'is_active'); ?>
+		</div>
+		
 		<?php if($model->isNewRecord) { ?>
 			<?php echo $form->labelEx($model,'Raid Image *'); ?>
 			<?php echo $form->fileField($model, 'img'); ?>
@@ -58,19 +77,7 @@
 			<?php echo $form->fileField($model, 'img', array('class'=>'change-img', 'style'=>'display:none;')); ?>
 			<?php echo CHtml::link(Yii::t('locale', 'Change image'),'',array('class'=>'change-img-link', 'onclick'=>'javascript:$(".change-img").toggle(200)')); ?>
 			<?php echo $form->error($model,'img'); ?>
-		<?php } ?>
-		
-		<?php echo $form->labelEx($model, Yii::t('locale', 'Heroic raid ?')); ?>
-		<div class="switch" data-on-label="<?php echo Yii::t('locale', 'Yes'); ?>" data-off-label="<?php echo Yii::t('locale', 'No'); ?>">
-			<?php echo $form->checkBox($model, 'is_heroic'); ?>
-			<?php echo $form->error($model,'is_heroic'); ?>
-		</div>
-		
-		<?php echo $form->labelEx($model, Yii::t('locale', 'Active ?')); ?>
-		<div class="switch" data-on-label="<?php echo Yii::t('locale', 'Yes'); ?>" data-off-label="<?php echo Yii::t('locale', 'No'); ?>">
-			<?php echo $form->checkBox($model, 'is_active'); ?>
-			<?php echo $form->error($model,'is_active'); ?>
-		</div>
+		<?php } ?>		
 
 		<div style="margin-top: 20px;">
 			<?php echo $form->labelEx($model,Yii::t('locale', 'description')); ?>

@@ -11,6 +11,7 @@
  * @property integer $number_of_players
  * @property string $description
  * @property string $color
+ * @property string $type
  * @property integer $is_heroic
  * @property integer $is_active
  *
@@ -46,12 +47,12 @@ class Raid extends RaiderActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name', 'unique'),
+			//array('name', 'unique'),
 			array('name, level, number_of_players, is_heroic, is_active', 'required'),
 			array('level, number_of_players, is_heroic, is_active', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>255),
 			array('description', 'length', 'max'=>500),
-			array('color', 'length', 'max'=>45),
+			array('color, type', 'length', 'max'=>45),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, name, level, img, number_of_players, description, color, is_heroic, is_active', 'safe', 'on'=>'search'),
@@ -84,6 +85,7 @@ class Raid extends RaiderActiveRecord
 			'number_of_players' => 'Number Of Players',
 			'description' => 'Description',
 			'color' => 'Color',
+			'type' => 'Type',
 			'is_heroic' => 'Is Heroic',
 			'is_active' => 'Is Active',
 		);

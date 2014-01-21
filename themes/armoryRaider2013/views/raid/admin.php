@@ -43,6 +43,7 @@ $('.search-form form').submit(function(){
 		'columns'=>array(
 			'id',
 			'name',
+			'type',
 			'level',
 			'img',
 			'number_of_players',

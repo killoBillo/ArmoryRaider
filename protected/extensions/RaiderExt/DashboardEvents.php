@@ -58,6 +58,7 @@ class DashboardEvents extends CWidget {
 			$this->params['playerNum']		= $raid['number_of_players'];
 			$this->params['raidLevel']		= $raid['level'];
 			$this->params['raidColor']		= !empty($raid['color'])? $raid['color'] : 'orange';
+			$this->params['raidType']		= !empty($raid['type'])? $raid['type'] : 'Normal';
 			$this->params['isHeroic']		= $raid['is_heroic'];
 			$this->params['raidImgFolder']	= strtolower(preg_replace('/[\s]+/','_',$raid['name']));
 			$this->params['raidIcon'] 		= $this->params['isHeroic'] ? 'eroic-icon' : 'normal-icon';
@@ -124,7 +125,7 @@ class DashboardEvents extends CWidget {
 				$this->html.= "</div>";
 				
 				$this->html.= "<div class='pull-left post-autor '>";
-					$this->html.= "<div class='dashboard-box-mini-raidleader'>".$this->params['username']." [ ".$this->params['userGuildRole']." ]</div>";
+					$this->html.= "<div class='dashboard-box-mini-raidleader'>".$this->params['username']."</div>";		//." [ ".$this->params['userGuildRole']." ]</div>";
 					$this->html.= "<div class='dashboard-box-mini-label event-date'><span class='muted'>".Yii::t('locale', 'has created a new event')."</span></div>";
 				$this->html.= "</div>";
 				
@@ -139,7 +140,7 @@ class DashboardEvents extends CWidget {
 			$this->html.= "</div>";
 			
 			$this->html.= "<div class='dashboard-box-mini-footer'>";
-				$this->html.= "<div class='pull-left raid-info'>".$this->params['raidName']."<br><small class='muted event-date'>".$this->params['event_date']." ".Yii::t('locale', 'hour')." ".$this->params['event_hour']."</small></div>";
+				$this->html.= "<div class='pull-left raid-info'>".$this->params['raidName']." <span class='label label-warning normal-weight'>".$this->params['raidType']."</span><br><small class='muted event-date'>".$this->params['event_date']." ".Yii::t('locale', 'hour')." ".$this->params['event_hour']."</small></div>";
 				$this->html.= "<div class='pull-right'><a class='btn btn-link' href='".Yii::app()->createUrl('event/show', array('id'=>$this->params['id']))."'>".Yii::t('locale', 'Show')."</a></div>";
 
 				$this->html.= "<div class='clearbox clearfix'></div>";
@@ -171,7 +172,7 @@ class DashboardEvents extends CWidget {
 						
 						$this->html.= "<div class='span5'>";
 							$this->html.= "<div class='dashboard-box-normal-header'>";
-								$this->html.= "<div class='pull-left'>".$this->params['raidName']." <small>".Yii::t('locale', 'hour')." ".$this->params['event_hour']."</small></div>";
+								$this->html.= "<div class='pull-left'>".$this->params['raidName']." <span class='label label-warning normal-weight'>".$this->params['raidType']."</span> <small>".Yii::t('locale', 'hour')." ".$this->params['event_hour']."</small></div>";
 								$this->html.= "<div class='pull-right'><i class='icon-fire'></i> <small>".Yii::t('locale', 'Members: ')." ".$this->params['members']."</small></div>";
 								$this->html.= "<div class='clearbox clearfix'></div>";
 							$this->html.= "</div><!-- /dashboard-box-normal-header -->";
@@ -300,7 +301,7 @@ class DashboardEvents extends CWidget {
 							$this->html.= "</div>";									
 						$this->html.= "</div><!-- /row-fluid -->";
 
-						$this->html.= "<div class='row-fluid'>";
+						$this->html.= "<div class='row-fluid unavailable'>";
 							$this->html.= "<div class='span3'>";
 								$this->html.= "<div class='alert alert-error'><i class='icon-bookmark'></i> ".Yii::t('locale', 'Unavailable')."</div>";							
 							$this->html.= "</div>";
@@ -417,6 +418,8 @@ class DashboardEvents extends CWidget {
 						$html.= "<li><a href='".Yii::app()->createUrl('characterEvent/toggleAvailable', array('id'=>$charEvent->id))."'>";
 						$html.= ($charEvent->available_flag) ? "<i class='icon-ban-circle'></i> ".Yii::t('locale', 'Set as unavailable')."</a></li>" : "<i class='icon-ok-sign'></i> ".Yii::t('locale', 'Set as available')."</a></li>";
 						$html.= "<li><a href='".Yii::app()->createUrl('characterEvent/modifyComment', array('id'=>$charEvent->id))."'><i class='icon-pencil'></i> ".Yii::t('locale', 'Edit comment')."</a></li>";
+						$html.= "<li class='divider'></li>";
+						$html.= "<li><a href='".Yii::app()->createUrl('characterEvent/modifyRole', array('id'=>$charEvent->id))."'><i class='icon-bullseye'></i> ".Yii::t('locale', 'Change role')."</a></li>";
 						$html.= "<li class='divider'></li>";
 						$html.= "<li><a href='".Yii::app()->createUrl('characterEvent/delete',array('id'=>$charEvent->id))."'><i class='icon-trash'></i> ".Yii::t('locale', 'Delete subscription')."</a></li>";
 					$html.= "</ul>";	

@@ -79,10 +79,10 @@ class Calendar extends CWidget {
 		$this->nextMonthLabel = $this->monthsLabels[intval($this->nextMonth->format('m'))]." ".$this->nextMonth->format('Y');       
 		
         
-		// controllo se � stato selezionato un giorno(e se non mi trovo sul controller site e sull'action index), in tal caso inizializzo la var $this->selected.
-		if(isset($_GET['date']) && $_GET['r'] != 'site/index') 
+		// controllo se è stato selezionato un giorno(e se non mi trovo sul controller site e sull'action index), in tal caso inizializzo la var $this->selected.
+		if(isset($_GET['date'])) 
 			$this->selected = new DateTime($_GET['date']);
-		elseif(isset($_GET['day']) && $_GET['r'] != 'site/index')
+		elseif(isset($_GET['day']))
 			$this->selected = new DateTime($_GET['day']);
 
 			
