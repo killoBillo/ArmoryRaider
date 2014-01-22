@@ -20,6 +20,7 @@ return array(
 		'application.models.*',
 		'application.components.*',
 		'application.components.wowarmoryapi.*',
+		'application.components.d3armoryapi.*',
 		'application.modules.rights.*', 
 		'application.modules.rights.components.*',
 //		'application.modules.wowarmoryapi.*',		// Blizzard armory A.P.I.

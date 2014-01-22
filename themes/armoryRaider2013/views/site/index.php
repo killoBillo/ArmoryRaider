@@ -25,6 +25,11 @@ $this->pageTitle=Yii::app()->name;
 //	foreach($roles as $role) {
 //		echo $role->name."<br>";
 //	}
-
+	
+	
+	$armory =  new D3BattlenetArmory('eu', 'killo', '2539');
+	// $armory->getCareer();
+	$armory->getCharacter('139492');
+	
 	$this->widget('ext.RaiderExt.DashboardEvents',array('events'=>$events)); 
  ?>
