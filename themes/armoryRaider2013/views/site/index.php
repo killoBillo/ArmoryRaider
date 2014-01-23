@@ -28,8 +28,18 @@ $this->pageTitle=Yii::app()->name;
 	
 	
 	$armory =  new D3BattlenetArmory('eu', 'killo', '2539');
-	// $armory->getCareer();
-	$armory->getCharacter('139492');
+	$career = $armory->getCareer();
+	$heroes = $career->getAllCharacters();
+	
+	echo $career->getBattleTag();
+	echo ' count heroes: '.count($heroes);
+	var_dump($career->getLastUpdate());
+	
+	// $character = $armory->getCharacter(3454);
+	// echo $character->getName().' '.$character->getClass();
+	// echo $character->getCharacterUrl();
+	// echo '<img class="img-rounded" src="'.$character->getPortraitUrl().'" width="40" height="40" style="border:1px solid #333">';
+	// var_dump($character->getSkills());
 	
 	$this->widget('ext.RaiderExt.DashboardEvents',array('events'=>$events)); 
  ?>

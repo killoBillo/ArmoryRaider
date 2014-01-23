@@ -1,0 +1,1533 @@
+{
+"id" : 139492,
+"name" : "Killo",
+"class" : "barbarian",
+"gender" : 0,
+"level" : 60,
+"paragonLevel" : 40,
+"hardcore" : false,
+"skills" : {
+"active" : [ {
+"skill" : {
+"slug" : "frenzy",
+"name" : "Frenzy",
+"icon" : "barbarian_frenzy",
+"level" : 11,
+"categorySlug" : "primary",
+"tooltipUrl" : "skill/barbarian/frenzy",
+"description" : "Generate: 3 Fury per attack\r\n\r\nSwing for 110% weapon damage. Frenzy attack speed increases by 15% with each swing. This effect can stack up to 5 times for a total bonus of 75% attack speed.",
+"simpleDescription" : "Generate: 3 Fury per attack\r\n\r\nEnter a frenzied state that increases your attack speed with each hit.",
+"skillCalcId" : "W"
+},
+"rune" : {
+"slug" : "frenzy-b",
+"type" : "b",
+"name" : "Sidearm",
+"level" : 17,
+"description" : "Each strike has a 25% chance to throw a piercing axe at a nearby enemy that deals 110% weapon damage to all enemies in its path.",
+"simpleDescription" : "Each attack has a chance to throw a piercing axe.",
+"tooltipParams" : "rune/frenzy/b",
+"skillCalcId" : "a",
+"order" : 0
+}
+}, {
+"skill" : {
+"slug" : "leap",
+"name" : "Leap",
+"icon" : "barbarian_leap",
+"level" : 8,
+"categorySlug" : "defensive",
+"tooltipUrl" : "skill/barbarian/leap",
+"description" : "Generate: 15 Fury\r\nCooldown: 10 seconds\r\n\r\nLeap into the air, dealing 85% weapon damage to all enemies within 8 yards of your destination and slowing their movement speed by 60% for 3 seconds.",
+"simpleDescription" : "Generate: 15 Fury\r\nCooldown: 10 seconds\r\n\r\nLeap towards enemies and attack them.",
+"skillCalcId" : "X"
+},
+"rune" : {
+"slug" : "leap-a",
+"type" : "a",
+"name" : "Call of Arreat",
+"level" : 44,
+"description" : "Shockwaves burst forth from the ground increasing the radius of effect to 16 yards and pulling affected enemies towards you.",
+"simpleDescription" : "Draw enemies towards you when you land.",
+"tooltipParams" : "rune/leap/a",
+"skillCalcId" : "Y",
+"order" : 3
+}
+}, {
+"skill" : {
+"slug" : "wrath-of-the-berserker",
+"name" : "Wrath of the Berserker",
+"icon" : "barbarian_wrathoftheberserker",
+"level" : 30,
+"categorySlug" : "rage",
+"tooltipUrl" : "skill/barbarian/wrath-of-the-berserker",
+"description" : "Cost: 50 Fury \r\nCooldown: 120 seconds\r\n\r\nEnter a berserker rage which raises several attributes for 15 seconds.\r\n\r\nCritical Hit Chance: 10%\r\nAttack Speed: 25%\r\nDodge Chance: 20%\r\nMovement Speed: 20%",
+"simpleDescription" : "Cost: 50 Fury \r\nCooldown: 120 seconds\r\n\r\nBecome Fury incarnate for 15 seconds.",
+"skillCalcId" : "P"
+},
+"rune" : {
+"slug" : "wrath-of-the-berserker-a",
+"type" : "a",
+"name" : "Insanity",
+"level" : 40,
+"description" : "While active your damage is also increased by 100%.",
+"simpleDescription" : "Increase your damage while Wrath of the Berserker is active.",
+"tooltipParams" : "rune/wrath-of-the-berserker/a",
+"skillCalcId" : "Z",
+"order" : 1
+}
+}, {
+"skill" : {
+"slug" : "overpower",
+"name" : "Overpower",
+"icon" : "barbarian_overpower",
+"level" : 26,
+"categorySlug" : "might",
+"tooltipUrl" : "skill/barbarian/overpower",
+"description" : "Cooldown: 12 seconds\r\n\r\nDeal 165% weapon damage to all targets within 9 yards. Landing a Critical Hit has a chance to lower the cooldown by 1 second.",
+"simpleDescription" : "Cooldown: 12 seconds\r\n\r\nUnleash a devastating attack against nearby enemies. \r\n\r\nCooldown is reduced when you land Critical Hits.",
+"skillCalcId" : "Q"
+},
+"rune" : {
+"slug" : "overpower-c",
+"type" : "c",
+"name" : "Revel",
+"level" : 59,
+"description" : "Heal 8% of your maximum Life for every enemy hit.",
+"simpleDescription" : "Regain Life with each hit.",
+"tooltipParams" : "rune/overpower/c",
+"skillCalcId" : "c",
+"order" : 4
+}
+}, {
+"skill" : {
+"slug" : "rend",
+"name" : "Rend",
+"icon" : "barbarian_rend",
+"level" : 5,
+"categorySlug" : "secondary",
+"tooltipUrl" : "skill/barbarian/rend",
+"description" : "Cost: 20 Fury\r\n\r\nA sweeping strike causes all nearby enemies to Bleed for 700% weapon damage as Physical over 5 seconds.",
+"simpleDescription" : "Cost: 20 Fury\r\n\r\nWound nearby enemies and cause them to Bleed for 5 seconds.",
+"skillCalcId" : "c"
+},
+"rune" : {
+"slug" : "rend-d",
+"type" : "d",
+"name" : "Blood Lust",
+"level" : 19,
+"description" : "Gain 9% of the damage done by Rend as Life.",
+"simpleDescription" : "Gain Life when you damage enemies with Rend.",
+"tooltipParams" : "rune/rend/d",
+"skillCalcId" : "Z",
+"order" : 1
+}
+}, {
+"skill" : {
+"slug" : "battle-rage",
+"name" : "Battle Rage",
+"icon" : "barbarian_battlerage",
+"level" : 22,
+"categorySlug" : "tactics",
+"tooltipUrl" : "skill/barbarian/battle-rage",
+"description" : "Cost: 20 Fury\r\n\r\nEnter a rage which increases damage by 15% and Critical Hit Chance by 3% for 120 seconds.",
+"simpleDescription" : "Cost: 20 Fury\r\n\r\nUnleash your inner rage, increasing your damage and Critical Hit Chance for 120 seconds.",
+"skillCalcId" : "R"
+},
+"rune" : {
+"slug" : "battle-rage-a",
+"type" : "a",
+"name" : "Marauder's Rage",
+"level" : 26,
+"description" : "Increase damage bonus to 30%.",
+"simpleDescription" : "Increase the damage bonus of Battle Rage.",
+"tooltipParams" : "rune/battle-rage/a",
+"skillCalcId" : "a",
+"order" : 0
+}
+} ],
+"passive" : [ {
+"skill" : {
+"slug" : "ruthless",
+"name" : "Ruthless",
+"icon" : "barbarian_passive_ruthless",
+"level" : 10,
+"tooltipUrl" : "skill/barbarian/ruthless",
+"description" : "Critical Hit Chance increased by 5%. Critical Hit Damage increased by 50%.\r\n\r\nMany skills and runes rely on Critical Hits to trigger their effects.",
+"flavor" : "The clans each paint their warriors in their own unique way. Some celebrate the mountain, others honor the fire, but the Targos clan worships the purifying virtue of pain.",
+"skillCalcId" : "Z"
+}
+}, {
+"skill" : {
+"slug" : "tough-as-nails",
+"name" : "Tough as Nails",
+"icon" : "barbarian_passive_toughasnails",
+"level" : 30,
+"tooltipUrl" : "skill/barbarian/tough-as-nails",
+"description" : "Increases Armor by 25%.\r\nThorns damage dealt increased by 50%.",
+"flavor" : "After a while, the scars serve as their own layer of armor.",
+"skillCalcId" : "V"
+}
+}, {
+"skill" : {
+"slug" : "weapons-master",
+"name" : "Weapons Master",
+"icon" : "barbarian_passive_weaponsmaster",
+"level" : 16,
+"tooltipUrl" : "skill/barbarian/weapons-master",
+"description" : "Gain a bonus based on the weapon type of your main hand weapon:\r\nSwords/Daggers: 15% increased damage\r\nMaces/Axes: 10% Critical Hit Chance\r\nPolearms/Spears: 10% attack speed\r\nMighty Weapons: 3 Fury per hit",
+"flavor" : "\"My men ambushed the traveler in the woods, but it was we who were surprised. Such keen senses, swift motions, flawless strikes. We never stood a chance.\" —Redjack the Bandit",
+"skillCalcId" : "Y"
+}
+} ]
+},
+"items" : {
+"head" : {
+"id" : "Unique_Helm_006_104",
+"name" : "Mempo of Twilight",
+"icon" : "unique_helm_006_104_demonhunter_male",
+"displayColor" : "orange",
+"tooltipParams" : "item/CmAIq5L--w4SBwgEFYUioZEdZtwK8R1bToDJHYYCY-oddbHs8B3SXcJLHYf1e24wCTibAkAAUBJguwJqJQoMCAAQhaq9hoGAgKAdEhUI_8X_1Q4SBwgEFWP1i18wDTgAQAEY9fX25Q1QAlgA",
+"craftedBy" : [ ]
+},
+"torso" : {
+"id" : "Unique_Chest_013_104",
+"name" : "Immortal King's Eternal Reign",
+"icon" : "unique_chest_013_104_demonhunter_male",
+"displayColor" : "green",
+"tooltipParams" : "item/Cq4BCJ_w3-MHEgcIBBU0ZBkeHYNFzIwd3iVSyx0o_n0BHZMCY-odiL6-IR1bToDJMAk4pgJAAFASYMcCaiUKDAgAEKrBoo-DgIDAFhIVCK7BnMMGEgcIBBVk9YtfMA04AEABaiUKDAgAEOXowaqBgICgBxIVCNywm9cGEgcIBBVk9YtfMA04AEABaiUKDAgAEOut6eSBgICABxIVCKqmt_cGEgcIBBVk9YtfMA04AEABGOiQy-EDUAJYAKAB6JDL4QM",
+"craftedBy" : [ ]
+},
+"feet" : {
+"id" : "Unique_Boots_008_104",
+"name" : "Ice Climbers",
+"icon" : "unique_boots_008_104_demonhunter_male",
+"displayColor" : "orange",
+"tooltipParams" : "item/ClwIs4Gypg0SBwgEFehulOgdX8y2KB2ivlHhHX3gy3YdW06AyR2H9XtuHdJdwkswCTiNAkAAUBJgqwJqIQoMCAAQ8JKl7oCAgKAFEhEIABIHCAQVZPWLXzAJOABAARivxNz2AlACWAA",
+"craftedBy" : [ ]
+},
+"hands" : {
+"id" : "Gloves_203",
+"name" : "Proven Tendrils",
+"icon" : "gloves_203_barbarian_male",
+"displayColor" : "yellow",
+"tooltipParams" : "item/CkgI0864gA4SBwgEFcRbkqQdtR4aiR2E6UsMHdvLnmkddbHs8B2eVQ1bHV_MtigiCwgAFc7-AQAYACAGMAk4rQRAAEgBUBBg6wQY95DttgtQAlgA",
+"craftedBy" : [ ]
+},
+"shoulders" : {
+"id" : "Unique_Shoulder_003_104",
+"name" : "Vile Ward",
+"icon" : "unique_shoulder_003_104_demonhunter_male",
+"displayColor" : "orange",
+"tooltipParams" : "item/CjkIirjizgYSBwgEFaJwVPEd5ESUNR0MAz6LHdJdwksdwmqbER0o_n0BHVtOgMkwCTj6AUAAUBJglgIYu73c6gFQAlgA",
+"craftedBy" : [ ]
+},
+"legs" : {
+"id" : "Pants_205",
+"name" : "Walker's Claim",
+"icon" : "pants_205_barbarian_male",
+"displayColor" : "yellow",
+"tooltipParams" : "item/CkgInsbFqAsSBwgEFZyS1aUdslfV7h1HCWKcHWzQbvIdjyb-qx34ucU_Hbjx7BoiCwgBFXZCAwAYHCAaMA04tQRAAEgMUBBg9AQYx7XTogtQAlgA",
+"recipe" : {
+"id" : "T10_Armor_Pants_06",
+"slug" : "exalted-grand-sovereign-tassets",
+"name" : "Exalted Grand Sovereign Tassets",
+"cost" : 91494,
+"reagents" : [ {
+"quantity" : 35,
+"item" : {
+"id" : "Crafting_Tier_04B",
+"name" : "Exquisite Essence",
+"icon" : "crafting_tier_04b_demonhunter_male",
+"displayColor" : "blue",
+"tooltipParams" : "item/exquisite-essence"
+}
+}, {
+"quantity" : 5,
+"item" : {
+"id" : "Crafting_Tier_04C",
+"name" : "Iridescent Tear",
+"icon" : "crafting_tier_04c_demonhunter_male",
+"displayColor" : "yellow",
+"tooltipParams" : "item/iridescent-tear"
+}
+}, {
+"quantity" : 10,
+"item" : {
+"id" : "Crafting_Training_Tome_Inferno",
+"name" : "Tome of Secrets",
+"icon" : "crafting_training_tome_inferno_demonhunter_male",
+"displayColor" : "blue",
+"tooltipParams" : "recipe/tome-of-secrets"
+}
+} ],
+"itemProduced" : {
+"id" : "Pants_205",
+"name" : "Exalted Grand Sovereign Tassets",
+"icon" : "pants_205_demonhunter_male",
+"displayColor" : "yellow",
+"tooltipParams" : "recipe/exalted-grand-sovereign-tassets"
+}
+},
+"craftedBy" : [ {
+"id" : "T10_Armor_Pants_05",
+"slug" : "exalted-fine-sovereign-tassets",
+"name" : "Exalted Fine Sovereign Tassets",
+"cost" : 44344,
+"reagents" : [ {
+"quantity" : 25,
+"item" : {
+"id" : "Crafting_Tier_04B",
+"name" : "Exquisite Essence",
+"icon" : "crafting_tier_04b_demonhunter_male",
+"displayColor" : "blue",
+"tooltipParams" : "item/exquisite-essence"
+}
+}, {
+"quantity" : 4,
+"item" : {
+"id" : "Crafting_Tier_04C",
+"name" : "Iridescent Tear",
+"icon" : "crafting_tier_04c_demonhunter_male",
+"displayColor" : "yellow",
+"tooltipParams" : "item/iridescent-tear"
+}
+}, {
+"quantity" : 7,
+"item" : {
+"id" : "Crafting_Training_Tome_Inferno",
+"name" : "Tome of Secrets",
+"icon" : "crafting_training_tome_inferno_demonhunter_male",
+"displayColor" : "blue",
+"tooltipParams" : "recipe/tome-of-secrets"
+}
+} ],
+"itemProduced" : {
+"id" : "Pants_205",
+"name" : "Exalted Fine Sovereign Tassets",
+"icon" : "pants_205_demonhunter_male",
+"displayColor" : "yellow",
+"tooltipParams" : "recipe/exalted-fine-sovereign-tassets"
+}
+}, {
+"id" : "T10_Armor_Pants_06",
+"slug" : "exalted-grand-sovereign-tassets",
+"name" : "Exalted Grand Sovereign Tassets",
+"cost" : 91494,
+"reagents" : [ {
+"quantity" : 35,
+"item" : {
+"id" : "Crafting_Tier_04B",
+"name" : "Exquisite Essence",
+"icon" : "crafting_tier_04b_demonhunter_male",
+"displayColor" : "blue",
+"tooltipParams" : "item/exquisite-essence"
+}
+}, {
+"quantity" : 5,
+"item" : {
+"id" : "Crafting_Tier_04C",
+"name" : "Iridescent Tear",
+"icon" : "crafting_tier_04c_demonhunter_male",
+"displayColor" : "yellow",
+"tooltipParams" : "item/iridescent-tear"
+}
+}, {
+"quantity" : 10,
+"item" : {
+"id" : "Crafting_Training_Tome_Inferno",
+"name" : "Tome of Secrets",
+"icon" : "crafting_training_tome_inferno_demonhunter_male",
+"displayColor" : "blue",
+"tooltipParams" : "recipe/tome-of-secrets"
+}
+} ],
+"itemProduced" : {
+"id" : "Pants_205",
+"name" : "Exalted Grand Sovereign Tassets",
+"icon" : "pants_205_demonhunter_male",
+"displayColor" : "yellow",
+"tooltipParams" : "recipe/exalted-grand-sovereign-tassets"
+}
+}, {
+"id" : "T10_Armor_Pants_04",
+"slug" : "exalted-sovereign-tassets",
+"name" : "Exalted Sovereign Tassets",
+"cost" : 31188,
+"reagents" : [ {
+"quantity" : 18,
+"item" : {
+"id" : "Crafting_Tier_04B",
+"name" : "Exquisite Essence",
+"icon" : "crafting_tier_04b_demonhunter_male",
+"displayColor" : "blue",
+"tooltipParams" : "item/exquisite-essence"
+}
+}, {
+"quantity" : 3,
+"item" : {
+"id" : "Crafting_Tier_04C",
+"name" : "Iridescent Tear",
+"icon" : "crafting_tier_04c_demonhunter_male",
+"displayColor" : "yellow",
+"tooltipParams" : "item/iridescent-tear"
+}
+}, {
+"quantity" : 5,
+"item" : {
+"id" : "Crafting_Training_Tome_Inferno",
+"name" : "Tome of Secrets",
+"icon" : "crafting_training_tome_inferno_demonhunter_male",
+"displayColor" : "blue",
+"tooltipParams" : "recipe/tome-of-secrets"
+}
+} ],
+"itemProduced" : {
+"id" : "Pants_205",
+"name" : "Exalted Sovereign Tassets",
+"icon" : "pants_205_demonhunter_male",
+"displayColor" : "yellow",
+"tooltipParams" : "recipe/exalted-sovereign-tassets"
+}
+} ]
+},
+"bracers" : {
+"id" : "Bracers_205",
+"name" : "Militant Brawlers",
+"icon" : "bracers_205_demonhunter_male",
+"displayColor" : "yellow",
+"tooltipParams" : "item/CjwIqvrjuAUSBwgEFdgsyssdslfV7h2Ivr4hHeE2cDMdlfjtliILCAAVwUQDABgGICQwCTiNA0AAUAxgugMYz8yuwwZQAlgA",
+"craftedBy" : [ {
+"id" : "T10_Armor_Bracers_04",
+"slug" : "exalted-armplates",
+"name" : "Exalted Armplates",
+"cost" : 29832,
+"reagents" : [ {
+"quantity" : 14,
+"item" : {
+"id" : "Crafting_Tier_04B",
+"name" : "Exquisite Essence",
+"icon" : "crafting_tier_04b_demonhunter_male",
+"displayColor" : "blue",
+"tooltipParams" : "item/exquisite-essence"
+}
+}, {
+"quantity" : 3,
+"item" : {
+"id" : "Crafting_Tier_04C",
+"name" : "Iridescent Tear",
+"icon" : "crafting_tier_04c_demonhunter_male",
+"displayColor" : "yellow",
+"tooltipParams" : "item/iridescent-tear"
+}
+}, {
+"quantity" : 4,
+"item" : {
+"id" : "Crafting_Training_Tome_Inferno",
+"name" : "Tome of Secrets",
+"icon" : "crafting_training_tome_inferno_demonhunter_male",
+"displayColor" : "blue",
+"tooltipParams" : "recipe/tome-of-secrets"
+}
+} ],
+"itemProduced" : {
+"id" : "Bracers_205",
+"name" : "Exalted Armplates",
+"icon" : "bracers_205_demonhunter_male",
+"displayColor" : "yellow",
+"tooltipParams" : "recipe/exalted-armplates"
+}
+}, {
+"id" : "T10_Armor_Bracers_05",
+"slug" : "exalted-fine-armplates",
+"name" : "Exalted Fine Armplates",
+"cost" : 42416,
+"reagents" : [ {
+"quantity" : 20,
+"item" : {
+"id" : "Crafting_Tier_04B",
+"name" : "Exquisite Essence",
+"icon" : "crafting_tier_04b_demonhunter_male",
+"displayColor" : "blue",
+"tooltipParams" : "item/exquisite-essence"
+}
+}, {
+"quantity" : 4,
+"item" : {
+"id" : "Crafting_Tier_04C",
+"name" : "Iridescent Tear",
+"icon" : "crafting_tier_04c_demonhunter_male",
+"displayColor" : "yellow",
+"tooltipParams" : "item/iridescent-tear"
+}
+}, {
+"quantity" : 6,
+"item" : {
+"id" : "Crafting_Training_Tome_Inferno",
+"name" : "Tome of Secrets",
+"icon" : "crafting_training_tome_inferno_demonhunter_male",
+"displayColor" : "blue",
+"tooltipParams" : "recipe/tome-of-secrets"
+}
+} ],
+"itemProduced" : {
+"id" : "Bracers_205",
+"name" : "Exalted Fine Armplates",
+"icon" : "bracers_205_demonhunter_male",
+"displayColor" : "yellow",
+"tooltipParams" : "recipe/exalted-fine-armplates"
+}
+}, {
+"id" : "T10_Armor_Bracers_06",
+"slug" : "exalted-grand-armplates",
+"name" : "Exalted Grand Armplates",
+"cost" : 87516,
+"reagents" : [ {
+"quantity" : 28,
+"item" : {
+"id" : "Crafting_Tier_04B",
+"name" : "Exquisite Essence",
+"icon" : "crafting_tier_04b_demonhunter_male",
+"displayColor" : "blue",
+"tooltipParams" : "item/exquisite-essence"
+}
+}, {
+"quantity" : 5,
+"item" : {
+"id" : "Crafting_Tier_04C",
+"name" : "Iridescent Tear",
+"icon" : "crafting_tier_04c_demonhunter_male",
+"displayColor" : "yellow",
+"tooltipParams" : "item/iridescent-tear"
+}
+}, {
+"quantity" : 8,
+"item" : {
+"id" : "Crafting_Training_Tome_Inferno",
+"name" : "Tome of Secrets",
+"icon" : "crafting_training_tome_inferno_demonhunter_male",
+"displayColor" : "blue",
+"tooltipParams" : "recipe/tome-of-secrets"
+}
+} ],
+"itemProduced" : {
+"id" : "Bracers_205",
+"name" : "Exalted Grand Armplates",
+"icon" : "bracers_205_demonhunter_male",
+"displayColor" : "yellow",
+"tooltipParams" : "recipe/exalted-grand-armplates"
+}
+} ]
+},
+"mainHand" : {
+"id" : "Unique_Axe_2H_009_104",
+"name" : "Skorn",
+"icon" : "unique_axe_2h_009_104_demonhunter_male",
+"displayColor" : "orange",
+"tooltipParams" : "item/CmAI7rbwiAMSBwgEFdltpAwd2byVIx2GAmPqHdILi94d_SftZR1Vum3gHee-mnEwCTjgAUAAUBJg-gFqJQoMCAAQipbLtoCAgMAcEhUI7PPG7QoSBwgEFRyWrpgwDTgAQAEYsrejygFQAlgA",
+"craftedBy" : [ ]
+},
+"waist" : {
+"id" : "Unique_BarbBelt_008_104",
+"name" : "Ageless Might",
+"icon" : "unique_barbbelt_008_104_demonhunter_male",
+"displayColor" : "orange",
+"tooltipParams" : "item/CjkI2bzhkgMSBwgEFZ9IBBodn2yzFB21HhqJHdVmipQdSlF0dR2ggROuHSkSc-AwCTj3AkAAUBJgoQMYvqKioANQAlgA",
+"craftedBy" : [ ]
+},
+"rightFinger" : {
+"id" : "Ring_22",
+"name" : "Feral Star",
+"icon" : "ring_22_demonhunter_male",
+"displayColor" : "yellow",
+"tooltipParams" : "item/CkEI3PPU5gYSBwgEFTNVXUQdoIETrh240i3GHZX47ZYd8oI4_B29CvBMIgsIABWq_gEAGAYgBDAJONcDQABQDmCMBBjm1OrFCFACWAA",
+"craftedBy" : [ ]
+},
+"leftFinger" : {
+"id" : "Unique_Ring_024_104",
+"name" : "Hellfire Ring",
+"icon" : "unique_ring_024_104_demonhunter_male",
+"displayColor" : "orange",
+"tooltipParams" : "item/CjkI5Ka1swQSBwgEFc85RuId0l3CSx1dD-WIHSj-fQEdWuCBmx3XTOSuHTpErpswDzjSAkAAUBJg-AIY4ZjO2wNQAlgA",
+"recipe" : {
+"id" : "Jeweler_ShardRing_Red",
+"slug" : "hellfire-ring-of-strength",
+"name" : "Hellfire Ring of Strength",
+"cost" : 50000,
+"reagents" : [ {
+"quantity" : 1,
+"item" : {
+"id" : "DemonOrgan_Eye",
+"name" : "Vengeful Eye",
+"icon" : "demonorgan_eye_demonhunter_male",
+"displayColor" : "orange",
+"tooltipParams" : "item/vengeful-eye"
+}
+}, {
+"quantity" : 1,
+"item" : {
+"id" : "DemonOrgan_Tooth",
+"name" : "Devil’s Fang",
+"icon" : "demonorgan_tooth_demonhunter_male",
+"displayColor" : "orange",
+"tooltipParams" : "item/devils-fang"
+}
+}, {
+"quantity" : 1,
+"item" : {
+"id" : "DemonOrgan_SpineCord",
+"name" : "Writhing Spine",
+"icon" : "demonorgan_spinecord_demonhunter_male",
+"displayColor" : "orange",
+"tooltipParams" : "item/writhing-spine"
+}
+} ],
+"itemProduced" : {
+"id" : "Unique_Ring_024_104",
+"name" : "Hellfire Ring",
+"icon" : "unique_ring_024_104_demonhunter_male",
+"displayColor" : "orange",
+"tooltipParams" : "recipe/hellfire-ring-of-strength"
+}
+},
+"craftedBy" : [ {
+"id" : "Jeweler_ShardRing_Red",
+"slug" : "hellfire-ring-of-strength",
+"name" : "Hellfire Ring of Strength",
+"cost" : 50000,
+"reagents" : [ {
+"quantity" : 1,
+"item" : {
+"id" : "DemonOrgan_Eye",
+"name" : "Vengeful Eye",
+"icon" : "demonorgan_eye_demonhunter_male",
+"displayColor" : "orange",
+"tooltipParams" : "item/vengeful-eye"
+}
+}, {
+"quantity" : 1,
+"item" : {
+"id" : "DemonOrgan_Tooth",
+"name" : "Devil’s Fang",
+"icon" : "demonorgan_tooth_demonhunter_male",
+"displayColor" : "orange",
+"tooltipParams" : "item/devils-fang"
+}
+}, {
+"quantity" : 1,
+"item" : {
+"id" : "DemonOrgan_SpineCord",
+"name" : "Writhing Spine",
+"icon" : "demonorgan_spinecord_demonhunter_male",
+"displayColor" : "orange",
+"tooltipParams" : "item/writhing-spine"
+}
+} ],
+"itemProduced" : {
+"id" : "Unique_Ring_024_104",
+"name" : "Hellfire Ring",
+"icon" : "unique_ring_024_104_demonhunter_male",
+"displayColor" : "orange",
+"tooltipParams" : "recipe/hellfire-ring-of-strength"
+}
+}, {
+"id" : "Jeweler_ShardRing_Yellow",
+"slug" : "hellfire-ring-of-intelligence",
+"name" : "Hellfire Ring of Intelligence",
+"cost" : 50000,
+"reagents" : [ {
+"quantity" : 1,
+"item" : {
+"id" : "DemonOrgan_Eye",
+"name" : "Vengeful Eye",
+"icon" : "demonorgan_eye_demonhunter_male",
+"displayColor" : "orange",
+"tooltipParams" : "item/vengeful-eye"
+}
+}, {
+"quantity" : 1,
+"item" : {
+"id" : "DemonOrgan_Tooth",
+"name" : "Devil’s Fang",
+"icon" : "demonorgan_tooth_demonhunter_male",
+"displayColor" : "orange",
+"tooltipParams" : "item/devils-fang"
+}
+}, {
+"quantity" : 1,
+"item" : {
+"id" : "DemonOrgan_SpineCord",
+"name" : "Writhing Spine",
+"icon" : "demonorgan_spinecord_demonhunter_male",
+"displayColor" : "orange",
+"tooltipParams" : "item/writhing-spine"
+}
+} ],
+"itemProduced" : {
+"id" : "Unique_Ring_024_104",
+"name" : "Hellfire Ring",
+"icon" : "unique_ring_024_104_demonhunter_male",
+"displayColor" : "orange",
+"tooltipParams" : "recipe/hellfire-ring-of-intelligence"
+}
+}, {
+"id" : "Jeweler_ShardRing_Purple",
+"slug" : "hellfire-ring-of-vitality",
+"name" : "Hellfire Ring of Vitality",
+"cost" : 50000,
+"reagents" : [ {
+"quantity" : 1,
+"item" : {
+"id" : "DemonOrgan_Eye",
+"name" : "Vengeful Eye",
+"icon" : "demonorgan_eye_demonhunter_male",
+"displayColor" : "orange",
+"tooltipParams" : "item/vengeful-eye"
+}
+}, {
+"quantity" : 1,
+"item" : {
+"id" : "DemonOrgan_Tooth",
+"name" : "Devil’s Fang",
+"icon" : "demonorgan_tooth_demonhunter_male",
+"displayColor" : "orange",
+"tooltipParams" : "item/devils-fang"
+}
+}, {
+"quantity" : 1,
+"item" : {
+"id" : "DemonOrgan_SpineCord",
+"name" : "Writhing Spine",
+"icon" : "demonorgan_spinecord_demonhunter_male",
+"displayColor" : "orange",
+"tooltipParams" : "item/writhing-spine"
+}
+} ],
+"itemProduced" : {
+"id" : "Unique_Ring_024_104",
+"name" : "Hellfire Ring",
+"icon" : "unique_ring_024_104_demonhunter_male",
+"displayColor" : "orange",
+"tooltipParams" : "recipe/hellfire-ring-of-vitality"
+}
+}, {
+"id" : "Jeweler_ShardRing_Green",
+"slug" : "hellfire-ring-of-dexterity",
+"name" : "Hellfire Ring of Dexterity",
+"cost" : 50000,
+"reagents" : [ {
+"quantity" : 1,
+"item" : {
+"id" : "DemonOrgan_Eye",
+"name" : "Vengeful Eye",
+"icon" : "demonorgan_eye_demonhunter_male",
+"displayColor" : "orange",
+"tooltipParams" : "item/vengeful-eye"
+}
+}, {
+"quantity" : 1,
+"item" : {
+"id" : "DemonOrgan_Tooth",
+"name" : "Devil’s Fang",
+"icon" : "demonorgan_tooth_demonhunter_male",
+"displayColor" : "orange",
+"tooltipParams" : "item/devils-fang"
+}
+}, {
+"quantity" : 1,
+"item" : {
+"id" : "DemonOrgan_SpineCord",
+"name" : "Writhing Spine",
+"icon" : "demonorgan_spinecord_demonhunter_male",
+"displayColor" : "orange",
+"tooltipParams" : "item/writhing-spine"
+}
+} ],
+"itemProduced" : {
+"id" : "Unique_Ring_024_104",
+"name" : "Hellfire Ring",
+"icon" : "unique_ring_024_104_demonhunter_male",
+"displayColor" : "orange",
+"tooltipParams" : "recipe/hellfire-ring-of-dexterity"
+}
+} ]
+},
+"neck" : {
+"id" : "Amulet13",
+"name" : "Resolute Star",
+"icon" : "amulet13_demonhunter_male",
+"displayColor" : "yellow",
+"tooltipParams" : "item/CkUI65SoQxIHCAQVrMVEZB0SXPT8Hd8I7XUdiz67Xx2KxBbvHZ5VDVsdnmyzFCILCAAVrf4BABgCIBAwCTj1AkAAUBBgnwMY2JamxAxQAlgA",
+"craftedBy" : [ ]
+}
+},
+"followers" : {
+"templar" : {
+"slug" : "templar",
+"level" : 60,
+"items" : {
+"special" : {
+"id" : "Templar_Special_204",
+"name" : "Adjunct's Choice",
+"icon" : "templar_special_204_demonhunter_male",
+"displayColor" : "yellow",
+"tooltipParams" : "item/Cj0IqIa8pQkSBwgEFeoLY0Qd8jctFB1XqK6LHZ1ssxQdIYc-Vh238ewaIgsIARW7RAMAGBIgEjAJOABAAFAOGNSvmMYI",
+"craftedBy" : [ ]
+},
+"mainHand" : {
+"id" : "Spear_205",
+"name" : "Empty Lance",
+"icon" : "spear_205_demonhunter_male",
+"displayColor" : "yellow",
+"tooltipParams" : "item/CkYI-df8hgwSBwgEFZEf9vkd4gFb1B3tOsI2Hape7nUdNsw7Oh0R5d21HVW6beAiCwgAFcv-AQAYDCAIMAk43wNAAFAQYN8DGN2Bz2A",
+"craftedBy" : [ ]
+},
+"offHand" : {
+"id" : "Unique_Shield_009_104",
+"name" : "Stormshield",
+"icon" : "unique_shield_009_104_demonhunter_male",
+"displayColor" : "orange",
+"tooltipParams" : "item/CjkIs5nc_AsSBwgEFZu1pD0dEFz0_B1OT9lkHcQayXsd1maKlB2gbLMUHVtOgMkwCTjLAkAAUBJgywIYttal2gc",
+"craftedBy" : [ ]
+},
+"rightFinger" : {
+"id" : "Ring_06",
+"name" : "Adventuring Ring",
+"icon" : "ring_06_demonhunter_male",
+"displayColor" : "blue",
+"tooltipParams" : "item/Ch8IzpSTQRIHCAQV9VRdRB3DWVNoMAk4vgNAAFAGYL4DGOrT6sUI",
+"craftedBy" : [ ]
+},
+"neck" : {
+"id" : "Amulet02",
+"name" : "Amulet of the Hawk",
+"icon" : "amulet02_demonhunter_male",
+"displayColor" : "blue",
+"tooltipParams" : "item/CiAIh4bp4wESBwgEFYrFRGQdcvdKBzAJOPABQABQBmCDAxiUlqbEDA",
+"craftedBy" : [ ]
+}
+},
+"stats" : {
+"goldFind" : 0,
+"magicFind" : 0,
+"experienceBonus" : 1
+},
+"skills" : [ {
+"skill" : {
+"slug" : "intervene",
+"name" : "Intervene",
+"icon" : "templar_intervene",
+"level" : 5,
+"tooltipUrl" : "skill/templar/intervene",
+"description" : "Taunt enemies within 10 yards of you for 1 second when you are hit.\r\n\r\nCooldown: 30 seconds",
+"simpleDescription" : "Taunt enemies near you when you are hit.",
+"skillCalcId" : "Z"
+}
+}, {
+"skill" : {
+"slug" : "loyalty",
+"name" : "Loyalty",
+"icon" : "templar_loyalty",
+"level" : 10,
+"tooltipUrl" : "skill/templar/loyalty",
+"description" : "Regenerates 310 Life per second for you and the Templar.",
+"simpleDescription" : "Provides Life regeneration for you and the Templar.",
+"skillCalcId" : "b"
+}
+}, {
+"skill" : {
+"slug" : "charge",
+"name" : "Charge",
+"icon" : "templar_shieldcharge",
+"level" : 15,
+"tooltipUrl" : "skill/templar/charge",
+"description" : "Charges a target, dealing 50% weapon damage and stunning all enemies within 8 yards for 2 seconds.\r\n\r\nCooldown: 30 seconds",
+"simpleDescription" : "Charges an enemy, dealing damage and stunning nearby enemies.",
+"skillCalcId" : "c"
+}
+}, {
+"skill" : {
+"slug" : "guardian",
+"name" : "Guardian",
+"icon" : "templar_guardian",
+"level" : 20,
+"tooltipUrl" : "skill/templar/guardian",
+"description" : "Rush to your aid, knocking back enemies within 15 yards and healing you for 4651 Life.\r\n\r\nCooldown: 30 seconds",
+"simpleDescription" : "When your Life is low, the Templar will come to your aid, knocking back nearby enemies and healing you.",
+"skillCalcId" : "W"
+}
+} ]
+},
+"scoundrel" : {
+"slug" : "scoundrel",
+"level" : 59,
+"items" : {
+"special" : {
+"id" : "Scoundrel_Special_203",
+"name" : "Spectral Brooch of Pain",
+"icon" : "scoundrel_special_203_demonhunter_male",
+"displayColor" : "blue",
+"tooltipParams" : "item/CiEI94zkrQESBwgEFaMBTPId5OWp8B0OF4DJMAk4AEAAUAgYufmf2wE",
+"craftedBy" : [ ]
+},
+"mainHand" : {
+"id" : "Crossbow_004",
+"name" : "Keen Arbalest of the Eel",
+"icon" : "crossbow_004_demonhunter_male",
+"displayColor" : "blue",
+"tooltipParams" : "item/CiUI-9KZmQ4SBwgEFYVTygodSGNPMB1Z9MhqMAk43QRAAFAIYN0EGIrO0qwB",
+"craftedBy" : [ ]
+},
+"rightFinger" : {
+"id" : "Ring_05",
+"name" : "Mending Ring",
+"icon" : "ring_05_demonhunter_male",
+"displayColor" : "blue",
+"tooltipParams" : "item/CiAI3cPdmgsSBwgEFfRUXUQdt1voSDAJOKkDQABQBmCpAxjo0-rFCA",
+"craftedBy" : [ ]
+},
+"leftFinger" : {
+"id" : "Ring_03",
+"name" : "Mending Ring",
+"icon" : "ring_03_demonhunter_male",
+"displayColor" : "blue",
+"tooltipParams" : "item/CiAIktqiiAESBwgEFfJUXUQduFvoSDAJONIDQABQBmDSAxjk0-rFCA",
+"craftedBy" : [ ]
+},
+"neck" : {
+"id" : "Amulet04",
+"name" : "Amulet of Slaughter",
+"icon" : "amulet04_demonhunter_male",
+"displayColor" : "blue",
+"tooltipParams" : "item/CiAIzsPPmw8SBwgEFYzFRGQdAERfoDAJON4CQABQBmDeAhiYlqbEDA",
+"craftedBy" : [ ]
+}
+},
+"stats" : {
+"goldFind" : 0,
+"magicFind" : 0,
+"experienceBonus" : 0
+},
+"skills" : [ {
+"skill" : {
+"slug" : "poison-bolts",
+"name" : "Poison Bolts",
+"icon" : "scoundrel_poisonarrow",
+"level" : 5,
+"tooltipUrl" : "skill/scoundrel/poison-bolts",
+"description" : "Ranged attack which deals 100% weapon damage and an additional 40% weapon damage as Poison over 2 seconds.\r\n\r\nCooldown: 6 seconds",
+"simpleDescription" : "Shoots a deadly poisoned bolt.",
+"skillCalcId" : "Z"
+}
+}, {
+"skill" : {
+"slug" : "vanish",
+"name" : "Vanish",
+"icon" : "scoundrel_vanish",
+"level" : 10,
+"tooltipUrl" : "skill/scoundrel/vanish",
+"description" : "The Scoundrel vanishes in a cloud of smoke when injured, reappearing after 5 seconds. While vanished, he will heal himself for 15505 Life.\r\n\r\nCooldown: 30 seconds",
+"simpleDescription" : "The Scoundrel temporarily vanishes when in danger.",
+"skillCalcId" : "Y"
+}
+}, {
+"skill" : {
+"slug" : "multishot",
+"name" : "Multishot",
+"icon" : "scoundrel_multishot",
+"level" : 15,
+"tooltipUrl" : "skill/scoundrel/multishot",
+"description" : "The Scoundrel's ranged attacks fire 3 bolts at a time.",
+"simpleDescription" : "The Scoundrel's attacks shoot multiple bolts.",
+"skillCalcId" : "X"
+}
+}, {
+"skill" : {
+"slug" : "anatomy",
+"name" : "Anatomy",
+"icon" : "scoundrel_anatomy",
+"level" : 20,
+"tooltipUrl" : "skill/scoundrel/anatomy",
+"description" : "Increases Critical Hit Chance by 3% for you and the Scoundrel.",
+"simpleDescription" : "Increases Critical Hit Chance for you and the Scoundrel.",
+"skillCalcId" : "W"
+}
+} ]
+},
+"enchantress" : {
+"slug" : "enchantress",
+"level" : 59,
+"items" : {
+"special" : {
+"id" : "Enchantress_Special_204",
+"name" : "The Fighter",
+"icon" : "enchantress_special_204_demonhunter_male",
+"displayColor" : "yellow",
+"tooltipParams" : "item/CjgI0ITe_w4SBwgEFTOjYi0dNed7qB0NXPT8Hbfx7Bod5eWp8CILCAEVwEQDABgMIAAwCTgAQABQDBjmjJXWBQ",
+"craftedBy" : [ ]
+},
+"mainHand" : {
+"id" : "Staff_004",
+"name" : "Clever Gnarled Staff of Flame",
+"icon" : "staff_004_demonhunter_male",
+"displayColor" : "blue",
+"tooltipParams" : "item/CiUI4f6DjgsSBwgEFacc5YEdx5dAYB1d2OmoMAk41wRAAFAIYNcEGLGN1-EP",
+"craftedBy" : [ ]
+},
+"rightFinger" : {
+"id" : "Ring_06",
+"name" : "Clever Ring of Wounding",
+"icon" : "ring_06_demonhunter_male",
+"displayColor" : "blue",
+"tooltipParams" : "item/CiUIlPaFxAcSBwgEFfVUXUQd1x3Qih2eI7xIMAk4pARAAFAIYKQEGOrT6sUI",
+"craftedBy" : [ ]
+},
+"leftFinger" : {
+"id" : "Ring_04",
+"name" : "Keen Ring of Slaughter",
+"icon" : "ring_04_demonhunter_male",
+"displayColor" : "blue",
+"tooltipParams" : "item/CiUIiaOigQoSBwgEFfNUXUQdZuNtUx2uvGNLMAk4zQNAAFAIYM0DGObT6sUI",
+"craftedBy" : [ ]
+},
+"neck" : {
+"id" : "Amulet03",
+"name" : "Amulet of Focus",
+"icon" : "amulet03_demonhunter_male",
+"displayColor" : "blue",
+"tooltipParams" : "item/CiAIjIaNiwMSBwgEFYvFRGQdX1CqBzAJOIQEQABQBmCEBBiWlqbEDA",
+"craftedBy" : [ ]
+}
+},
+"stats" : {
+"goldFind" : 0,
+"magicFind" : 0,
+"experienceBonus" : 4
+},
+"skills" : [ {
+"skill" : {
+"slug" : "charm",
+"name" : "Charm",
+"icon" : "enchantress_charm",
+"level" : 15,
+"tooltipUrl" : "skill/enchantress/charm",
+"description" : "Charms an enemy to fight for you for 4 seconds.\r\n\r\nCooldown: 25 seconds",
+"simpleDescription" : "Temporarily Charms an enemy to fight for you.",
+"skillCalcId" : "a"
+}
+}, {
+"skill" : {
+"slug" : "powered-armor",
+"name" : "Powered Armor",
+"icon" : "enchantress_poweredarmor",
+"level" : 20,
+"tooltipUrl" : "skill/enchantress/powered-armor",
+"description" : "Buffs you and the Enchantress, increasing Armor by 5% and slowing attackers by 30% for 3 seconds.",
+"simpleDescription" : "Increases Armor and slows attacking enemies for you and the Enchantress.",
+"skillCalcId" : "Y"
+}
+}, {
+"skill" : {
+"slug" : "disorient",
+"name" : "Disorient",
+"icon" : "enchantress_disorient",
+"level" : 25,
+"tooltipUrl" : "skill/enchantress/disorient",
+"description" : "Cast a flash of Confusion on a group of enemies in an area, causing them to stumble around disoriented for 2 seconds. \r\n\r\nCooldown: 25 seconds",
+"simpleDescription" : "Disorients enemies for a short time.",
+"skillCalcId" : "c"
+}
+}, {
+"skill" : {
+"slug" : "mass-control",
+"name" : "Mass Control",
+"icon" : "enchantress_masscharm",
+"level" : 30,
+"tooltipUrl" : "skill/enchantress/mass-control",
+"description" : "Lob a bulb of magical energy that will hex a group of enemies into chickens for 5 seconds. Hexed enemies are unable to perform offensive actions.\r\n\r\nCooldown: 30 seconds",
+"simpleDescription" : "Hexes a nearby group of enemies.",
+"skillCalcId" : "W"
+}
+} ]
+}
+},
+"stats" : {
+"life" : 55907,
+"damage" : 86963.2,
+"attackSpeed" : 1.18,
+"armor" : 6226,
+"strength" : 2684,
+"dexterity" : 208,
+"vitality" : 1117,
+"intelligence" : 440,
+"physicalResist" : 517,
+"fireResist" : 517,
+"coldResist" : 553,
+"lightningResist" : 517,
+"poisonResist" : 517,
+"arcaneResist" : 548,
+"critDamage" : 4.05,
+"blockChance" : 0.0,
+"blockAmountMin" : 0,
+"blockAmountMax" : 0,
+"damageIncrease" : 26.84000015258789,
+"critChance" : 0.25999999046325684,
+"damageReduction" : 0.6748319864273071,
+"thorns" : 3082.0,
+"lifeSteal" : 0.0,
+"lifePerKill" : 0.0,
+"goldFind" : 1.2,
+"magicFind" : 1.2,
+"primaryResource" : 100,
+"secondaryResource" : 0,
+"lifeOnHit" : 1425.0
+},
+"kills" : {
+"elites" : 8422
+},
+"progress" : {
+"normal" : {
+"act1" : {
+"completed" : true,
+"completedQuests" : [ {
+"slug" : "the-fallen-star",
+"name" : "The Fallen Star"
+}, {
+"slug" : "the-legacy-of-cain",
+"name" : "The Legacy of Cain"
+}, {
+"slug" : "a-shattered-crown",
+"name" : "A Shattered Crown"
+}, {
+"slug" : "reign-of-the-black-king",
+"name" : "Reign of the Black King"
+}, {
+"slug" : "sword-of-the-stranger",
+"name" : "Sword of the Stranger"
+}, {
+"slug" : "the-broken-blade",
+"name" : "The Broken Blade"
+}, {
+"slug" : "the-doom-in-wortham",
+"name" : "The Doom in Wortham"
+}, {
+"slug" : "trailing-the-coven",
+"name" : "Trailing the Coven"
+}, {
+"slug" : "the-imprisoned-angel",
+"name" : "The Imprisoned Angel"
+}, {
+"slug" : "return-to-new-tristram",
+"name" : "Return to New Tristram"
+} ]
+},
+"act2" : {
+"completed" : true,
+"completedQuests" : [ {
+"slug" : "shadows-in-the-desert",
+"name" : "Shadows in the Desert"
+}, {
+"slug" : "the-road-to-alcarnus",
+"name" : "The Road to Alcarnus"
+}, {
+"slug" : "city-of-blood",
+"name" : "City of Blood"
+}, {
+"slug" : "a-royal-audience",
+"name" : "A Royal Audience"
+}, {
+"slug" : "unexpected-allies",
+"name" : "Unexpected Allies"
+}, {
+"slug" : "betrayer-of-the-horadrim",
+"name" : "Betrayer of the Horadrim"
+}, {
+"slug" : "blood-and-sand",
+"name" : "Blood and Sand"
+}, {
+"slug" : "the-black-soulstone",
+"name" : "The Black Soulstone"
+}, {
+"slug" : "the-scouring-of-caldeum",
+"name" : "The Scouring of Caldeum"
+}, {
+"slug" : "lord-of-lies",
+"name" : "Lord of Lies"
+} ]
+},
+"act3" : {
+"completed" : true,
+"completedQuests" : [ {
+"slug" : "the-siege-of-bastions-keep",
+"name" : "The Siege of Bastion's Keep"
+}, {
+"slug" : "turning-the-tide",
+"name" : "Turning the Tide"
+}, {
+"slug" : "the-breached-keep",
+"name" : "The Breached Keep"
+}, {
+"slug" : "tremors-in-the-stone",
+"name" : "Tremors in the Stone"
+}, {
+"slug" : "machines-of-war",
+"name" : "Machines of War"
+}, {
+"slug" : "siegebreaker",
+"name" : "Siegebreaker"
+}, {
+"slug" : "heart-of-sin",
+"name" : "Heart of Sin"
+} ]
+},
+"act4" : {
+"completed" : true,
+"completedQuests" : [ {
+"slug" : "fall-of-the-high-heavens",
+"name" : "Fall of the High Heavens"
+}, {
+"slug" : "the-light-of-hope",
+"name" : "The Light of Hope"
+}, {
+"slug" : "beneath-the-spire",
+"name" : "Beneath the Spire"
+}, {
+"slug" : "prime-evil",
+"name" : "Prime Evil"
+} ]
+}
+},
+"nightmare" : {
+"act1" : {
+"completed" : true,
+"completedQuests" : [ {
+"slug" : "the-fallen-star",
+"name" : "The Fallen Star"
+}, {
+"slug" : "the-legacy-of-cain",
+"name" : "The Legacy of Cain"
+}, {
+"slug" : "a-shattered-crown",
+"name" : "A Shattered Crown"
+}, {
+"slug" : "reign-of-the-black-king",
+"name" : "Reign of the Black King"
+}, {
+"slug" : "sword-of-the-stranger",
+"name" : "Sword of the Stranger"
+}, {
+"slug" : "the-broken-blade",
+"name" : "The Broken Blade"
+}, {
+"slug" : "the-doom-in-wortham",
+"name" : "The Doom in Wortham"
+}, {
+"slug" : "trailing-the-coven",
+"name" : "Trailing the Coven"
+}, {
+"slug" : "the-imprisoned-angel",
+"name" : "The Imprisoned Angel"
+}, {
+"slug" : "return-to-new-tristram",
+"name" : "Return to New Tristram"
+} ]
+},
+"act2" : {
+"completed" : true,
+"completedQuests" : [ {
+"slug" : "shadows-in-the-desert",
+"name" : "Shadows in the Desert"
+}, {
+"slug" : "the-road-to-alcarnus",
+"name" : "The Road to Alcarnus"
+}, {
+"slug" : "city-of-blood",
+"name" : "City of Blood"
+}, {
+"slug" : "a-royal-audience",
+"name" : "A Royal Audience"
+}, {
+"slug" : "unexpected-allies",
+"name" : "Unexpected Allies"
+}, {
+"slug" : "betrayer-of-the-horadrim",
+"name" : "Betrayer of the Horadrim"
+}, {
+"slug" : "blood-and-sand",
+"name" : "Blood and Sand"
+}, {
+"slug" : "the-black-soulstone",
+"name" : "The Black Soulstone"
+}, {
+"slug" : "the-scouring-of-caldeum",
+"name" : "The Scouring of Caldeum"
+}, {
+"slug" : "lord-of-lies",
+"name" : "Lord of Lies"
+} ]
+},
+"act3" : {
+"completed" : true,
+"completedQuests" : [ {
+"slug" : "the-siege-of-bastions-keep",
+"name" : "The Siege of Bastion's Keep"
+}, {
+"slug" : "turning-the-tide",
+"name" : "Turning the Tide"
+}, {
+"slug" : "the-breached-keep",
+"name" : "The Breached Keep"
+}, {
+"slug" : "tremors-in-the-stone",
+"name" : "Tremors in the Stone"
+}, {
+"slug" : "machines-of-war",
+"name" : "Machines of War"
+}, {
+"slug" : "siegebreaker",
+"name" : "Siegebreaker"
+}, {
+"slug" : "heart-of-sin",
+"name" : "Heart of Sin"
+} ]
+},
+"act4" : {
+"completed" : true,
+"completedQuests" : [ {
+"slug" : "fall-of-the-high-heavens",
+"name" : "Fall of the High Heavens"
+}, {
+"slug" : "the-light-of-hope",
+"name" : "The Light of Hope"
+}, {
+"slug" : "beneath-the-spire",
+"name" : "Beneath the Spire"
+}, {
+"slug" : "prime-evil",
+"name" : "Prime Evil"
+} ]
+}
+},
+"hell" : {
+"act1" : {
+"completed" : true,
+"completedQuests" : [ {
+"slug" : "the-fallen-star",
+"name" : "The Fallen Star"
+}, {
+"slug" : "the-legacy-of-cain",
+"name" : "The Legacy of Cain"
+}, {
+"slug" : "a-shattered-crown",
+"name" : "A Shattered Crown"
+}, {
+"slug" : "reign-of-the-black-king",
+"name" : "Reign of the Black King"
+}, {
+"slug" : "sword-of-the-stranger",
+"name" : "Sword of the Stranger"
+}, {
+"slug" : "the-broken-blade",
+"name" : "The Broken Blade"
+}, {
+"slug" : "the-doom-in-wortham",
+"name" : "The Doom in Wortham"
+}, {
+"slug" : "trailing-the-coven",
+"name" : "Trailing the Coven"
+}, {
+"slug" : "the-imprisoned-angel",
+"name" : "The Imprisoned Angel"
+}, {
+"slug" : "return-to-new-tristram",
+"name" : "Return to New Tristram"
+} ]
+},
+"act2" : {
+"completed" : true,
+"completedQuests" : [ {
+"slug" : "shadows-in-the-desert",
+"name" : "Shadows in the Desert"
+}, {
+"slug" : "the-road-to-alcarnus",
+"name" : "The Road to Alcarnus"
+}, {
+"slug" : "city-of-blood",
+"name" : "City of Blood"
+}, {
+"slug" : "a-royal-audience",
+"name" : "A Royal Audience"
+}, {
+"slug" : "unexpected-allies",
+"name" : "Unexpected Allies"
+}, {
+"slug" : "blood-and-sand",
+"name" : "Blood and Sand"
+}, {
+"slug" : "the-black-soulstone",
+"name" : "The Black Soulstone"
+}, {
+"slug" : "the-scouring-of-caldeum",
+"name" : "The Scouring of Caldeum"
+}, {
+"slug" : "lord-of-lies",
+"name" : "Lord of Lies"
+} ]
+},
+"act3" : {
+"completed" : true,
+"completedQuests" : [ {
+"slug" : "the-siege-of-bastions-keep",
+"name" : "The Siege of Bastion's Keep"
+}, {
+"slug" : "turning-the-tide",
+"name" : "Turning the Tide"
+}, {
+"slug" : "the-breached-keep",
+"name" : "The Breached Keep"
+}, {
+"slug" : "tremors-in-the-stone",
+"name" : "Tremors in the Stone"
+}, {
+"slug" : "machines-of-war",
+"name" : "Machines of War"
+}, {
+"slug" : "siegebreaker",
+"name" : "Siegebreaker"
+}, {
+"slug" : "heart-of-sin",
+"name" : "Heart of Sin"
+} ]
+},
+"act4" : {
+"completed" : true,
+"completedQuests" : [ {
+"slug" : "fall-of-the-high-heavens",
+"name" : "Fall of the High Heavens"
+}, {
+"slug" : "the-light-of-hope",
+"name" : "The Light of Hope"
+}, {
+"slug" : "beneath-the-spire",
+"name" : "Beneath the Spire"
+}, {
+"slug" : "prime-evil",
+"name" : "Prime Evil"
+} ]
+}
+},
+"inferno" : {
+"act1" : {
+"completed" : true,
+"completedQuests" : [ {
+"slug" : "the-fallen-star",
+"name" : "The Fallen Star"
+}, {
+"slug" : "the-legacy-of-cain",
+"name" : "The Legacy of Cain"
+}, {
+"slug" : "a-shattered-crown",
+"name" : "A Shattered Crown"
+}, {
+"slug" : "reign-of-the-black-king",
+"name" : "Reign of the Black King"
+}, {
+"slug" : "sword-of-the-stranger",
+"name" : "Sword of the Stranger"
+}, {
+"slug" : "the-broken-blade",
+"name" : "The Broken Blade"
+}, {
+"slug" : "the-doom-in-wortham",
+"name" : "The Doom in Wortham"
+}, {
+"slug" : "trailing-the-coven",
+"name" : "Trailing the Coven"
+}, {
+"slug" : "the-imprisoned-angel",
+"name" : "The Imprisoned Angel"
+}, {
+"slug" : "return-to-new-tristram",
+"name" : "Return to New Tristram"
+} ]
+},
+"act2" : {
+"completed" : true,
+"completedQuests" : [ {
+"slug" : "shadows-in-the-desert",
+"name" : "Shadows in the Desert"
+}, {
+"slug" : "the-road-to-alcarnus",
+"name" : "The Road to Alcarnus"
+}, {
+"slug" : "city-of-blood",
+"name" : "City of Blood"
+}, {
+"slug" : "a-royal-audience",
+"name" : "A Royal Audience"
+}, {
+"slug" : "unexpected-allies",
+"name" : "Unexpected Allies"
+}, {
+"slug" : "betrayer-of-the-horadrim",
+"name" : "Betrayer of the Horadrim"
+}, {
+"slug" : "blood-and-sand",
+"name" : "Blood and Sand"
+}, {
+"slug" : "the-black-soulstone",
+"name" : "The Black Soulstone"
+}, {
+"slug" : "the-scouring-of-caldeum",
+"name" : "The Scouring of Caldeum"
+}, {
+"slug" : "lord-of-lies",
+"name" : "Lord of Lies"
+} ]
+},
+"act3" : {
+"completed" : true,
+"completedQuests" : [ {
+"slug" : "the-siege-of-bastions-keep",
+"name" : "The Siege of Bastion's Keep"
+}, {
+"slug" : "turning-the-tide",
+"name" : "Turning the Tide"
+}, {
+"slug" : "the-breached-keep",
+"name" : "The Breached Keep"
+}, {
+"slug" : "tremors-in-the-stone",
+"name" : "Tremors in the Stone"
+}, {
+"slug" : "machines-of-war",
+"name" : "Machines of War"
+}, {
+"slug" : "siegebreaker",
+"name" : "Siegebreaker"
+}, {
+"slug" : "heart-of-sin",
+"name" : "Heart of Sin"
+} ]
+},
+"act4" : {
+"completed" : true,
+"completedQuests" : [ {
+"slug" : "fall-of-the-high-heavens",
+"name" : "Fall of the High Heavens"
+}, {
+"slug" : "the-light-of-hope",
+"name" : "The Light of Hope"
+}, {
+"slug" : "beneath-the-spire",
+"name" : "Beneath the Spire"
+}, {
+"slug" : "prime-evil",
+"name" : "Prime Evil"
+} ]
+}
+}
+},
+"dead" : false,
+"last-updated" : 1385310801
+}

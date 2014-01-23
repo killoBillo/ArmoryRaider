@@ -29,7 +29,7 @@ Class D3BattlenetArmory {
 	 * Retrieve the character profile from the armory and returns an object
 	 */
 	public function getCharacter($heroId) {
-		return new D3Character($heroId, $this->host);	
+		return new D3Character($heroId, $this->region, $this->battletagName, $this->battletagCode, $this->apiUrl);	
 	}
 	
 	
@@ -37,7 +37,7 @@ Class D3BattlenetArmory {
 	 * Retrieve the career profile from the armory and returns an object
 	 */		
 	public function getCareer() {
-		return new D3Career($this->host);
+		return new D3Career($this->region, $this->battletagName, $this->battletagCode, $this->apiUrl);
 	}	
 }   
 ?>
