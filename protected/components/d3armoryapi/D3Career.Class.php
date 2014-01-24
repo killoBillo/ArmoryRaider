@@ -24,7 +24,7 @@ Class D3Career {
 		
 		if($json) {
 			$this->setCareer(json_decode($json, true));
-			$this->setIsValid(true);
+			$this->setIsValid(is_array($this->career));
 		}else{
 			$this->setIsValid(false);
 		}

@@ -198,7 +198,7 @@ Yii::app()->clientScript->registerScript('popovers', "
 			<p class="muted credit">
 				ArmoryRaider &copy; <?php echo Yii::t('locale', 'is a product developed by'); ?>
 				<a href="http://www.killodesign.com">Marco Chillemi</a>, 
-				<?php echo Yii::t('locale', 'Rome - Italy, 2013.'); ?>
+				<?php echo sprintf(Yii::t('locale', 'Rome - Italy, %d.'), date('Y')); ?>
 				<?php echo ' V'.Yii::app()->params->version.'.'; ?>
 			</p>
 		</div>

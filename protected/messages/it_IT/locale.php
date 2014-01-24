@@ -143,7 +143,7 @@
 
 		// footer
 		'is a product developed by'=>'&egrave; un prodotto sviluppato da',
-		'Rome - Italy, 2013.'=>'Roma - Italia, 2013.',
+		'Rome - Italy, %d.'=>'Roma - Italia, %d.',
 	
 		// forms
 		'event hour'=>'Ora evento',

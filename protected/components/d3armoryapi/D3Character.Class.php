@@ -4,6 +4,7 @@ Class D3Character {
 	private $battletagName;
 	private $battletagCode;	
 	private $apiUrl;
+	private $heroId;
 		
 	private $character;
 	private $isValid;
@@ -11,7 +12,6 @@ Class D3Character {
 	private $characterUrl 	= '.battle.net/d3/profile/';	
 	private $iconsUrl 		= 'http://media.blizzard.com/d3/icons/skills/64/';
 	private $portraitUrl	= 'http://media.blizzard.com/d3/icons/portraits/64/';
-	private $itemsUrl		= 'http://media.blizzard.com/d3/icons/items/large/';
 	
 	function __construct($heroId, $region, $battletagName, $battletagCode, $apiUrl){
 		$this->setHeroId($heroId);
@@ -30,7 +30,7 @@ Class D3Character {
 		
 		if($json) {
 			$this->setCharacter(json_decode($json, true));
-			$this->setIsValid(true);
+			$this->setIsValid(is_array($this->character));
 		}else{
 			$this->setIsValid(false);
 		}
@@ -68,10 +68,16 @@ Class D3Character {
 	public function getItems() {
 		return $this->character['items'];
 	}
+	
+	public function getItem($itemData) {
+		$class = $this->getClass();
+		$gender = ($this->getGender()) ? 'female' : 'male';		
+		return new D3Item($itemData, $this->region, $class, $gender);
+	}
 
 	public function getPortraitUrl() {
 		$class = $this->getClass();
-		$gender = ($this->character['gender']) ? 'female' : 'male';
+		$gender = ($this->getGender()) ? 'female' : 'male';
 		return $this->portraitUrl.$class.'_'.$gender.'.png';
 	}
 	
