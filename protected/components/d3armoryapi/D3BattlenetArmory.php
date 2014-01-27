@@ -18,6 +18,7 @@ Class D3BattlenetArmory {
 	private $battletagName;
 	private $battletagCode;
 	private $apiUrl = '/api/d3/profile/';
+	private $version = '1.0';
 	
 	function __construct($region, $battletagName, $battletagCode) {
 		$this->region 			= $region;
@@ -38,6 +39,13 @@ Class D3BattlenetArmory {
 	 */		
 	public function getCareer() {
 		return new D3Career($this->region, $this->battletagName, $this->battletagCode, $this->apiUrl);
+	}
+	
+	/**
+	 * Returns the PHP API version
+	 */
+	public function getVersion() {
+		return $this->version;
 	}	
 }   
 ?>
