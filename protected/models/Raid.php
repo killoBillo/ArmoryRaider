@@ -116,4 +116,8 @@ class Raid extends RaiderActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+
+	public function getNameType() {
+		return $this->name.' - '.$this->type;
+	}
 }
