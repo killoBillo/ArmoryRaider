@@ -23,8 +23,8 @@ Class D3Item {
 	}
 	
 	private function init() {
-		// $json = @file_get_contents($this->host);
-		$json = @file_get_contents('http://localhost/armoryraider/z/item.json');
+		$json = @file_get_contents($this->host);
+		// $json = @file_get_contents('http://localhost/armoryraider/z/item.json');
 		
 		if($json) {
 			$this->setItem(json_decode($json, true));

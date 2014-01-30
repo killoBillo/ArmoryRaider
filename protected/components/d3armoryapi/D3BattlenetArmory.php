@@ -24,7 +24,6 @@ Class D3BattlenetArmory {
 		$this->region 			= $region;
 		$this->battletagName 	= $battletagName;
 		$this->battletagCode 	= $battletagCode;
-		// $this->host 			= 'http://'.$this->region.'.battle.net'.$this->apiUrl.$this->battletagName.'-'.$this->battletagCode.'/';	
 	}
 	
 	/**
