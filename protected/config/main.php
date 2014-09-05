@@ -75,6 +75,8 @@ return array(
 		// uncomment the following to enable URLs in path-format
 		'urlManager'=>array(
 		    'urlFormat'=>'path',
+            'showScriptName'=>false,
+            'caseSensitive'=>false,
 		    'rules'=>array(
 		        // REST patterns
 		        array('api/ping', 'pattern'=>'api/ping', 'verb'=>'GET'),
@@ -90,10 +92,10 @@ return array(
 		),
 		'db'=>array(
 //			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
-			'connectionString' => 'mysql:host=127.0.0.1;dbname=armoryraider',
+			'connectionString' => 'mysql:host=localhost;dbname=armoryraider',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => 'password',
+			'password' => 'root',
 			'charset' => 'utf8',
 		),
 		// uncomment the following to use a MySQL database

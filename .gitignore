@@ -225,3 +225,5 @@ pip-log.txt
 !assets/
 assets/*
 protected/runtime/application.log.*
+!images/user/*
+images/user/*/

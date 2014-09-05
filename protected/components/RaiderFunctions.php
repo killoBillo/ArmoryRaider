@@ -97,7 +97,7 @@ class RaiderFunctions {
 	 */
 	public static function getImagesFolderPath($model = null){
 		$folder = '/'.strtolower(get_class($model));
-		
+
 		if($model) {
 			if(get_class($model) == 'User')
 				$folder.= (isset($model->portrait_URL)) ? '/'.strtolower(preg_replace('/[\s]+/','_',$model->username)) : '' ;
@@ -106,7 +106,7 @@ class RaiderFunctions {
 		}
 		
 		$path = str_replace('protected', 'images', Yii::app()->basePath);
-		
+
 		return $path .= ($model) ? $folder : '';
 	}
 	

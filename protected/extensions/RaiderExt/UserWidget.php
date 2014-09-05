@@ -15,7 +15,8 @@ class UserWidget extends CWidget {
 		
 		// se non esiste la cartella degli assets, la ripubblico, altrimenti no.
 		$imagesAssetFolder = explode('/', Yii::app()->getAssetManager()->getPublishedUrl(RaiderFunctions::getImagesFolderPath()));
-		$assetsUrl = is_dir(Yii::app()->getAssetManager()->basePath.'/'.$imagesAssetFolder[3]) 
+
+		$assetsUrl = is_dir(Yii::app()->getAssetManager()->basePath.'/'.$imagesAssetFolder[2])
 			? Yii::app()->getAssetManager()->getPublishedUrl(RaiderFunctions::getImagesFolderPath()) 
 			: Yii::app()->getAssetManager()->publish(RaiderFunctions::getImagesFolderPath());
 		
