@@ -19,8 +19,8 @@ Class D3Career {
 	}
 	
 	private function init() {
-		// $json = @file_get_contents($this->host);
-		$json = @file_get_contents('http://localhost/armoryraider/z/career.json');
+		$json = @file_get_contents($this->host);
+		// $json = @file_get_contents('http://localhost/armoryraider/z/career.json');
 		
 		if($json) {
 			$this->setCareer(json_decode($json, true));

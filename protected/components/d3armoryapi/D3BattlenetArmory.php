@@ -18,12 +18,12 @@ Class D3BattlenetArmory {
 	private $battletagName;
 	private $battletagCode;
 	private $apiUrl = '/api/d3/profile/';
+	private $version = '1.0';
 	
 	function __construct($region, $battletagName, $battletagCode) {
 		$this->region 			= $region;
 		$this->battletagName 	= $battletagName;
 		$this->battletagCode 	= $battletagCode;
-		// $this->host 			= 'http://'.$this->region.'.battle.net'.$this->apiUrl.$this->battletagName.'-'.$this->battletagCode.'/';	
 	}
 	
 	/**
@@ -38,6 +38,13 @@ Class D3BattlenetArmory {
 	 */		
 	public function getCareer() {
 		return new D3Career($this->region, $this->battletagName, $this->battletagCode, $this->apiUrl);
+	}
+	
+	/**
+	 * Returns the PHP API version
+	 */
+	public function getVersion() {
+		return $this->version;
 	}	
 }   
 ?>

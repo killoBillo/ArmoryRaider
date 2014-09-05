@@ -25,8 +25,8 @@ Class D3Character {
 	}
 	
 	private function init() {
-		// $json = @file_get_contents($this->host);
-		$json = @file_get_contents('http://localhost/armoryraider/z/hero.json');
+		$json = @file_get_contents($this->host);
+		// $json = @file_get_contents('http://localhost/armoryraider/z/hero.json');
 		
 		if($json) {
 			$this->setCharacter(json_decode($json, true));

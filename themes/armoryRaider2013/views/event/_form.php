@@ -49,7 +49,7 @@
 ?>
 
 		<?php echo $form->labelEx($model,'raid_id'); ?>
-		<?php echo $form->dropDownList($model, 'raid_id', CHtml::listData(Raid::model()->findAll('is_active = 1'), 'id', 'name'), array('class'=>'input-large input-block-level'))?>
+		<?php echo $form->dropDownList($model, 'raid_id', CHtml::listData(Raid::model()->findAll('is_active = 1'), 'id', 'nameType', 'name'), array('class'=>'input-large input-block-level', 'empty'=>Yii::t('locale', 'Select a raid')))?>
 		<?php echo $form->error($model,'raid_id'); ?>
 		
 		<?php 

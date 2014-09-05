@@ -105,10 +105,11 @@
 		'You cannot signup to the event!'=>'Non puoi iscriverti all\'evento!',
 		'<h5>The event has expired.</h5>'=>'<h5>L\'evento &egrave; scaduto.</h5>',
 	
-		// traduzioni controller "Raid" vista "create"
+		// traduzioni controller "Raid" viste "create, _form"
 		'Create new raid'=>'Crea nuovo raid',	
 		'Heroic raid ?'=>'Raid eroico ?',
-		'Active ?'=>'Attivo ?',	
+		'Active ?'=>'Attivo ?',
+		'Select a raid'=>'Scegli un raid',	
 		
 		// Character viste createStep1, createStep2, confirm, update
 		'Create Character <small>step 1 of 2</small>'=>'Aggiungi Personaggio <small>passo 1 di 2</small>',
