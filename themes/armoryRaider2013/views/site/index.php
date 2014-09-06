@@ -25,18 +25,20 @@ $this->pageTitle=Yii::app()->name;
 //	foreach($roles as $role) {
 //		echo $role->name."<br>";
 //	}
-	
-	
-	$armory =  new D3BattlenetArmory('eu', 'killo', '2539');
-	$career = $armory->getCareer();
-	$heroes = $career->getAllCharacters();
-	$character = $armory->getCharacter(139492);
-	
-	$items = $character->getItems();
-	$item = $character->getItem($items['head']['tooltipParams']);
-	
-	echo $item->getName();
-	echo "<img src='".$item->getIconUrl()."' >";
+
+/**
+ * D3BattlenetArmory API tests, remove these lines
+ */
+//  $armory =  new D3BattlenetArmory('eu', 'killo', '2539');
+//	$career = $armory->getCareer();
+//	$heroes = $career->getAllCharacters();
+//	$character = $armory->getCharacter(139492);
+//
+//	$items = $character->getItems();
+//	$item = $character->getItem($items['head']['tooltipParams']);
+//
+//	echo $item->getName();
+//	echo "<img src='".$item->getIconUrl()."' >";
 	
 	$this->widget('ext.RaiderExt.DashboardEvents',array('events'=>$events)); 
  ?>

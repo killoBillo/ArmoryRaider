@@ -99,7 +99,7 @@ class DashboardEvents extends CWidget {
 			
 			
 		}   	
-		
+
 		echo $this->html;
     }
     
@@ -111,45 +111,45 @@ class DashboardEvents extends CWidget {
      * HomePage box
      */
     private function getMiniBoxHtml($k) {
-    	$text = ($this->params['description']) ? $this->params['description'] : $this->params['raidDescription'];
-		$this->params['userImgSize']['class'] = 'img-polaroid';
-		    	
-    	if($this->params['class ']== 'even') 
-			$this->html.= "<div class='row-fluid'>";
+        $text = ($this->params['description']) ? $this->params['description'] : $this->params['raidDescription'];
+        $this->params['userImgSize']['class'] = 'img-polaroid';
 
-		$this->html.= "<div class='dashboard-box-mini lite-shadow span6'>";
-			
-			$this->html.= "<div class='dashboard-box-mini-header'>";
-				$this->html.= "<div class='pull-left'>";
-					$this->html.= CHtml::image($this->params['assetsUrl'].'/user/'.$this->params['portrait'], 'portrait of '.$this->params['username'], $this->params['userImgSize']);
-				$this->html.= "</div>";
-				
-				$this->html.= "<div class='pull-left post-autor '>";
-					$this->html.= "<div class='dashboard-box-mini-raidleader'>".$this->params['username']."</div>";		//." [ ".$this->params['userGuildRole']." ]</div>";
-					$this->html.= "<div class='dashboard-box-mini-label event-date'><span class='muted'>".Yii::t('locale', 'has created a new event')."</span></div>";
-				$this->html.= "</div>";
-				
-				$this->html.= "<div class='clearbox clearfix'></div>";
-			$this->html.= "</div><!-- /dashboard-box-header -->";
-			
-			$this->html.= "<div class='dashboard-box-mini-content'>";
-				$this->html.= "<div class='pos-relative'>";
-					$this->html.= CHtml::image($this->params['assetsUrl'].'/raid/'.$this->params['raidImgFolder'].'/thumb640x360-'.$this->params['raidImg'], 'image of '.$this->params['raidName'].' raid');
-					if(!empty($text)) $this->html.= "<div class='dashboard-box-mini-text'><i class='icon-comment'></i> $text</div>";
-				$this->html.= "</div>";
-			$this->html.= "</div>";
-			
-			$this->html.= "<div class='dashboard-box-mini-footer'>";
-				$this->html.= "<div class='pull-left raid-info'>".$this->params['raidName']." <span class='label label-warning normal-weight'>".$this->params['raidType']."</span><br><small class='muted event-date'>".$this->params['event_date']." ".Yii::t('locale', 'hour')." ".$this->params['event_hour']."</small></div>";
-				$this->html.= "<div class='pull-right'><a class='btn btn-link' href='".Yii::app()->createUrl('event/show', array('id'=>$this->params['id']))."'>".Yii::t('locale', 'Show')."</a></div>";
+        if($this->params['class ']== 'even')
+            $this->html.= "<div class='row-fluid'>";
 
-				$this->html.= "<div class='clearbox clearfix'></div>";
-			$this->html.= "</div>";				
-			
-		$this->html.= "</div><!-- /lite-shadow -->";
-	
-		if($this->params['class ']== 'odd' || $k+1 == count($this->events))	
-			$this->html.= "</div><!-- /row-fluid -->";
+        $this->html.= "<div class='dashboard-box-mini lite-shadow span6'>";
+
+            $this->html.= "<div class='dashboard-box-mini-header'>";
+                $this->html.= "<div class='pull-left'>";
+                    $this->html.= CHtml::image($this->params['assetsUrl'].'/user/'.$this->params['portrait'], 'portrait of '.$this->params['username'], $this->params['userImgSize']);
+                $this->html.= "</div>";
+
+                $this->html.= "<div class='pull-left post-autor '>";
+                    $this->html.= "<div class='dashboard-box-mini-raidleader'>".$this->params['username']."</div>";		//." [ ".$this->params['userGuildRole']." ]</div>";
+                    $this->html.= "<div class='dashboard-box-mini-label event-date'><span class='muted'>".Yii::t('locale', 'has created a new event')."</span></div>";
+                $this->html.= "</div>";
+
+                $this->html.= "<div class='clearbox clearfix'></div>";
+            $this->html.= "</div><!-- /dashboard-box-header -->";
+
+            $this->html.= "<div class='dashboard-box-mini-content'>";
+                $this->html.= "<div class='pos-relative'>";
+                    $this->html.= CHtml::image($this->params['assetsUrl'].'/raid/'.$this->params['raidImgFolder'].'/thumb640x360-'.$this->params['raidImg'], 'image of '.$this->params['raidName'].' raid');
+                    if(!empty($text)) $this->html.= "<div class='dashboard-box-mini-text'><i class='icon-comment'></i> $text</div>";
+                $this->html.= "</div>";
+            $this->html.= "</div>";
+
+            $this->html.= "<div class='dashboard-box-mini-footer'>";
+                $this->html.= "<div class='pull-left raid-info'>".$this->params['raidName']." <span class='label label-warning normal-weight'>".$this->params['raidType']."</span><br><small class='muted event-date'>".$this->params['event_date']." ".Yii::t('locale', 'hour')." ".$this->params['event_hour']."</small></div>";
+                $this->html.= "<div class='pull-right'><a class='btn btn-link' href='".Yii::app()->createUrl('event/show', array('id'=>$this->params['id']))."'>".Yii::t('locale', 'Show')."</a></div>";
+
+                $this->html.= "<div class='clearbox clearfix'></div>";
+            $this->html.= "</div>";
+
+        $this->html.= "</div><!-- /lite-shadow -->";
+
+        if($this->params['class ']== 'odd' || $k+1 == count($this->events))
+            $this->html.= "</div><!-- /row-fluid -->";
 	}
 	
 	

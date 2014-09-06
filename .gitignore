@@ -227,3 +227,4 @@ assets/*
 protected/runtime/application.log.*
 !images/user/*
 images/user/*/
+images/raid/*/
