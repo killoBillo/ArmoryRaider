@@ -91,8 +91,8 @@ class RaiderFunctions {
 	 * delle immagini per quel model, torna la basepath delle img se nn si passano
 	 * parametri.
 	 * 
-	 * Es: RaiderFunctions::getImagesFolderPath($user) == 'C:\wamp\www\yiiraider\images\user\<username>'.
-	 * 	   RaiderFunctions::getImagesFolderPath($raid) == 'C:\wamp\www\yiiraider\images\raid\<raidname>'.	
+	 * Es: RaiderFunctions::getImagesFolderPath($user) == 'C:\wamp\www\yiiraider\images\user\<user.id>'.
+	 * 	   RaiderFunctions::getImagesFolderPath($raid) == 'C:\wamp\www\yiiraider\images\raid\<raid.id>'.
 	 * @param unknown_type $model
 	 */
 	public static function getImagesFolderPath($model = null){
@@ -100,9 +100,9 @@ class RaiderFunctions {
 
 		if($model) {
 			if(get_class($model) == 'User')
-				$folder.= (isset($model->portrait_URL)) ? '/'.strtolower(preg_replace('/[\s]+/','_',$model->username)) : '' ;
+				$folder.= (isset($model->portrait_URL)) ? '/'.$model->id : '' ;      //strtolower(preg_replace('/[\s]+/','_',$model->username)) : '' ;
 			else
-				$folder.= '/'.strtolower(preg_replace('/[\s]+/','_',$model->name));
+				$folder.= '/'.$mdoel->id;        //strtolower(preg_replace('/[\s]+/','_',$model->name));
 		}
 		
 		$path = str_replace('protected', 'images', Yii::app()->basePath);

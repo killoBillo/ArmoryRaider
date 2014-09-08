@@ -24,7 +24,7 @@ class ComingEvents extends CWidget {
 				$raidType = !empty($event->getRaid()->type)? $event->getRaid()->type : 'Normal';
 				$isAlreadyMember = RaiderFunctions::isAlreadyMember($event->getEventModel()->id);
 				$date = new DateTime($event->getEventModel()->event_date);
-				$raidImgFolder = strtolower(preg_replace('/[\s]+/','_',$event->getRaid()->name));
+				$raidImgFolder = $event->getRaid()->id; //strtolower(preg_replace('/[\s]+/','_',$event->getRaid()->name));
 				
 				$this->html.= "<div class='event'>";
 				

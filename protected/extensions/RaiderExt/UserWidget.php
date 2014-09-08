@@ -22,7 +22,7 @@ class UserWidget extends CWidget {
 		
 		//$userRole = $user->profile->guildrole->label;
 		
-		$userImgFolder = strtolower(preg_replace('/[\s]+/','_',$user->username));
+		$userImgFolder = $user->id; //strtolower(preg_replace('/[\s]+/','_',$user->username));
 		$portrait = ($user->portrait_URL) ? $userImgFolder.'/thumb50x50-'.$user->portrait_URL : 'thumb50x50-unknown.jpg';			
 		
 		$this->html.= "<div class='user-widget'>";

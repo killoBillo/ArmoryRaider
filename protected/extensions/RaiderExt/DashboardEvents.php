@@ -60,7 +60,7 @@ class DashboardEvents extends CWidget {
 			$this->params['raidColor']		= !empty($raid['color'])? $raid['color'] : 'orange';
 			$this->params['raidType']		= !empty($raid['type'])? $raid['type'] : 'Normal';
 			$this->params['isHeroic']		= $raid['is_heroic'];
-			$this->params['raidImgFolder']	= strtolower(preg_replace('/[\s]+/','_',$raid['name']));
+			$this->params['raidImgFolder']	= $raid['id']; //strtolower(preg_replace('/[\s]+/','_',$raid['name']));
 			$this->params['raidIcon'] 		= $this->params['isHeroic'] ? 'eroic-icon' : 'normal-icon';
 			$this->params['raidDescription']= $raid->description;
 			$this->params['members']		= count($this->params['charEvent']).' / '.$this->params['playerNum'];

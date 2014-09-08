@@ -87,7 +87,7 @@ class Calendar extends CWidget {
 
 			
         
-		// Controllo che tipo di template � stato richiesto per il calendario.
+		// Controllo che tipo di template è stato richiesto per il calendario.
 		if($this->template == 'squared') {
 			$this->getSquaredCalendar();
 		}elseif($this->template == 'linear') {
@@ -148,7 +148,7 @@ class Calendar extends CWidget {
 			for ($i = 1; $i <= $this->numDays; $i++) {
 				// calcolo la data del giorno che viene ciclato.
 				$this->dayX = new DateTime("$this->year-$this->month-$i");
-				// verifico se la data passata � oggi.
+				// verifico se la data passata è oggi.
 				$isToday = ($this->dayX->format('Y-m-d') == $this->today->format('Y-m-d')) ? true : false ;
 				// recupero gli eventi (o l'evento) del giorno.
 				$this->event = $this->getEvents();
@@ -226,7 +226,7 @@ class Calendar extends CWidget {
 	
 	/**
 	 * Questa funzione si occupa di stampare i giorni precedenti all'inizio del mese
-	 * cio� gli ultimi giorni del mese precedente.
+	 * cioè gli ultimi giorni del mese precedente.
 	 */
 	private function getPrevMonthLastDays() {
 		/**
@@ -253,7 +253,7 @@ class Calendar extends CWidget {
 		$this->weekDay = 1;
 		
 		/**
-		 * imposto la classe, se $this->emptyDays � true, nascondo i box 
+		 * imposto la classe, se $this->emptyDays è true, nascondo i box
 		 * assegnando la classe "invisible".
 		 */
 		if($this->emptyDays)  
@@ -420,7 +420,7 @@ class Calendar extends CWidget {
 			$assetsUrl = Yii::app()->getAssetManager()->getPublishedUrl(RaiderFunctions::getImagesFolderPath());
 			$raidName = $raiderEvent->getRaid()->name;
 			$raidImg = $raiderEvent->getRaid()->img;
-			$raidImgFolder	= strtolower(preg_replace('/[\s]+/','_',$raidName));
+			$raidImgFolder	= $raiderEvent->getRaid()->id;      //strtolower(preg_replace('/[\s]+/','_',$raidName));
 			$imgUrl = $assetsUrl.'/raid/'.$raidImgFolder.'/thumb30x30-'.$raidImg;
 			$raidHour = new DateTime($raiderEvent->getEventModel()->event_date);
 			$raidLeader = $raiderEvent->getRaidleader()->username;			
