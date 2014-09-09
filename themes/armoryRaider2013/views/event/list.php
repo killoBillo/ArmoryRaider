@@ -39,7 +39,7 @@
 						$html.= "<td>$hourString</td>";
 						$html.= "<td>".CHtml::image($assetsURL.'/raid/'.$raidImgFolder.'/thumb40x40-'.$raid->img, 'Image of '.$raid->name, array('height'=>20, 'width'=>20, 'class'=>'img-polaroid'))." ".$raid->name."</td>";
 						$html.= "<td>".$raidleader->username."</td>";
-						$html.= "<td>".CHtml::link(Yii::t('locale', 'Show'), array('event/show&id='.$model->id))."</td>";
+						$html.= "<td>".CHtml::link(Yii::t('locale', 'Show'), array('event/show?id='.$model->id))."</td>";
 					$html.= "</tr>";				
 				}
 			

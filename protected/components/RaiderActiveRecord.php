@@ -29,11 +29,12 @@ class RaiderActiveRecord extends CActiveRecord {
 	
 
 	/**
-	 * Customizzo il metodo beforeSave() per effettuare
+	 * Customizzo il metodo afterSave() per effettuare
 	 * il salvataggio dell'immagine e crearne i thumbnails.
-	 * @see CActiveRecord::beforeSave()
+     * Il metodo afterSave mi permette di recuperare l'id del model appena scritto su DB.
+	 * @see CActiveRecord::afterSave()
 	 */
-	public function beforeSave(){
+	public function afterSave(){
 //		var_dump($this->img, gettype($this->img), $this->img && gettype($this->img) == 'object' && get_class($this->img) == 'CUploadedFile');exit;
 		if($this->img && gettype($this->img) == 'object' && get_class($this->img) == 'CUploadedFile') {
 
@@ -88,7 +89,7 @@ class RaiderActiveRecord extends CActiveRecord {
 			Yii::app()->getAssetManager()->publish(RaiderFunctions::getImagesFolderPath(), false, -1, true);
 		}
 		
-		return parent::beforeSave();		
+		return parent::afterSave();
 	}
 	
 	

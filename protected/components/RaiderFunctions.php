@@ -102,9 +102,10 @@ class RaiderFunctions {
 			if(get_class($model) == 'User')
 				$folder.= (isset($model->portrait_URL)) ? '/'.$model->id : '' ;      //strtolower(preg_replace('/[\s]+/','_',$model->username)) : '' ;
 			else
-				$folder.= '/'.$mdoel->id;        //strtolower(preg_replace('/[\s]+/','_',$model->name));
+				$folder.= '/'.$model->id;        //strtolower(preg_replace('/[\s]+/','_',$model->name));
 		}
-		
+
+//        var_dump($folder, get_class($model), $model);Exit;
 		$path = str_replace('protected', 'images', Yii::app()->basePath);
 
 		return $path .= ($model) ? $folder : '';
