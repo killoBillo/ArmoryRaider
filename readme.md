@@ -8,10 +8,14 @@ CONTENTS OF THIS PAGE
 
  * Requirements and notes
  * Installation
+ * Change log
 
+
+
+* * *
 
 REQUIREMENTS AND NOTES
-----------------------
+==================
 
 - A web server. Apache (version 2.0 or greater) is recommended.
 - PHP 5.1.0 (or greater) (http://www.php.net/).
@@ -33,8 +37,11 @@ REQUIREMENTS AND NOTES
 more detailed information. (<http://www.yiiframework.com/>) 
 
 
+
+* * *
+
 INSTALLATION
-------------
+==================
 
 ### 1. Download and extract ArmoryRaider. 
 
@@ -87,6 +94,7 @@ characters from other guilds).
    
 
 ### 5. Enjoy! :]  
+
 
 
 * * *
