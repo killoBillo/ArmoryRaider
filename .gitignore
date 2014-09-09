@@ -222,8 +222,10 @@ pip-log.txt
 #################
 ## Yii Framework
 #################
-!/assets/
+!/assets/*
 /assets/*/
 protected/runtime/application.log.*
 !/images/user/*
 images/user/*/
+!images/raid/*
+images/raid/*/
