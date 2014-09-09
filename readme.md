@@ -14,7 +14,7 @@ CONTENTS OF THIS PAGE
 
 * * *
 
-REQUIREMENTS AND NOTES
+Requirements and Notes
 ==================
 
 - A web server. Apache (version 2.0 or greater) is recommended.
@@ -40,7 +40,7 @@ more detailed information. (<http://www.yiiframework.com/>)
 
 * * *
 
-INSTALLATION
+Installation
 ==================
 
 ### 1. Download and extract ArmoryRaider. 
