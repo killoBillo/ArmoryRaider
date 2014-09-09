@@ -31,7 +31,7 @@
 					$dateString = $eventDate->format('Y-m-d');
 					$hourString = $eventDate->format('H:i');					
 					$raid = Raid::model()->findByPk($model->raid_id);
-					$raidImgFolder = strtolower(preg_replace('/[\s]+/','_',$raid->name));
+					$raidImgFolder = $raid->id;                                         //strtolower(preg_replace('/[\s]+/','_',$raid->name));
 					$raidleader = User::model()->findByPk($model->raid_leader_id);
 					
 					$html.= "<tr>";

@@ -187,6 +187,7 @@ insert  into `authitemchild`(`parent`,`child`) values ('Guildmaster','User.*');
 insert  into `authitemchild`(`parent`,`child`) values ('Authenticated','User.Profile');
 insert  into `authitemchild`(`parent`,`child`) values ('Authenticated','Event.List');
 insert  into `authitemchild`(`parent`,`child`) values ('Authenticated','Event.MyEvents');
+insert  into `authitemchild`(`parent`,`child`) values ('Authenticated','CharacterEvent.Delete');
 
 /*Table structure for table `rights` */
 

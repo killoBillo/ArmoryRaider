@@ -5,7 +5,7 @@
 	$html.= "<h1>".Yii::t('locale', 'Guild Roster')."</h1>";
 	
 	foreach ($users as $k=>$user) {
-		$userImgFolder = strtolower(preg_replace('/[\s]+/','_',$user->username));
+		$userImgFolder = $user->id;                                     //strtolower(preg_replace('/[\s]+/','_',$user->username));
 		$portrait = ($user->portrait_URL) ? $userImgFolder.'/thumb50x50-'.$user->portrait_URL : 'thumb50x50-unknown.jpg';
 		$guildRole = $user->profile->guildrole;
 		
@@ -18,7 +18,7 @@
 			$html.= "<div class='user-data pull-left'>";
 				$html.= "<div class='username'>".$user->username."<br><small>".$user->name." ".$user->surname." [ ".$guildRole->label." ]</small></div>";
 			$html.= "</div><!-- /user-data -->";
-			
+
 			$html.= "<div class='clearbox clearfix'></div>";
 		$html.= "</div><!-- /userWidget -->";
 		// fine HTML utente
