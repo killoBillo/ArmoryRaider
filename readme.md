@@ -3,7 +3,7 @@ ArmoryRaider
 This application is a calendar of events suitable for the planning of WOW Guild raids. Through the use of special classes (written by [third parties](https://sourceforge.net/projects/wowarmoryapi/)) is able to retrieve characters data directly from the Battle.net Armory.
 
 
-CONTENTS OF THIS PAGE
+Contents of this page
 ---------------------
 
  * Requirements and notes
