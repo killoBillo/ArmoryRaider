@@ -85,8 +85,8 @@ more detailed information. (<http://www.yiiframework.com/>)
   that they are writable by the Web server process.
 - Point your browser to the base URL of your application and login as admin 
   using the following login details:
-      - user: admin
-      - password: admin
+  - user: *admin*
+  - password: *admin*
  
 You will be guided through two screens to set up the application and the 
 main guild (other guilds will be added automatically while adding new 
@@ -111,7 +111,7 @@ Version 1.1.3
 ----------------------
 - Fixed an homepage HTML bug
 - Added "type" field for the raids labels (Normal, Heroic, LFR, Flex, ...)
-- Added 1.0.x_to_1.1.3.sql in "protected/data"
+- Added the script file to update the DB from verion 1.0.x (or earlier) to 1.1.3 1.0.x_to_1.1.3.sql in "protected/data"
 - Raidleaders can now change characters roles
 - Other minor fixes
 
