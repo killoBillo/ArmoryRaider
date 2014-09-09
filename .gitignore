@@ -225,6 +225,7 @@ pip-log.txt
 !assets/
 assets/*
 protected/runtime/application.log.*
+!images/*/
 !images/user/*
 images/user/*/
 images/raid/*/
