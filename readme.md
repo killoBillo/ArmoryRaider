@@ -4,7 +4,6 @@ This application is a calendar of events suitable for the planning of WOW Guild 
 
 N.b.: *This is my first sourceforge project, let me know if something is wrong so I can fix it.*
 
-[Change log](https://sourceforge.net/p/armoryraider/wiki/Changelog/)
 
 CONTENTS OF THIS PAGE
 ---------------------
@@ -41,9 +40,8 @@ INSTALLATION
 
 ### 1. Download and extract ArmoryRaider. 
 
-You can obtain the latest ArmoryRaider release from  
-<https://sourceforge.net/projects/armoryraider/> the files are available 
-in .zip formats and can be extracted using most compression tools.
+You can obtain the latest ArmoryRaider release from github
+<https://github.com/killoBillo/ArmoryRaider>.
    
 
 ### 2. Create the ArmoryRaider database.
@@ -92,5 +90,61 @@ characters from other guilds).
 
 ### 5. Enjoy! :]  
 
+
+* * *
+
+Change log
+==================
+All the changes i make and commit will go to the development branch and is only available through a git pull. When I find that it's time for a new release i will make a new zip file for download and modify the changelog so the changes are in a version.
+
+In the development branch you can always find the actual development situation.
+
+N.B. I'm currently working behind a firewall, so no git updates temporarily.
+
+Version 1.1.3
+----------------------
+- Fixed an homepage HTML bug
+- Added "type" field for the raids labels (Normal, Heroic, LFR, Flex, ...)
+- Added 1.0.x_to_1.1.3.sql in "protected/data"
+- Raidleaders can now change characters roles
+- Other minor fixes
+
+Version 1.0.1
+----------------------
+- Fixed user registration and user attivation bug
+
+Version 1.0
+----------------------
+- Added reset password
+- Added "guild roster", "events I attended", "events list" functions under the new "guild" item menu
+- Added reset_password database table, so you need to redump your DB (or ask me for an update script 0.x to 1.0)
+- Added social networks link to the event
+- Added new fancy icons
+- Fixed broken characters link to the armory
+- Others minor fixes
+
+
+Version 0.9Beta2
+----------------------
+- Fixed coming events widget images for unix systems
+
+Version 0.9Beta1
+----------------------
+ - Modified "select date" button behavior for calendar
+ - Added raid images for coming events widget
+ - Added raidleader's comments to the events in homepage
+ - Fixed mysql schema, it was broke
+ - Fixed some 403 error
+ - Others minor fixes and changes
+
+Version 0.8Beta3
+----------------------
+ - Fixed portrait bug for Unix based Systems
+ - Fixed some CSS style inconsistency
+ - Fixed first run assets image bug
+
+Version 0.8Beta2
+----------------------
+ - Fixed mySQL tables "AuthAssignment", "AuthItem", "AuthItemChild" bug for case sensitive File Systems.
 
 *Page still in progress*
