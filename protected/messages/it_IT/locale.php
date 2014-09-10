@@ -227,7 +227,9 @@
 		'Item Level'=>'Livello oggetti',
 		'Img'=>'Img',
 		'No characters found'=>'Nessun personaggio trovato',
-		
+
+        // ArmoryRaiderMobile2013
+        'Main Menu'=>'Main Menù',
 	);
 	
 ?>

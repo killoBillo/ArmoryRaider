@@ -221,7 +221,7 @@ class RaiderController extends RController {
 //		        echo 'not a mobile device';
 		}		
 
-//		Yii::app()->theme = 'armoryRaider2013';
+		Yii::app()->theme = 'armoryRaiderMobile2013';
 
 		
 		
