@@ -50,7 +50,7 @@
 		// se tutto è configurato, mostro il calendario, la sidebar ed il resto.
 		
 		// apro il content
-		echo "<div id='content' class='content span9 pull-right'>";
+		echo "<div id='content' class='content span12'>";
 				
 		// renderizzo il calendario
 		$this->renderPartial('/layouts/_calendar');
@@ -64,8 +64,8 @@
 		// chiudo il content		
 		echo "</div><!-- content -->";
 		
-		// renderizzo la sidebar
-		$this->renderPartial('/layouts/_sidebar');
+//		// renderizzo la sidebar
+//		$this->renderPartial('/layouts/_sidebar');
 	}
 	
 	

@@ -29,6 +29,7 @@ Yii::app()->clientScript->registerScript('popovers', "
     <link rel="stylesheet" media="screen" href="<?php echo Yii::app()->theme->baseUrl;?>/css/snap.css">
 	
 	<link rel="stylesheet" media="screen" href="<?php echo Yii::app()->theme->baseUrl;?>/css/style.css">
+    <link rel="stylesheet" media="screen" href="<?php echo Yii::app()->theme->baseUrl;?>/css/mobile.css">
 	<link rel="stylesheet" media="screen" href="<?php echo Yii::app()->theme->baseUrl;?>/css/calendar.css">
 	<link rel="stylesheet" media="screen" href="<?php echo Yii::app()->theme->baseUrl;?>/css/datepicker.css">
 	<link rel="stylesheet" media="screen" href="<?php echo Yii::app()->theme->baseUrl;?>/css/social-buttons.css">
@@ -144,24 +145,27 @@ Yii::app()->clientScript->registerScript('popovers', "
     <div class="snap-drawers">
         <div class="snap-drawer snap-drawer-left">
             <div>
-                <h3><?php echo Yii::t('locale', 'Main Menu')?></h3>
-                <!-- my_menu menu -->
-                <?php
-                if(!Yii::app()->user->isGuest && isset($this->raiderMenu)) {
-                    $this->widget('zii.widgets.CMenu', $this->raiderMenu->getMenu());
-                }
-                ?>
-                <!-- /my_menu menu -->
-                <!-- logout menu -->
-                <?php
-                if(!Yii::app()->user->isGuest && isset($this->raiderMenu)) {
-                    $this->widget('zii.widgets.CMenu', $this->raiderMenu->getLogOutMenu());
-                }
-                ?>
-                <!-- /logout menu -->
+                <!-- renderizzo la sidebar -->
+                <?php $this->renderPartial('/layouts/_sidebar'); ?>
             </div>
         </div>
-        <div class="snap-drawer snap-drawer-right"></div>
+        <div class="snap-drawer snap-drawer-right">
+            <h3><?php echo Yii::t('locale', 'Main Menu')?></h3>
+            <!-- my_menu menu -->
+            <?php
+            if(!Yii::app()->user->isGuest && isset($this->raiderMenu)) {
+                $this->widget('zii.widgets.CMenu', $this->raiderMenu->getMenu());
+            }
+            ?>
+            <!-- /my_menu menu -->
+            <!-- logout menu -->
+            <?php
+            if(!Yii::app()->user->isGuest && isset($this->raiderMenu)) {
+                $this->widget('zii.widgets.CMenu', $this->raiderMenu->getLogOutMenu());
+            }
+            ?>
+            <!-- /logout menu -->
+        </div>
     </div>
 
     <div id="wrap" class="snap-content">
@@ -171,28 +175,8 @@ Yii::app()->clientScript->registerScript('popovers', "
 	    <div class="navbar navbar-inverse navbar-fixed-top"> <!-- add navbar-inverse class for a black navbar -->
 	      <div class="navbar-inner">
 	        <div class="container-fluid">
-	          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-	            <span class="icon-bar"></span>
-	            <span class="icon-bar"></span>
-	            <span class="icon-bar"></span>
-	          </button>
-	          <a class="brand" href="<?php echo Yii::app()->createUrl('site/index'); ?>"><?php echo Yii::app()->session['brand']; ?></a>
-	          <div class="nav-collapse collapse">
-				<!-- my_menu menu -->
-				<?php
-					if(!Yii::app()->user->isGuest && isset($this->raiderMenu)) { 
-						$this->widget('zii.widgets.CMenu', $this->raiderMenu->getMenu()); 
-					}		
-				?>
-				<!-- /my_menu menu -->          
-				<!-- logout menu -->
-				<?php
-					if(!Yii::app()->user->isGuest && isset($this->raiderMenu)) { 
-						$this->widget('zii.widgets.CMenu', $this->raiderMenu->getLogOutMenu()); 
-					}			 
-				?>		
-				<!-- /logout menu -->	            
-	          </div><!--/.nav-collapse -->
+                <button id="open-left" class="btn btn-default pull-left"><i class="icon icon-user"></i></button>
+                <button id="open-right" class="btn btn-default pull-right"><i class="icon icon-home"></i></button>
 	        </div>
 	      </div>
 	    </div><!-- /navbar --> 
@@ -211,13 +195,23 @@ Yii::app()->clientScript->registerScript('popovers', "
 			
 		</div><!-- /container -->
       
-      <div id="pushFooter"></div>
+        <div id="footer" class="row-fluid">
+            <div class="container span12">
+                <p class="muted credit">
+                    ArmoryRaider &copy; <?php echo Yii::t('locale', 'is a product developed by'); ?>
+                    <a href="http://www.killodesign.com">Marco Chillemi</a>,
+                    <?php echo sprintf(Yii::t('locale', 'Rome - Italy, %d.'), date('Y')); ?>
+                    <?php echo ' V'.Yii::app()->params->version.'.'; ?>
+                </p>
+            </div>
+        </div><!-- footer -->
+
     </div><!-- /wrap -->
-	
-	
+
+
 	<script src="<?php echo Yii::app()->theme->baseUrl;?>/js/bootstrap.min.js"></script>
 	<script src="<?php echo Yii::app()->theme->baseUrl;?>/js/bootstrap-datepicker.js"></script>
     <script src="<?php echo Yii::app()->theme->baseUrl;?>/js/snap.min.js"></script>
-    <script src="<?php echo Yii::app()->theme->baseUrl;?>/js/functions.js"></script>
+    <script src="<?php echo Yii::app()->theme->baseUrl;?>/js/mySnap.js"></script>
 </body>
 </html>

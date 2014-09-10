@@ -204,7 +204,10 @@ ul, ol {
 	height: auto !important;
 	height: 100%;
 	/* Negative indent footer by it's height */
-	margin: 0 auto -60px;	
+	margin: 0 auto -60px;
+    background-color: #F9F9F9;
+    border-left: 1px solid #DDD;
+    border-right: 1px solid #DDD;
 }
 #wrap > .container-fluid {
  	/*margin-top: 41px*/;
@@ -334,6 +337,9 @@ table {
 /**
  * Sidebar *****************************************************************************
  */
+#sidebar {
+    padding: 0 10px;
+}
 #sidebar ul {
 	list-style: none;
 }
@@ -425,10 +431,6 @@ table {
 /**
  * Footer *****************************************************************************
  */
-#pushFooter,
-#footer {
-  	height: 60px;
-}
 .container .credit {
  	margin: 20px 0;
 }

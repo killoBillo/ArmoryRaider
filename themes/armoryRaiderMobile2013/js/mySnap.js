@@ -1,5 +1,7 @@
 var snapper = new Snap({
-    element: document.getElementById('wrap')
+    element: document.getElementById('wrap'),
+    maxPosition: 340,
+    minPosition: -340,
 });
 
 var addEvent = function addEvent(element, eventName, func) {
@@ -10,11 +12,20 @@ var addEvent = function addEvent(element, eventName, func) {
     }
 };
 
-addEvent(document.getElementById('sidebar'), 'click', function(){
+addEvent(document.getElementById('open-left'), 'click', function(){
     var data = snapper.state();
 
     if(data.state == 'closed')
         snapper.open('left');
+    else
+        snapper.close();
+});
+
+addEvent(document.getElementById('open-right'), 'click', function(){
+    var data = snapper.state();
+
+    if(data.state == 'closed')
+        snapper.open('right');
     else
         snapper.close();
 });

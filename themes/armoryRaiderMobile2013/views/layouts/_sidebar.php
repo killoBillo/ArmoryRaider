@@ -1,4 +1,4 @@
-<div id="sidebar" class="sidebar span3 pull-left">
+<div id="sidebar" class="sidebar">
 	<div class="row-fluid">
 		<div class="span12">
 			<?php 

@@ -5,3 +5,11 @@
  *	url: http://www.killodesign.com
  *	mail: marco[dot]chillemi[at]gmail[dot]com
 **/
+#open-left,
+#open-right {
+    /*margin: 0 10px;*/
+}
+.snap-drawer {
+    width: 340px;
+    background-color: #F2F2F2;
+}
