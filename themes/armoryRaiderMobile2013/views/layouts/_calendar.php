@@ -48,7 +48,7 @@
 			
 ?>
 
-<div id="wrapper-calendario" class="span9">
+<div id="wrapper-calendario" class="span12">
 	<div class="viewport span12">
 
 		<?php 

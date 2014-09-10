@@ -56,7 +56,7 @@
 		$this->renderPartial('/layouts/_calendar');
 		
 		// altro contenuto sottostante il calendario
-		echo "<div id='content-under-calendar' class='span9'>";
+		echo "<div id='content-under-calendar' class='span12'>";
 			echo $content;
 		echo "</div><!-- /content-under-calendar -->";
 		echo "<div class='clearbox'></div>";
