@@ -222,6 +222,7 @@ class RaiderController extends RController {
 		}		
 
 		Yii::app()->theme = 'armoryRaiderMobile2013';
+        Yii::app()->session['theme'] = 'mobile';
 
 		
 		

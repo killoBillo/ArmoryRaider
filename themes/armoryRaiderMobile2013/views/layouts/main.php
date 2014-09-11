@@ -37,108 +37,6 @@ Yii::app()->clientScript->registerScript('popovers', "
 	<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Roboto+Slab'>
 	
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
-	
-	<!--
-		mobile CSS rules resource. 
-		http://zsprawl.com/iOS/2012/03/css-for-iphone-ipad-and-retina-displays/ 
-	-->
-	
-	<!-- Mobile Styles -->
-	<style>
-		/* Landscape phone to portrait tablet */
-		@media (max-width: 767px) {
-			body {
-				font-size:12px;
-				padding: 0;
-			}
-			#pushContent {
-				display:none;
-			}			
-			.navbar .brand {
-				font-size: small;
-			}			
-			#wrap > .container-fluid {
-			 	margin-top: 0;
-			}	
-			.navbar-fixed-top {
-			    margin: 0;
-			}
-			#wrapper-calendario,
-			#content-single-page,
-			#content-under-calendar,
-			#sidebar {
-				padding: 0 20px;
-				width: auto;
-			}
-			.dashboard-box-full .raid-infos {
-				padding: 0 10px;
-				float: left;
-			}	
-		}
-		
-		/* Landscape phones and down */
-		@media (max-width: 480px) and (orientation:portrait) {
-			body {
-				font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-				font-size: 10px !important;
-			} 
-			#pushContent {
-				display:none;
-			}						
-			.navbar .brand {
-				color: #000;
-			}			
-			.calendar-tools .pull-left,
-			.calendar-tools .pull-right {
-				float:none;
-			}	
-			.choose-date {
-				margin-bottom: 5px;
-			}
-			#wrapper-calendario,
-			#content-single-page,
-			#content-under-calendar,			
-			#sidebar {
-				padding: 0 20px;
-				width: auto;
-			}
-			#footer {
-				font-size: 9px !important;
-			}
-			.dashboard-box-full .raid-infos {
-				padding: 0 5px;
-				float: left;
-			}			
-		}
-		
-		
-		/* Non-Retina */
-		@media screen and (-webkit-max-device-pixel-ratio: 1) {
-		}
-		
-		/* Retina */
-		@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
-		only screen and (-o-min-device-pixel-ratio: 3/2),
-		only screen and (min--moz-device-pixel-ratio: 1.5),
-		only screen and (min-device-pixel-ratio: 1.5) {
-		}
-		
-		/* iPhone Portrait */
-		@media screen and (max-device-width: 480px) and (orientation:portrait) {
-		} 
-		
-		/* iPhone Landscape */
-		@media screen and (max-device-width: 480px) and (orientation:landscape) {
-		}
-		
-		/* iPad Portrait */
-		@media screen and (min-device-width: 481px) and (orientation:portrait) {
-		}
-		
-		/* iPad Landscape */
-		@media screen and (min-device-width: 481px) and (orientation:landscape) {
-		}
-	</style>
 </head>
 
 <body>
@@ -150,21 +48,23 @@ Yii::app()->clientScript->registerScript('popovers', "
             </div>
         </div>
         <div class="snap-drawer snap-drawer-right">
-            <h3><?php echo Yii::t('locale', 'Main Menu')?></h3>
-            <!-- my_menu menu -->
-            <?php
-            if(!Yii::app()->user->isGuest && isset($this->raiderMenu)) {
-                $this->widget('zii.widgets.CMenu', $this->raiderMenu->getMenu());
-            }
-            ?>
-            <!-- /my_menu menu -->
-            <!-- logout menu -->
-            <?php
-            if(!Yii::app()->user->isGuest && isset($this->raiderMenu)) {
-                $this->widget('zii.widgets.CMenu', $this->raiderMenu->getLogOutMenu());
-            }
-            ?>
-            <!-- /logout menu -->
+            <nav id="navmenu">
+                <h3 class="title"><?php echo Yii::t('locale', 'Main Menu')?></h3>
+                <!-- my_menu menu -->
+                <?php
+                if(!Yii::app()->user->isGuest && isset($this->raiderMenu)) {
+                    $this->widget('zii.widgets.CMenu', $this->raiderMenu->getMenu());
+                }
+                ?>
+                <!-- /my_menu menu -->
+                <!-- logout menu -->
+                <?php
+                if(!Yii::app()->user->isGuest && isset($this->raiderMenu)) {
+                    $this->widget('zii.widgets.CMenu', $this->raiderMenu->getLogOutMenu());
+                }
+                ?>
+                <!-- /logout menu -->
+            </nav>
         </div>
     </div>
 
@@ -172,11 +72,11 @@ Yii::app()->clientScript->registerScript('popovers', "
     	<div id="pushContent"></div>
 
 	    <!-- NAVBAR -->
-	    <div class="navbar navbar-inverse navbar-fixed-top"> <!-- add navbar-inverse class for a black navbar -->
+	    <div class="navbar navbar-fixed-top"> <!-- add navbar-inverse class for a black navbar -->
 	      <div class="navbar-inner">
 	        <div class="container-fluid">
-                <button id="open-left" class="btn btn-default pull-left"><i class="icon icon-user"></i></button>
-                <button id="open-right" class="btn btn-default pull-right"><i class="icon icon-home"></i></button>
+                <i id="open-left" class="icon icon-user pull-left"></i>
+                <i id="open-right" class="icon icon-reorder pull-right"></i>
 	        </div>
 	      </div>
 	    </div><!-- /navbar --> 
@@ -199,7 +99,7 @@ Yii::app()->clientScript->registerScript('popovers', "
             <div class="container span12">
                 <p class="muted credit">
                     ArmoryRaider &copy; <?php echo Yii::t('locale', 'is a product developed by'); ?>
-                    <a href="http://www.killodesign.com">Marco Chillemi</a>,
+                    <a href="http://www.killodesign.com">Marco Chillemi</a><br>
                     <?php echo sprintf(Yii::t('locale', 'Rome - Italy, %d.'), date('Y')); ?>
                     <?php echo ' V'.Yii::app()->params->version.'.'; ?>
                 </p>

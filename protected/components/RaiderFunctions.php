@@ -291,7 +291,15 @@ class RaiderFunctions {
 		
 		mail($email, $subject, $body, $headers);	 	
 	 }
-	 
+
+
+
+    /**
+     * Questa funzione torna true se il theme è "mobile"
+     */
+	 public static function isThemeMobile() {
+         return (Yii::app()->session['theme'] == 'mobile') ? true : false ;
+     }
 }
 
 ?>

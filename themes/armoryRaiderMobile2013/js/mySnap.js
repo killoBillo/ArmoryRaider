@@ -1,7 +1,7 @@
 var snapper = new Snap({
     element: document.getElementById('wrap'),
-    maxPosition: 340,
-    minPosition: -340,
+    maxPosition: 266,
+    minPosition: -266,
 });
 
 var addEvent = function addEvent(element, eventName, func) {

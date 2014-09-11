@@ -7,9 +7,149 @@
 **/
 #open-left,
 #open-right {
-    /*margin: 0 10px;*/
+    font-size: 20px;
+    padding: 10px 20px 3px;
+    cursor: pointer;
+}
+#open-left:hover,
+#open-right:hover {
+    color: #696969;
 }
 .snap-drawer {
-    width: 340px;
     background-color: #F2F2F2;
+}
+
+.snap-drawer-left {
+    border-right: 1px solid #DDD;
+}
+
+.snap-drawer-right {
+    border-left: 1px solid #DDD;
+}
+.snap-drawer-right h3.title {
+    text-align: center;
+}
+#navmenu {
+    padding: 0 10px;
+}
+#navmenu > ul {
+    padding-left: 10px;
+}
+#navmenu li {}
+#navmenu > ul > li > a {
+    font-size: 16px;
+    color: #505050;
+    border-bottom: 1px solid #DDD;
+    display: block;
+    padding: 10px 0;
+}
+.nav .dropdown-toggle .caret {
+    border-top-color: #505050;
+    border-bottom-color: #505050;
+    margin-top: 6px;
+}
+.nav .dropdown-toggle:hover .caret, .nav .dropdown-toggle:focus .caret {
+    border-top-color: #505050;
+    border-bottom-color: #505050;
+}
+
+
+
+/*
+ * mobile CSS rules resource.
+ * http://zsprawl.com/iOS/2012/03/css-for-iphone-ipad-and-retina-displays/
+ */
+
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+    body {
+        font-size:12px;
+        padding: 0;
+    }
+    #pushContent {
+        display:none;
+    }
+    .navbar .brand {
+        font-size: small;
+    }
+    #wrap > .container-fluid {
+        margin-top: 0;
+    }
+    .navbar-fixed-top {
+        margin: 0;
+    }
+    #wrapper-calendario,
+    #content-single-page,
+    #content-under-calendar,
+    #sidebar {
+        padding: 0 20px;
+        width: auto;
+    }
+    .dashboard-box-full .raid-infos {
+        padding: 0 10px;
+        float: left;
+    }
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) and (orientation:portrait) {
+    body {
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 10px !important;
+    }
+    #pushContent {
+        display:none;
+    }
+    .navbar .brand {
+        color: #000;
+    }
+    .calendar-tools .pull-left,
+    .calendar-tools .pull-right {
+        float:none;
+    }
+    .choose-date {
+        margin-bottom: 5px;
+    }
+    #wrapper-calendario,
+    #content-single-page,
+    #content-under-calendar,
+    #sidebar {
+        padding: 0 20px;
+        width: auto;
+    }
+    #footer {
+        font-size: 9px !important;
+    }
+    .dashboard-box-full .raid-infos {
+        padding: 0 5px;
+        float: left;
+    }
+}
+
+/* Non-Retina */
+@media screen and (-webkit-max-device-pixel-ratio: 1) {
+}
+
+/* Retina */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min--moz-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5) {
+}
+
+/* iPhone Portrait */
+@media screen and (max-device-width: 480px) and (orientation:portrait) {
+}
+
+/* iPhone Landscape */
+@media screen and (max-device-width: 480px) and (orientation:landscape) {
+}
+
+/* iPad Portrait */
+@media screen and (min-device-width: 481px) and (orientation:portrait) {
+}
+
+/* iPad Landscape */
+@media screen and (min-device-width: 481px) and (orientation:landscape) {
 }

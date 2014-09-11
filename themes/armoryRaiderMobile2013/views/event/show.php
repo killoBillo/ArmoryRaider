@@ -11,7 +11,8 @@ $hourString = $eventDate->format('H:i');
 ?>
 
 
-<h1><?php echo "<span class='uppercase'>$raidName</span> <span class='label label-warning normal-weight float-left'>$raidType</span> <small>".Yii::app()->DateFormatter->formatDateTime(CDateTimeParser::parse($dateString, 'yyyy-MM-dd'), 'full', null )." ".Yii::t('locale', 'hour')." $hourString</small>" ;?></h1>
+<h1><?php echo "<span class='uppercase'>$raidName</span>"  ;?></h1>
+<h4><?php echo "<span class='label label-warning normal-weight'>$raidType</span> <small>".Yii::app()->DateFormatter->formatDateTime(CDateTimeParser::parse($dateString, 'yyyy-MM-dd'), 'full', null )." ".Yii::t('locale', 'hour')." $hourString</small>"; ?></h4>
 <div class="clearfix clearbox"></div>
 
 <?php 

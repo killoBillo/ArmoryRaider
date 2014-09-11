@@ -45,7 +45,7 @@ class RaiderMenu {
 		$this->logOutMenu = array(
 			'id'=>'logout_menu',
 			'htmlOptions'=>array(
-				'class'=>'nav pull-right',
+				'class'=>'nav',
 			),
 			'encodeLabel'=>false,		
 			'items'=>array(

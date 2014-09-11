@@ -12,7 +12,7 @@
 ?><!-- breadcrumbs -->	
 
 
-<div id="content" class="content span9 pull-right">
+<div id="content" class="content span12">
 	
 	<!-- Contenuto di una pagina qualsiasi -->	
 	<div id="content-single-page" class="span12">
@@ -21,12 +21,5 @@
 	
 	<div class="clearbox"></div>
 </div><!-- content -->
-
-
-
-<!-- Renderizzo la sidebar -->
-<?php $this->renderPartial('/layouts/_sidebar'); ?> 
-
-
 
 <?php $this->endContent(); ?>

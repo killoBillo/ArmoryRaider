@@ -36,6 +36,8 @@ class UserWidget extends CWidget {
 				$this->html.= "<div class='user-info'>".CHtml::link($user->name." ".$user->surname, array('user/profile'), array('class'=>'tooltip-link','data-toggle'=>'tooltip', 'title'=>Yii::t('locale', 'edit profile')))."</div>";
 				
 			$this->html.= "</div><!-- /user-data -->";
+
+            $this->html.= "<div class='clearfix'></div>";
 			
 		$this->html.= "</div><!-- /userWidget -->";
 		

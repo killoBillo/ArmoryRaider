@@ -104,10 +104,10 @@ class Calendar extends CWidget {
 	
 	private function getSquaredCalendar() {
 		$this->html.= "<div id='main-calendar' class='calendario squared lite-shadow'>";
-			
+
 			// tools per la selezione di altre date.
 			$this->html.= "<div class='calendar-tools'>";
-				$this->html.= "<div class='choose-date pull-left btn-groupd'>";
+				$this->html.= "<div class='choose-date float-left btn-groupd'>";
 				$this->html.= CHtml::beginForm(array('site/index'), 'get', array('id'=>'choose-date-form', 'class'=>'form-inline'));
 					$this->html.= '<input id="input-date" class="hide" size="7" type="text" value="'.$this->year.'-'.$this->month.'" readonly="" name="date">';
 					$this->html.= CHtml::submitButton(
@@ -119,12 +119,24 @@ class Calendar extends CWidget {
 										)
 									); 				
 				$this->html.= CHtml::endForm();
-				$this->html.= '<a href="#" class="btn small" id="dpMonths" data-date="'.$this->year.'-'.$this->month.'" data-date-format="yyyy-mm" data-date-viewmode="years" data-date-minviewmode="months"><i class="icon-calendar"></i> '.Yii::t('locale', 'Select date').'</a>';
+
+                // se il template è mobile printo nel pulsante soltanto l'iconcina del calendario
+                if(!RaiderFunctions::isThemeMobile())
+				    $this->html.= '<a href="#" class="btn small" id="dpMonths" data-date="'.$this->year.'-'.$this->month.'" data-date-format="yyyy-mm" data-date-viewmode="years" data-date-minviewmode="months"><i class="icon-calendar"></i> '.Yii::t('locale', 'Select date').'</a>';
+                else
+                    $this->html.= '<a href="#" class="btn small" id="dpMonths" data-date="'.$this->year.'-'.$this->month.'" data-date-format="yyyy-mm" data-date-viewmode="years" data-date-minviewmode="months"><i class="icon-calendar"></i></a>';
+
 				$this->html.= "</div><!-- choose-date -->";
 				
-				$this->html.= "<div class='nav-calendar pull-right btn-group'>";
-					$this->html.= "<a class='btn prev-month float-left' href='".$this->prevMonthLink."'>".$this->prevMonthLabel."</a>";
-					$this->html.= "<a class='btn next-month float-right' href='".$this->nextMonthLink."'>".$this->nextMonthLabel."</a>";
+				$this->html.= "<div class='nav-calendar float-right btn-group'>";
+                    // se il template è mobile stampo nei pulsanti soltanto due iconcine a forma di freccia piuttosto che il nome dei mesi precedenti e successivo
+                    if(!RaiderFunctions::isThemeMobile()) {
+					    $this->html.= "<a class='btn prev-month float-left' href='".$this->prevMonthLink."'>".$this->prevMonthLabel."</a>";
+					    $this->html.= "<a class='btn next-month float-right' href='".$this->nextMonthLink."'>".$this->nextMonthLabel."</a>";
+                    }else{
+                        $this->html.= "<a class='btn prev-month float-left' href='".$this->prevMonthLink."'><i class='icon icon-arrow-left'></i></a>";
+                        $this->html.= "<a class='btn next-month float-right' href='".$this->nextMonthLink."'><i class='icon icon-arrow-right'></i></a>";
+                    }
 				$this->html.= "</div><!-- /nav-calendar -->";			
 				
 				$this->html.="<div class='clearbox clearfix'></div>";				

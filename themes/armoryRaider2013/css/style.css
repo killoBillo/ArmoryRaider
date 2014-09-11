@@ -219,6 +219,9 @@ ul, ol {
 	float:right;
 	/*width: 700px;*/
 }
+#logout_menu {
+    float: right
+}
 #breadcrumbs {
 	background-color: #F0F0F0;
 	border: 1px solid #ccc;
