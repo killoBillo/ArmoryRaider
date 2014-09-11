@@ -101,11 +101,17 @@ characters from other guilds).
 
 Change log
 ==================
-All the changes i make and commit will go to the development branch and is only available through a git pull. When I find that it's time for a new release i will make a new zip file for download and modify the changelog so the changes are in a version.
+All the changes i make and commit will go to the development branch. When I find that it's time for a new release i will make a new git tag and modify the changelog so the changes are in a version.
 
 In the development branch you can always find the actual development situation.
 
-N.B. I'm currently working behind a firewall, so no git updates temporarily.
+
+Version 1.1.4
+----------------------
+- Added a new mobile theme with side slide functionalities
+- Added Diablo3 Armory APIs to fetch data from battlenet, but not still implemented in the app flow
+- Added embryonal ArmoryRaider APIs in the controller ApiController.php, still far from being completed and I do not know if it will ever happen :]
+- Fixed some bug found along the way
 
 Version 1.1.3
 ----------------------
