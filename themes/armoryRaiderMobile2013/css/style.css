@@ -344,6 +344,7 @@ table {
 	padding-left:15px;
 }
 #sidebar .title {
+    font-size: 13px;
 	margin: 15px 0;
 	text-transform: uppercase;
 }
@@ -404,7 +405,9 @@ table {
     top: -7px;	
 }
 .my-characters,
-.my-events {}
+.my-events {
+    margin-bottom: 20px;
+}
 .event .event-title {
 	text-transform: uppercase;
 }

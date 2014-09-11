@@ -194,38 +194,45 @@ class RaiderController extends RController {
 		$RimTablet= stripos($_SERVER['HTTP_USER_AGENT'],"RIM Tablet");
 		
 		
-		//do something with this information
+		/*
+		 * Assegno il template mobile a tutte le tipologie di dispositivi mobili
+		 * ed imposto la variabile di sessione relativa
+		 */
 		if( $iPod || $iPhone ){
-		        //were an iPhone/iPod touch -- do something here
-//		        echo 'iPhone/iPod touch';
+		    //were an iPhone/iPod touch -- do something here
+            Yii::app()->theme = 'armoryRaiderMobile2013';
+            Yii::app()->session['theme'] = 'mobile';
 		}else if($iPad){
-		        //were an iPad -- do something here
-//		        echo 'iPad';
+		    //were an iPad -- do something here
+            Yii::app()->theme = 'armoryRaiderMobile2013';
+            Yii::app()->session['theme'] = 'mobile';
 		}else if($Android){
-		        //we're an Android Phone -- do something here
-//		        echo 'Android Phone';
+		    //we're an Android Phone -- do something here
+            Yii::app()->theme = 'armoryRaiderMobile2013';
+            Yii::app()->session['theme'] = 'mobile';
 		}else if($AndroidTablet){
-		        //we're an Android Tablet -- do something here
-//		        echo 'Android Tablet';
+		    //we're an Android Tablet -- do something here
+            Yii::app()->theme = 'armoryRaiderMobile2013';
+            Yii::app()->session['theme'] = 'mobile';
 		}else if($webOS){
-		        //we're a webOS device -- do something here
-//		        echo 'webOS device';
+		    //we're a webOS device -- do something here
+            Yii::app()->theme = 'armoryRaiderMobile2013';
+            Yii::app()->session['theme'] = 'mobile';
 		}else if($BlackBerry){
-		        //we're a BlackBerry phone -- do something here
-//		        echo 'BlackBerry phone';
+		    //we're a BlackBerry phone -- do something here
+            Yii::app()->theme = 'armoryRaiderMobile2013';
+            Yii::app()->session['theme'] = 'mobile';
 		}else if($RimTablet){
-		        //we're a RIM/BlackBerry Tablet -- do something here
-//		        echo 'RIM/BlackBerry Tablet';
+		    //we're a RIM/BlackBerry Tablet -- do something here
+            Yii::app()->theme = 'armoryRaiderMobile2013';
+            Yii::app()->session['theme'] = 'mobile';
 		}else{
-		        //we're not a mobile device.
-//		        echo 'not a mobile device';
+		    //we're not a mobile device.
+            Yii::app()->session['theme'] = 'desktop';
 		}		
 
-		Yii::app()->theme = 'armoryRaiderMobile2013';
-        Yii::app()->session['theme'] = 'mobile';
+//		Yii::app()->theme = 'armoryRaiderMobile2013';
 
-		
-		
 		
 	    parent::init();
 	}	

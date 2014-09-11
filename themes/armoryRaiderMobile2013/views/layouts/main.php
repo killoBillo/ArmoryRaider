@@ -21,7 +21,7 @@ Yii::app()->clientScript->registerScript('popovers', "
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- disable IE compatibility mode -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	
+
 	<meta name="ArmoryRaider" content="A PHP Raider for World of WarCraft linked with Blizzard Armory">
 	
 	<link rel="stylesheet" media="screen" href="<?php echo Yii::app()->theme->baseUrl;?>/css/bootstrap.min.css">
@@ -112,6 +112,6 @@ Yii::app()->clientScript->registerScript('popovers', "
 	<script src="<?php echo Yii::app()->theme->baseUrl;?>/js/bootstrap.min.js"></script>
 	<script src="<?php echo Yii::app()->theme->baseUrl;?>/js/bootstrap-datepicker.js"></script>
     <script src="<?php echo Yii::app()->theme->baseUrl;?>/js/snap.min.js"></script>
-    <script src="<?php echo Yii::app()->theme->baseUrl;?>/js/mySnap.js"></script>
+    <script src="<?php echo Yii::app()->theme->baseUrl;?>/js/mobile.js"></script>
 </body>
 </html>

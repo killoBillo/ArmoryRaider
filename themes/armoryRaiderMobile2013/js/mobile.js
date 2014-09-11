@@ -30,6 +30,7 @@ addEvent(document.getElementById('open-right'), 'click', function(){
         snapper.close();
 });
 
+
 /* Prevent Safari opening links when viewing as a Mobile App */
 (function (a, b, c) {
     if(c in b && b[c]) {

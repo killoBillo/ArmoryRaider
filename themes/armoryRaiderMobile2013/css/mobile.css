@@ -94,12 +94,11 @@
 
 /* Landscape phones and down */
 @media (max-width: 480px) and (orientation:portrait) {
-    body {
-        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-        font-size: 10px !important;
-    }
     #pushContent {
         display:none;
+    }
+    body{
+        font-weight: lighter;
     }
     .navbar .brand {
         color: #000;
@@ -117,9 +116,6 @@
     #sidebar {
         padding: 0 20px;
         width: auto;
-    }
-    #footer {
-        font-size: 9px !important;
     }
     .dashboard-box-full .raid-infos {
         padding: 0 5px;
