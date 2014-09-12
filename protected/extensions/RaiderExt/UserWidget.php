@@ -23,11 +23,19 @@ class UserWidget extends CWidget {
 		//$userRole = $user->profile->guildrole->label;
 		
 		$userImgFolder = $user->id; //strtolower(preg_replace('/[\s]+/','_',$user->username));
-		$portrait = ($user->portrait_URL) ? $userImgFolder.'/thumb50x50-'.$user->portrait_URL : 'thumb50x50-unknown.jpg';			
+
+        //se il template è mobile l'img del profilo è tonda e più grande
+        if(!RaiderFunctions::isThemeMobile()) {
+            $portrait = ($user->portrait_URL) ? $userImgFolder.'/thumb50x50-'.$user->portrait_URL : 'thumb50x50-unknown.jpg';
+            $imgHTML = CHtml::image($assetsUrl.'/user/'.$portrait, 'portrait of '.$user->username, array('height'=>50, 'width'=>50, 'class'=>'img-polaroid'));
+        }else{
+            $portrait = ($user->portrait_URL) ? $userImgFolder.'/thumb64x64-'.$user->portrait_URL : 'thumb64x64-unknown.jpg';
+            $imgHTML = CHtml::image($assetsUrl.'/user/'.$portrait, 'portrait of '.$user->username, array('height'=>64, 'width'=>64, 'class'=>'img-circle'));
+        }
 		
 		$this->html.= "<div class='user-widget'>";
 			$this->html.= "<div class='pull-left'>";
-				$this->html.= CHtml::image($assetsUrl.'/user/'.$portrait, 'portrait of '.$user->username, array('height'=>50, 'width'=>50, 'class'=>'img-polaroid'));
+				$this->html.= $imgHTML;
 			$this->html.= "</div>";
 			
 			$this->html.= "<div class='user-data pull-left'>";

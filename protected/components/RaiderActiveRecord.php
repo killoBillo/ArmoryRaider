@@ -48,41 +48,21 @@ class RaiderActiveRecord extends CActiveRecord {
 				 * creo i thumbnails con phpThumb.
 				 * - thumb dim: 640x360px per i raid in dashboard,
 				 * - thumb dim: 30x30px per i raid info nei popover,
+                 * - thumb dim: 40x40px per i raid info nei popover,
 				 * 
 				 * - thumb dim: 30x30 per i portrait del raid leader in dashboard,
 				 * - thumb dim  50x50 per i portrait dell'utente nella sidebar
+                 * - thumb dim  64x64 per i portrait dell'utente nella sidebar
 				 */ 
-				
-				if(get_class($this) == 'Raid') {
-					RaiderFunctions::thumbGen(
-						640,
-						360,
-						RaiderFunctions::getImagesFolderPath($this).'/'.$this->img->name
-					);
-					RaiderFunctions::thumbGen(
-						30,
-						30,
-						RaiderFunctions::getImagesFolderPath($this).'/'.$this->img->name
-					);										
-					RaiderFunctions::thumbGen(
-						40,
-						40,
-						RaiderFunctions::getImagesFolderPath($this).'/'.$this->img->name
-					);
-				}elseif(get_class($this) == 'User') {
-					RaiderFunctions::thumbGen(
-						30,
-						30,
-						RaiderFunctions::getImagesFolderPath($this).'/'.$this->img->name
-					);
+				if(get_class($this) == 'Raid')
+                    $sizes = array('640:360', '30:30', '40:40');
+				elseif(get_class($this) == 'User')
+                    $sizes = array('30:30', '50:50', '64:64');
+                else
+                    $sizes = null;
 
-					RaiderFunctions::thumbGen(
-						50,
-						50,
-						RaiderFunctions::getImagesFolderPath($this).'/'.$this->img->name 
-					);							
-				}
-					
+                if(isset($sizes))
+                    $this->createThumb($sizes);
 			}
 			
 			// forzo la ripubblicazione degli assets (tutta la cartella images)
@@ -91,9 +71,22 @@ class RaiderActiveRecord extends CActiveRecord {
 		
 		return parent::afterSave();
 	}
-	
-	
-	/**
+
+
+    /**
+     *
+     */
+    private function createThumb($array) {
+        foreach($array  as $size) {
+            list($width, $height) = explode(":", $size);
+            RaiderFunctions::thumbGen(
+                $width,
+                $height,
+                RaiderFunctions::getImagesFolderPath($this).'/'.$this->img->name
+            );
+        }
+    }
+    /**
 	 * Gestisco qualsiasi tipo di evento qui,
 	 * così evito di dover creare 2 funzioni per ogni model 
 	 * che genera eventi.

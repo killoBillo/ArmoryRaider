@@ -72,12 +72,10 @@ Yii::app()->clientScript->registerScript('popovers', "
     	<div id="pushContent"></div>
 
 	    <!-- NAVBAR -->
-	    <div class="navbar navbar-fixed-top"> <!-- add navbar-inverse class for a black navbar -->
-	      <div class="navbar-inner">
-	        <div class="container-fluid">
-                <i id="open-left" class="icon icon-user pull-left"></i>
-                <i id="open-right" class="icon icon-reorder pull-right"></i>
-	        </div>
+	    <div class="topbar"> <!-- add navbar-inverse class for a black navbar -->
+	      <div class="topbar-inner">
+            <i id="open-left" class="icon icon-user pull-left"></i>
+            <i id="open-right" class="icon icon-reorder pull-right"></i>
 	      </div>
 	    </div><!-- /navbar --> 
 
