@@ -40,69 +40,51 @@ Yii::app()->clientScript->registerScript('popovers', "
 </head>
 
 <body>
+
     <div class="snap-drawers">
         <div class="snap-drawer snap-drawer-left">
-            <div>
-                <!-- renderizzo la sidebar -->
-                <?php $this->renderPartial('/layouts/_sidebar'); ?>
-            </div>
+            <!-- renderizzo la sidebar -->
+            <?php $this->renderPartial('/layouts/_sidebar'); ?>
         </div>
         <div class="snap-drawer snap-drawer-right">
-            <nav id="navmenu">
-                <h3 class="title"><?php echo Yii::t('locale', 'Main Menu')?></h3>
-                <!-- my_menu menu -->
-                <?php
-                if(!Yii::app()->user->isGuest && isset($this->raiderMenu)) {
-                    $this->widget('zii.widgets.CMenu', $this->raiderMenu->getMenu());
-                }
-                ?>
-                <!-- /my_menu menu -->
-                <!-- logout menu -->
-                <?php
-                if(!Yii::app()->user->isGuest && isset($this->raiderMenu)) {
-                    $this->widget('zii.widgets.CMenu', $this->raiderMenu->getLogOutMenu());
-                }
-                ?>
-                <!-- /logout menu -->
-            </nav>
+            <!-- renderizzo la sidebar di Dx (quella col menù, per intenderci) -->
+            <?php $this->renderPartial('/layouts/_sidebarDx'); ?>
         </div>
     </div>
 
-    <div id="wrap" class="snap-content">
-    	<div id="pushContent"></div>
+    <div id="wrap">
+        <!-- NAVBAR -->
+        <div class="topbar">
+            <div class="topbar-inner">
+                <i id="open-left" class="icon icon-user pull-left"></i>
+                <i id="open-right" class="icon icon-reorder pull-right"></i>
+                <a class="brand" href="<?php echo Yii::app()->createUrl('site/index'); ?>"><?php echo Yii::app()->session['brand']; ?></a>
+            </div>
+        </div><!-- /navbar -->
 
-	    <!-- NAVBAR -->
-	    <div class="topbar"> <!-- add navbar-inverse class for a black navbar -->
-	      <div class="topbar-inner">
-            <i id="open-left" class="icon icon-user pull-left"></i>
-            <i id="open-right" class="icon icon-reorder pull-right"></i>
-	      </div>
-	    </div><!-- /navbar --> 
+		<div id="snap-content" class="container-fluid snap-content">
+            <div class="pushContent"></div>
 
-
-
-		<div class="container-fluid">		
-			
-			<!-- Sidebar & Content -->
+			<!-- Content -->
 		  	<div class="row-fluid">	
 				<div id="wrapper" class="span12">
 					<?php echo $content; ?>
 					<div class="clearbox clearfix"></div>
 				</div><!-- /wrapper -->
-		 	</div><!-- Fine Sidebar & Content -->
-			
+		 	</div><!-- Content -->
+
+            <!-- Footer -->
+            <div id="footer" class="row-fluid">
+                <div class="container span12">
+                    <p class="muted credit">
+                        ArmoryRaider &copy; <?php echo Yii::t('locale', 'is a product developed by'); ?>
+                        <a href="http://www.killodesign.com">Marco Chillemi</a><br>
+                        <?php echo sprintf(Yii::t('locale', 'Rome - Italy, %d.'), date('Y')); ?>
+                        <?php echo ' V'.Yii::app()->params->version.'.'; ?>
+                    </p>
+                </div>
+            </div><!-- footer -->
 		</div><!-- /container -->
-      
-        <div id="footer" class="row-fluid">
-            <div class="container span12">
-                <p class="muted credit">
-                    ArmoryRaider &copy; <?php echo Yii::t('locale', 'is a product developed by'); ?>
-                    <a href="http://www.killodesign.com">Marco Chillemi</a><br>
-                    <?php echo sprintf(Yii::t('locale', 'Rome - Italy, %d.'), date('Y')); ?>
-                    <?php echo ' V'.Yii::app()->params->version.'.'; ?>
-                </p>
-            </div>
-        </div><!-- footer -->
 
     </div><!-- /wrap -->
 

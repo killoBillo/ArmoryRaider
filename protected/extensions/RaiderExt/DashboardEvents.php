@@ -48,7 +48,7 @@ class DashboardEvents extends CWidget {
 			$this->params['surname']		= $raidleader['surname'];
 			$this->params['userGuildRole']	= Guildrole::model()->findByPk($raidleader->profile->guildrole_id)->label;
 			$this->params['userImgSize'] 	= array('height'=>30, 'width'=>30);
-			$this->params['userImgFolder']	= strtolower(preg_replace('/[\s]+/','_',$raidleader['username']));
+			$this->params['userImgFolder']	= $raidleader['id'];  //strtolower(preg_replace('/[\s]+/','_',$raidleader['username']));
 			$this->params['portrait'] 		= ($raidleader['portrait_URL']) ? $this->params['userImgFolder'].'/thumb50x50-'.$raidleader['portrait_URL'] : 'thumb50x50-unknown.jpg';			
 
 			//raid info
@@ -134,14 +134,14 @@ class DashboardEvents extends CWidget {
 
             $this->html.= "<div class='dashboard-box-mini-content'>";
                 $this->html.= "<div class='pos-relative'>";
-                    $this->html.= CHtml::image($this->params['assetsUrl'].'/raid/'.$this->params['raidImgFolder'].'/thumb640x360-'.$this->params['raidImg'], 'image of '.$this->params['raidName'].' raid');
+                    $this->html.= "<a href='".Yii::app()->createUrl('event/show', array('id'=>$this->params['id']))."'>" . CHtml::image($this->params['assetsUrl'].'/raid/'.$this->params['raidImgFolder'].'/thumb640x360-'.$this->params['raidImg'], 'image of '.$this->params['raidName'].' raid') . "</a>";
                     if(!empty($text)) $this->html.= "<div class='dashboard-box-mini-text'><i class='icon-comment'></i> $text</div>";
                 $this->html.= "</div>";
             $this->html.= "</div>";
 
             $this->html.= "<div class='dashboard-box-mini-footer'>";
                 $this->html.= "<div class='pull-left raid-info'>".$this->params['raidName']." <span class='label label-warning normal-weight'>".$this->params['raidType']."</span><br><small class='muted event-date'>".$this->params['event_date']." ".Yii::t('locale', 'hour')." ".$this->params['event_hour']."</small></div>";
-                $this->html.= "<div class='pull-right'><a class='btn btn-link' href='".Yii::app()->createUrl('event/show', array('id'=>$this->params['id']))."'>".Yii::t('locale', 'Show')."</a></div>";
+//                $this->html.= "<div class='pull-right'><a class='btn btn-link' href='".Yii::app()->createUrl('event/show', array('id'=>$this->params['id']))."'>".Yii::t('locale', 'Show')."</a></div>";
 
                 $this->html.= "<div class='clearbox clearfix'></div>";
             $this->html.= "</div>";

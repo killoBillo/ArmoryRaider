@@ -39,6 +39,27 @@ $this->pageTitle=Yii::app()->name;
 //
 //	echo $item->getName();
 //	echo "<img src='".$item->getIconUrl()."' >";
-	
+?>
+
+
+
+
+<?php
 	$this->widget('ext.RaiderExt.DashboardEvents',array('events'=>$events)); 
  ?>
+
+
+<?php
+//<!-- BOTTOM BAR -->
+//<div class="bottombar">
+//    <div class="bottombar-inner">
+//        <div class="row-fluid">
+//            <span class="bottombar-button"><i class="icon icon-home"></i></span>
+//            <span class="bottombar-button"><i class="icon icon-calendar"></i></span>
+//            <span class="bottombar-button"><i class="icon icon-tags"></i></span>
+//            <span class="span3"><i class="icon icon-puzzle-piece"></i></span>
+//        </div>
+//    </div>
+//</div><!-- /bottombar -->
+//<!-- /BOTTOM BAR -->
+?>

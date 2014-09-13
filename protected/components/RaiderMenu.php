@@ -59,7 +59,7 @@ class RaiderMenu {
 		// Aggiungo i menu per i raidleader e l'admin.
 		if(RaiderFunctions::isRaidleader()){
 			$this->menu['items'][] = array(
-				'label'=>'<i class="icon-group"></i> Raidleader Menù <b class="caret"></b>',
+				'label'=>'<i class="icon-bullhorn"></i> Raidleader Menù <b class="caret"></b>',
 				'url'=>'',
 				'submenuOptions' => array( 'class' => 'dropdown-menu' ),
 				'items'=>array(

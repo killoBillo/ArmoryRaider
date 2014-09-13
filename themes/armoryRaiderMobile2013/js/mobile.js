@@ -31,6 +31,35 @@ addEvent(document.getElementById('open-right'), 'click', function(){
 });
 
 
+
+//$('#snap-content').scroll(function (event) {
+//    var scroll = $('#snap-content').scrollTop();
+//    var winHeight = $(window).height();
+//    var barHeight = $('.bottombar').height();
+//
+//    console.info( $('.bottombar').position());
+//    console.info('scroll event detected', scroll, winHeight);
+//
+//        $('.bottombar').css('top', scroll + winHeight - barHeight);
+//});
+
+
+
+
+//// gestisco gli eventi allo scorrimento della pagina (o meglio del div#snap-content)
+//addEvent(document.getElementById('snap-content'), 'scroll', function(){
+//    var bodyRect = document.body.getBoundingClientRect(),
+//        elemRect = this.getBoundingClientRect(),
+//        offset   = elemRect.top - bodyRect.top;
+//
+//
+//    console.info("scroll event detected!", $('#snap-content').offset());
+//
+////    $('.bottombar').css('border', '1px solid red');
+//});
+
+
+
 /* Prevent Safari opening links when viewing as a Mobile App */
 (function (a, b, c) {
     if(c in b && b[c]) {
