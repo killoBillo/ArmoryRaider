@@ -1,3 +1,8 @@
+// Hides mobile browser's address bar when page is done loading.
+window.addEventListener('load', function(e) {
+    setTimeout(function() { window.scrollTo(0, 1); }, 1);
+}, false);
+
 var snapper = new Snap({
     element: document.getElementById('wrap'),
     maxPosition: 311,
@@ -32,31 +37,47 @@ addEvent(document.getElementById('open-right'), 'click', function(){
 
 
 
+
+// Hides mobile browser's address bar when page is done loading.
+//window.addEventListener('load', function(e) {
+//    console.info('ciao');
+//    setTimeout(function() { window.scrollTo(0, 1); }, 1);
+//}, false);
+
+
 //$('#snap-content').scroll(function (event) {
 //    var scroll = $('#snap-content').scrollTop();
+//    var maxScroll = $('#snap-content')[0].scrollHeight;
 //    var winHeight = $(window).height();
-//    var barHeight = $('.bottombar').height();
+//    var snapHeight = $('#snap-content').height();
+//    var bodyHeight = $('body').height();
 //
-//    console.info( $('.bottombar').position());
-//    console.info('scroll event detected', scroll, winHeight);
+//    $('body').css('min-height', maxScroll-winHeight+60);
 //
-//        $('.bottombar').css('top', scroll + winHeight - barHeight);
+////    setTimeout(function() { window.scrollTo(0, 200); }, 1);
+//    console.info('scroll #snap-content', maxScroll, scroll, winHeight, snapHeight, bodyHeight);
+//});
+//
+//$('#wrap').scroll(function (event) {
+//    console.info('scroll #wrap');
 //});
 
 
 
-
-//// gestisco gli eventi allo scorrimento della pagina (o meglio del div#snap-content)
-//addEvent(document.getElementById('snap-content'), 'scroll', function(){
-//    var bodyRect = document.body.getBoundingClientRect(),
-//        elemRect = this.getBoundingClientRect(),
-//        offset   = elemRect.top - bodyRect.top;
+//$(document).ready(function() {
+//    var snapHeight = $('#snap-content').height();
+//    var scroll = $(window).scrollTop();
+//    var maxScroll = $('#snap-content')[0].scrollHeight;
+//    var winHeight = $(window).height();
+//    var snapHeight = $('#snap-content').height();
+//    var bodyHeight = $('body').height();
 //
+//    $('body, html').css('min-height', maxScroll);
 //
-//    console.info("scroll event detected!", $('#snap-content').offset());
-//
-////    $('.bottombar').css('border', '1px solid red');
+//    window.scrollTo(0, 1);
+////    console.info('scroll window', maxScroll, scroll, winHeight, snapHeight, bodyHeight);
 //});
+
 
 
 

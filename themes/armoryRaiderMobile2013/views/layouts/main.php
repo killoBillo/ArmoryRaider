@@ -18,7 +18,11 @@ Yii::app()->clientScript->registerScript('popovers', "
 <head>
 	<meta charset="utf-8">
 	<!-- enable full page for mobile devices -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <!-- apple mobile devices -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	<!-- disable IE compatibility mode -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
@@ -26,9 +30,9 @@ Yii::app()->clientScript->registerScript('popovers', "
 	
 	<link rel="stylesheet" media="screen" href="<?php echo Yii::app()->theme->baseUrl;?>/css/bootstrap.min.css">
 	<link rel="stylesheet" media="screen" href="<?php echo Yii::app()->theme->baseUrl;?>/css/font-awesome.min.css">
-    <link rel="stylesheet" media="screen" href="<?php echo Yii::app()->theme->baseUrl;?>/css/snap.css">
-	
+
 	<link rel="stylesheet" media="screen" href="<?php echo Yii::app()->theme->baseUrl;?>/css/style.css">
+    <link rel="stylesheet" media="screen" href="<?php echo Yii::app()->theme->baseUrl;?>/css/snap.css">
     <link rel="stylesheet" media="screen" href="<?php echo Yii::app()->theme->baseUrl;?>/css/mobile.css">
 	<link rel="stylesheet" media="screen" href="<?php echo Yii::app()->theme->baseUrl;?>/css/calendar.css">
 	<link rel="stylesheet" media="screen" href="<?php echo Yii::app()->theme->baseUrl;?>/css/datepicker.css">
@@ -87,6 +91,7 @@ Yii::app()->clientScript->registerScript('popovers', "
 		</div><!-- /container -->
 
     </div><!-- /wrap -->
+
 
 
 	<script src="<?php echo Yii::app()->theme->baseUrl;?>/js/bootstrap.min.js"></script>

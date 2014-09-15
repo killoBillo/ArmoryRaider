@@ -19,8 +19,8 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
-		'application.components.wowarmoryapi.*',
-		'application.components.d3armoryapi.*',
+		'application.components.wowarmoryapi.*',    // World of Warcraft Armory API
+		'application.components.d3armoryapi.*',     // Diablo3 Armory API
 		'application.modules.rights.*', 
 		'application.modules.rights.components.*',
 //		'application.modules.wowarmoryapi.*',		// Blizzard armory A.P.I.
