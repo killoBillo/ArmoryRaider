@@ -7,7 +7,6 @@
 **/
 html, body {
     font-family: 'Roboto Slab';
-    overflow: visible;
 }
 #open-left,
 #open-right {
@@ -61,7 +60,7 @@ html, body {
 a.brand {
     display: block;
     color: rgba(10,60,150, 0.8);
-    text-shadow: 1px 1px 3px #FFF, 0 0 0 #000;
+    text-shadow: 1px 1px 1px #FFF, 0 0 0 #000;
     font-size: 20px;
     font-weight: 200;
     padding: 15px 20px;
@@ -74,6 +73,7 @@ a.brand:visited {
     color: #DDD;
 }
 a.brand:hover {
+    color: #DDD;
     text-decoration: none;
 }
 .topbar {

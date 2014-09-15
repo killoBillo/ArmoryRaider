@@ -72,9 +72,11 @@ addEvent(document.getElementById('open-right'), 'click', function(){
 //    var snapHeight = $('#snap-content').height();
 //    var bodyHeight = $('body').height();
 //
-//    $('body, html').css('min-height', maxScroll);
+////    console.info('pre body height', bodyHeight);
+//    $('body').css('min-height', winHeight+100);
+////    console.info('post body height', $('body').height());
 //
-//    window.scrollTo(0, 1);
+//    setTimeout(function() { window.scrollTo(0, 1); console.info('ciao') }, 1);
 ////    console.info('scroll window', maxScroll, scroll, winHeight, snapHeight, bodyHeight);
 //});
 
