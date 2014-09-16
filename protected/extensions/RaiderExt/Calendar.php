@@ -442,13 +442,13 @@ class Calendar extends CWidget {
 				$html.= "<div class='clearbox clearfix'></div>";
 				$html.= "<div class='pull-left'>".CHtml::image($imgUrl, 'image of '.$raidName, array('height'=>30, 'width'=>30))."</div>";
 				$html.= "<div class='pull-left popover-raidinfo'>";
-					$html.= "<div class='raidleader-name'>Raidleader: $raidLeader</div>";
+					$html.= "<div class='raidleader-name'><i class='icon icon-bullhorn'></i> $raidLeader</div>";
 
                     //se il template è mobile stampo la data dell'evento in formato più sintetico
                     if(!RaiderFunctions::isThemeMobile())
 					    $html.= "<div class='raid-time'>".Yii::app()->DateFormatter->formatDateTime(CDateTimeParser::parse($this->dayX->format('Y-m-d'), 'yyyy-mm-dd'), 'long', null ).' '.Yii::t('locale', 'hour')." ".$raidHour->format('H:i')."</div>";
                     else
-                        $html.= "<div class='raid-time'>".Yii::app()->DateFormatter->formatDateTime(CDateTimeParser::parse($this->dayX->format('Y-m-d'), 'yyyy-mm-dd'), 'short', null ).' '.Yii::t('locale', 'hour')." ".$raidHour->format('H:i')."</div>";
+                        $html.= "<div class='raid-time'>".Yii::app()->DateFormatter->formatDateTime(CDateTimeParser::parse($this->dayX->format('Y-m-d'), 'yyyy-mm-dd'), 'short', null )." <i class='icon icon-time'></i>  ".$raidHour->format('H:i')."</div>";
 				$html.= "</div>";
 				
 				$html.= "<div class='clearbox clearfix'></div>";

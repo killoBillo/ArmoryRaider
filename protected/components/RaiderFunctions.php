@@ -300,6 +300,40 @@ class RaiderFunctions {
 	 public static function isThemeMobile() {
          return (Yii::app()->session['theme'] == 'mobile') ? true : false ;
      }
+
+
+
+
+    /**
+     * Questa funzione crea il sommario di un testo.
+     */
+    public static function summary($content, $length, $ending = '', $link = FALSE, $linkname = ''){
+        // clean content - strip html tags, special chars etc..
+        $words = explode(' ', htmlentities(strip_tags($content)));
+        // count how many words we are left with
+        $count = count($words);
+        // figure out if count is higher than the specified length and set the limit
+        $limit = ($count > $length)?$length:$count-1;
+
+        $output = '';
+        for($w = 0; $w <= $limit; $w++) {
+            $output .= $words[$w];
+            if($w < $limit)$output .= ' ';
+        }
+
+        // add the ending if set else set it to "..."
+        $ending = ($ending != '')?$ending:' ...';
+        // if the content is going to be cut short add our ending if not add a space
+        $ending = ($count > $length)?$ending:' ';
+        // add the linkname if set else set it to "more"
+        $linkname = ($linkname != '')?$linkname:'more';
+        // create the link if it is set else no link
+        $link = ($link != '')?"<a>".$linkname."</a>":"";
+
+        return $output.$ending.$link;
+    }
+
+
 }
 
 ?>

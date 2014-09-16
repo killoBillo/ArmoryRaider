@@ -45,7 +45,10 @@ $this->pageTitle=Yii::app()->name;
 
 
 <?php
-	$this->widget('ext.RaiderExt.DashboardEvents',array('events'=>$events)); 
+	$this->widget('ext.RaiderExt.DashboardEvents',array(
+        'events'=>$events,
+        'size'=>'mobile'
+    ));
  ?>
 
 

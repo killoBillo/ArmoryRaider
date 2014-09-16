@@ -49,7 +49,10 @@ class DashboardEvents extends CWidget {
 			$this->params['userGuildRole']	= Guildrole::model()->findByPk($raidleader->profile->guildrole_id)->label;
 			$this->params['userImgSize'] 	= array('height'=>30, 'width'=>30);
 			$this->params['userImgFolder']	= $raidleader['id'];  //strtolower(preg_replace('/[\s]+/','_',$raidleader['username']));
-			$this->params['portrait'] 		= ($raidleader['portrait_URL']) ? $this->params['userImgFolder'].'/thumb50x50-'.$raidleader['portrait_URL'] : 'thumb50x50-unknown.jpg';			
+			$this->params['portrait'] 		= ($raidleader['portrait_URL']) ? $this->params['userImgFolder'].'/thumb50x50-'.$raidleader['portrait_URL'] : 'thumb50x50-unknown.jpg';
+            //raidleader mobile
+            $this->params['userImgSize-mobile'] = array('height'=>64, 'width'=>64);
+            $this->params['portrait-mobile']    = ($raidleader['portrait_URL']) ? $this->params['userImgFolder'].'/thumb64x64-'.$raidleader['portrait_URL'] : 'thumb64x64-unknown.jpg';
 
 			//raid info
 			$this->params['raidid']			= $raid['id'];
@@ -64,6 +67,10 @@ class DashboardEvents extends CWidget {
 			$this->params['raidIcon'] 		= $this->params['isHeroic'] ? 'eroic-icon' : 'normal-icon';
 			$this->params['raidDescription']= $raid->description;
 			$this->params['members']		= count($this->params['charEvent']).' / '.$this->params['playerNum'];
+            $this->params['raidImgSize']    = array('height'=>360, 'width'=>640);
+            //raid mobile
+            $this->params['raidImgSize-mobile']     = array('height'=>360, 'width'=>640);
+            $this->params['raidImg-mobile']         = '/thumb200x100-' . $this->params['raidImg'];
 
 			// calcolo gli utenti iscritti disponibili e non disponibili
 			$this->params['available'] 		= 0;
@@ -94,6 +101,9 @@ class DashboardEvents extends CWidget {
 				case 'full':
 					$this->getFullBoxHtml();
 					break;
+                case 'mobile':
+                    $this->getMobileMiniBoxHtml();
+                    break;
 			}
 			
 			
@@ -438,6 +448,50 @@ class DashboardEvents extends CWidget {
 		$html.= "</div><!-- /character -->";
 		
 		return $html;
+    }
+
+
+
+    /**
+     * Questa funzione si occupa di generare i box della dashboard per il template mobile.
+     * Questa funzione genera l'html se $this->size == 'mobile'
+     */
+    private function getMobileMiniBoxHtml() {
+        $text = ($this->params['description']) ? $this->params['description'] : $this->params['raidDescription'];
+        $this->params['userImgSize-mobile']['class'] = 'img-circle';
+        $this->params['raidImgSize-mobile']['class'] = 'img-polaroid';
+
+        $this->html.= "<div class='row-fluid'>";
+            $this->html.= "<div class='dashboard-box-mobile-mini lite-shadow span12'>";
+                $this->html.= "<div class='dashboard-box-mini-header'>";
+                    $this->html.= "<div class='pull-left'>";
+                        $this->html.= CHtml::image($this->params['assetsUrl'].'/user/'.$this->params['portrait-mobile'], 'portrait of '.$this->params['username'], $this->params['userImgSize-mobile']);
+                    $this->html.= "</div>";
+
+                    $this->html.= "<div class='pull-left post-autor '>";
+                        $this->html.= "<div class='dashboard-box-mini-raidleader'>".$this->params['username']."</div>";		//." [ ".$this->params['userGuildRole']." ]</div>";
+                        $this->html.= "<div class='dashboard-box-mini-label event-date'><span class='muted'>".Yii::t('locale', 'has created a new event')."</span></div>";
+                    $this->html.= "</div>";
+
+                    $this->html.= "<div class='clearbox clearfix'></div>";
+                $this->html.= "</div><!-- /dashboard-box-mini-header -->";
+
+                $this->html.= "<div class='dashboard-box-mobile-mini-content'>";
+                    $this->html.= "<a href='".Yii::app()->createUrl('event/show', array('id'=>$this->params['id']))."'>" . CHtml::image($this->params['assetsUrl'].'/raid/'.$this->params['raidImgFolder'].'/thumb640x360-'.$this->params['raidImg'], 'image of '.$this->params['raidName'].' raid', $this->params['raidImgSize-mobile']) . "</a>";
+
+                    $this->html.= "<div class='dashboard-box-mobile-mini-raid-text-summary'>";
+                        if(!empty($text)) $this->html.= "<span class='muted'>" . RaiderFunctions::summary($text, 50) . "</span>";
+                    $this->html.= "</div><!-- /mobile-raid-text-summary -->";
+                $this->html.= "</div><!-- /dashboard-box-mobile-mini-content -->";
+
+                $this->html.= "<div class='dashboard-box-mini-header'>";
+                    $this->html.= "<div>".$this->params['raidName']." <span class='label label-warning normal-weight'>".$this->params['raidType']."</span><br><small class='muted event-date'>".$this->params['event_date']." ".Yii::t('locale', 'hour')." ".$this->params['event_hour']."</small></div>";
+                $this->html.= "</div><!-- /dashboard-box-mini-footer' -->";
+
+            $this->html.= "</div><!-- /dashboard-box-mobile -->";
+
+            $this->html.= "<div class='clearfix'></div>";
+        $this->html.= "</div><!-- /row-fluid -->";
     }
 }
 ?>

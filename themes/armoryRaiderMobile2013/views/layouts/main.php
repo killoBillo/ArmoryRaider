@@ -33,8 +33,8 @@ Yii::app()->clientScript->registerScript('popovers', "
 
 	<link rel="stylesheet" media="screen" href="<?php echo Yii::app()->theme->baseUrl;?>/css/style.css">
     <link rel="stylesheet" media="screen" href="<?php echo Yii::app()->theme->baseUrl;?>/css/snap.css">
-    <link rel="stylesheet" media="screen" href="<?php echo Yii::app()->theme->baseUrl;?>/css/mobile.css">
 	<link rel="stylesheet" media="screen" href="<?php echo Yii::app()->theme->baseUrl;?>/css/calendar.css">
+    <link rel="stylesheet" media="screen" href="<?php echo Yii::app()->theme->baseUrl;?>/css/mobile.css">
 	<link rel="stylesheet" media="screen" href="<?php echo Yii::app()->theme->baseUrl;?>/css/datepicker.css">
 	<link rel="stylesheet" media="screen" href="<?php echo Yii::app()->theme->baseUrl;?>/css/social-buttons.css">
 	<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Roboto'>

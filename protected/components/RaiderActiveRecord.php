@@ -55,7 +55,7 @@ class RaiderActiveRecord extends CActiveRecord {
                  * - thumb dim  64x64 per i portrait dell'utente nella sidebar
 				 */ 
 				if(get_class($this) == 'Raid')
-                    $sizes = array('640:360', '30:30', '40:40');
+                    $sizes = array('640:360', '30:30', '40:40', '200:100');
 				elseif(get_class($this) == 'User')
                     $sizes = array('30:30', '50:50', '64:64');
                 else
@@ -74,7 +74,7 @@ class RaiderActiveRecord extends CActiveRecord {
 
 
     /**
-     *
+     * Provvede alla creazione dei portrait delle dimensioni contenute nell'array di input
      */
     private function createThumb($array) {
         foreach($array  as $size) {
@@ -86,6 +86,8 @@ class RaiderActiveRecord extends CActiveRecord {
             );
         }
     }
+
+
     /**
 	 * Gestisco qualsiasi tipo di evento qui,
 	 * così evito di dover creare 2 funzioni per ogni model 
