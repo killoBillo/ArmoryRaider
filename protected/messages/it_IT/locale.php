@@ -78,6 +78,7 @@
 		'Set as holder'=>'Imposta come titolare',
 		'No more holder'=>'Non pi&ugrave titolare',
 		'Unavailable'=>'Non disponibili',
+        'View'=>'Visualizza',
 		
 		// traduzioni controller "Event" e viste "create, viewDay, show, update, confirm, delete, list"
 		'Create event'=>'Crea evento',

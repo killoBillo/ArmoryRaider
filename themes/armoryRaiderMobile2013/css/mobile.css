@@ -165,19 +165,19 @@ a.brand:hover {
 }
 
 .dashboard-box-mobile-mini {
-    margin: 20px 0;
+    margin: 10px 0;
     padding: 10px;
 }
 .dashboard-box-mobile-mini-raid-text-summary {
-    padding: 10px 10px 0;
+    padding: 10px;
 }
-.dashboard-box-mobile-mini-content {
-    padding: 10px 10px 10px 0;
-}
+.dashboard-box-mobile-mini-content {}
 .dashboard-box-mini-raidleader {
-    padding-top: 10px;
+    padding-top: 6px;
 }
-
+.lowercase {
+    text-transform: lowercase;
+}
 
 
 

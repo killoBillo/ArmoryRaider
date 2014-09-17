@@ -389,7 +389,7 @@ CREATE  TABLE IF NOT EXISTS `event` (
   CONSTRAINT `fk_raid_id`
     FOREIGN KEY (`raid_id` )
     REFERENCES `raid` (`id` )
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
