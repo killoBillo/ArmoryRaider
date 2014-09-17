@@ -196,6 +196,18 @@ ul, ol {
 .pos-relative {
 	position: relative;
 }
+.lowercase {
+    text-transform: lowercase;
+}
+.padding10 {
+    padding: 10px;
+}
+.margin-bottom-20 {
+    margin-bottom: 20px;
+}
+.display-block {
+    display: block;
+}
 /**
  * Wrap & Container *****************************************************************************
  */
@@ -322,6 +334,19 @@ ul, ol {
 	padding: 15px;
 	margin-bottom: 20px;
 }
+/* DASHBOARD-MOBILE-MINI STYLES */
+.dashboard-box-mobile-mini {
+    margin: 10px 0;
+    padding: 10px;
+}
+.dashboard-box-mobile-mini-raid-text-summary {
+    padding: 10px;
+}
+.dashboard-box-mobile-mini-content {}
+.dashboard-box-mini-raidleader {
+    padding-top: 6px;
+}
+
 table {
 	font: 12px 'Roboto';
 }

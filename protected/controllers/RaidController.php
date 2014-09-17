@@ -128,7 +128,8 @@ class RaidController extends RaiderController
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+            $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
+//			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}
 
 	/**
@@ -137,8 +138,19 @@ class RaidController extends RaiderController
 	public function actionIndex()
 	{
 		$dataProvider=new CActiveDataProvider('Raid');
+
+        // mi costruisco un array di valori da passare alla vista
+        $assetsUrl = Yii::app()->getAssetManager()->getPublishedUrl(RaiderFunctions::getImagesFolderPath());
+        $params = array(
+            'assetsUrl' => $assetsUrl,
+            'imgFolder' => '/raid/',
+            'imgFormat' => 'thumb640x360-',
+            'imgOpt' => array('height'=>360, 'width'=>640, 'class'=>''),
+        );
+
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
+            'params'=>$params,
 		));
 	}
 

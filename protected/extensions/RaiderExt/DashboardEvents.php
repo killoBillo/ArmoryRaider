@@ -487,7 +487,7 @@ class DashboardEvents extends CWidget {
                 $this->html.= "<div><span class='muted'>- <i class='icon icon-bullhorn'></i></span> <span class='small muted'>".$this->params['username']."</span></div>";		//." [ ".$this->params['userGuildRole']." ]</div>";
             }
                 $this->html.= "<div class='dashboard-box-mini-header'>";
-                    $this->html.= "<div><a class='btn btn-success' style='display:block;' href='".Yii::app()->createUrl('event/show', array('id'=>$this->params['id']))."'>" . Yii::t('locale', 'View') . "</a></div>";
+                    $this->html.= "<div><a class='btn btn-success display-block' href='".Yii::app()->createUrl('event/show', array('id'=>$this->params['id']))."'>" . Yii::t('locale', 'View') . "</a></div>";
                 $this->html.= "</div><!-- /dashboard-box-mini-header' -->";
 
             $this->html.= "</div><!-- /dashboard-box-mobile-mini span12 -->";

@@ -12,9 +12,11 @@ $this->menu=array(
 );
 ?>
 
-<h1>Raids</h1>
+<!--<h1>Raids</h1>-->
+<h1><?php echo Yii::t('locale', 'Manage Raids'); ?></h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
+    'viewData'=>$params,
 	'itemView'=>'_view',
 )); ?>

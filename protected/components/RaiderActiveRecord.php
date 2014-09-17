@@ -55,7 +55,7 @@ class RaiderActiveRecord extends CActiveRecord {
                  * - thumb dim  64x64 per i portrait dell'utente nella sidebar
 				 */ 
 				if(get_class($this) == 'Raid')
-                    $sizes = array('640:360', '50:50', '64:64', '200:100');
+                    $sizes = array('40:40', '50:50', '64:64', '200:100', '640:360');
 				elseif(get_class($this) == 'User')
                     $sizes = array('30:30', '50:50', '64:64');
                 else

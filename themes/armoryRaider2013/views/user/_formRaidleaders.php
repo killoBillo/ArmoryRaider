@@ -22,7 +22,7 @@
 	
 		<?php if(!$modelUserAttr->isNewRecord): ?>
 			<div class="well span4">	
-				<div class='pull-left'>
+				<div>
 					<?php echo $form->labelEx($modelUserAttr,'is_raidleader'); ?>
 					<div class="switch" data-on-label="<?php echo Yii::t('locale', 'Yes'); ?>" data-off-label="<?php echo Yii::t('locale', 'No'); ?>">
 						<?php echo $form->checkBox($modelUserAttr,'is_raidleader'); ?>

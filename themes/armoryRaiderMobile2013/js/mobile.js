@@ -37,52 +37,6 @@ addEvent(document.getElementById('open-right'), 'click', function(){
 
 
 
-
-// Hides mobile browser's address bar when page is done loading.
-//window.addEventListener('load', function(e) {
-//    console.info('ciao');
-//    setTimeout(function() { window.scrollTo(0, 1); }, 1);
-//}, false);
-
-
-//$('#snap-content').scroll(function (event) {
-//    var scroll = $('#snap-content').scrollTop();
-//    var maxScroll = $('#snap-content')[0].scrollHeight;
-//    var winHeight = $(window).height();
-//    var snapHeight = $('#snap-content').height();
-//    var bodyHeight = $('body').height();
-//
-//    $('body').css('min-height', maxScroll-winHeight+60);
-//
-////    setTimeout(function() { window.scrollTo(0, 200); }, 1);
-//    console.info('scroll #snap-content', maxScroll, scroll, winHeight, snapHeight, bodyHeight);
-//});
-//
-//$('#wrap').scroll(function (event) {
-//    console.info('scroll #wrap');
-//});
-
-
-
-//$(document).ready(function() {
-//    var snapHeight = $('#snap-content').height();
-//    var scroll = $(window).scrollTop();
-//    var maxScroll = $('#snap-content')[0].scrollHeight;
-//    var winHeight = $(window).height();
-//    var snapHeight = $('#snap-content').height();
-//    var bodyHeight = $('body').height();
-//
-////    console.info('pre body height', bodyHeight);
-//    $('body').css('min-height', winHeight+100);
-////    console.info('post body height', $('body').height());
-//
-//    setTimeout(function() { window.scrollTo(0, 1); console.info('ciao') }, 1);
-////    console.info('scroll window', maxScroll, scroll, winHeight, snapHeight, bodyHeight);
-//});
-
-
-
-
 /* Prevent Safari opening links when viewing as a Mobile App */
 (function (a, b, c) {
     if(c in b && b[c]) {

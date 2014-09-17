@@ -67,7 +67,7 @@ class RaiderMenu {
 					array('label'=>Yii::t('locale', 'Raids Options'), null, 'itemOptions'=>array('class'=>'nav-header nowrap')),
 					// items
 					array('label'=>Yii::t('locale', 'Create New Raid'), 'url'=>array('raid/create')),
-					array('label'=>Yii::t('locale', 'Manage Raids'), 'url'=>array('raid/admin')),
+					array('label'=>Yii::t('locale', 'Manage Raids'), 'url'=>array('raid/index')),
 					array('label'=>Yii::t('locale', 'Manage Raidleaders'), 'url'=>array('user/raidleader')),
 
 					// divider

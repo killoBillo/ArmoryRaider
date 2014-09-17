@@ -163,23 +163,9 @@ a.brand:hover {
     margin-top: 20px;
     border-top: 1px solid #CCC;
 }
-
-.dashboard-box-mobile-mini {
-    margin: 10px 0;
-    padding: 10px;
+.mobile-margin-bottom-20 {
+    margin-bottom: 20px;
 }
-.dashboard-box-mobile-mini-raid-text-summary {
-    padding: 10px;
-}
-.dashboard-box-mobile-mini-content {}
-.dashboard-box-mini-raidleader {
-    padding-top: 6px;
-}
-.lowercase {
-    text-transform: lowercase;
-}
-
-
 
 
 /*
