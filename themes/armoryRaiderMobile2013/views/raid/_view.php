@@ -2,6 +2,32 @@
 /* @var $this RaidController */
 /* @var $data Raid */
 
+$msgText    = Yii::t('locale', 'Do you really want to delete');
+$deleteURL  = Yii::app()->createUrl('raid/delete', array('id'=>$data->id));
+
+Yii::app()->clientScript->registerScript('checkDelete', "
+    jQuery(function($) {
+        $('.delete-raid').on('click', function() {
+            var raidId          = $(this).attr('data-raid-id');
+            var msgText         = '".$msgText."' + ' ' + $(this).attr('data-raid-name');
+            var userResponse    = window.confirm(msgText);
+
+            if(userResponse)
+                window.location.replace('".$deleteURL."');
+        });
+    });
+
+
+
+//    function checkDelete() {
+//        var userResponse = window.confirm('".$msgText."');
+//
+//        // se l'utente clicca ok, cancello il raid
+//        if(userResponse)
+//            window.location.replace('".$deleteURL."');
+//    }
+");
+
 $img = CHtml::image($assetsUrl . $imgFolder . $data->id . '/' . $imgFormat . $data->img, 'image of '.$data->name.' raid', $imgOpt)
 ?>
 
@@ -56,7 +82,8 @@ $img = CHtml::image($assetsUrl . $imgFolder . $data->id . '/' . $imgFormat . $da
 
         <div class="span2">
                 <a class="btn btn-success" href="<?php echo Yii::app()->createUrl('raid/update', array('id'=>$data->id)); ?>"> <?php echo Yii::t('locale', 'Update'); ?></a>
-                <a class="btn btn-danger" href="<?php echo Yii::app()->createUrl('raid/delete', array('id'=>$data->id)); ?>"> <?php echo Yii::t('locale', 'Delete'); ?></a>
+<!--                <button class="btn btn-danger" onclick="checkDelete">--><?php //echo Yii::t('locale', 'Delete'); ?><!--</button>-->
+                <a class="btn btn-danger delete-raid" href="#" data-raid-id="<?php echo $data->id; ?>" data-raid-name="<?php echo $data->name; ?>"><?php echo Yii::t('locale', 'Delete'); ?></a>
         </div>
 
 

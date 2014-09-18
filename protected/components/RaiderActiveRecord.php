@@ -53,9 +53,9 @@ class RaiderActiveRecord extends CActiveRecord {
 				 * - thumb dim: 30x30 per i portrait del raid leader in dashboard,
 				 * - thumb dim  50x50 per i portrait dell'utente nella sidebar
                  * - thumb dim  64x64 per i portrait dell'utente nella sidebar
-				 */ 
+				 */
 				if(get_class($this) == 'Raid')
-                    $sizes = array('40:40', '50:50', '64:64', '200:100', '640:360');
+                    $sizes = array('30:30', '40:40', '50:50', '64:64', '200:100', '640:360');
 				elseif(get_class($this) == 'User')
                     $sizes = array('30:30', '50:50', '64:64');
                 else
@@ -77,7 +77,7 @@ class RaiderActiveRecord extends CActiveRecord {
      * Provvede alla creazione dei portrait delle dimensioni contenute nell'array di input
      */
     private function createThumb($array) {
-        foreach($array  as $size) {
+        foreach($array as $size) {
             list($width, $height) = explode(":", $size);
             RaiderFunctions::thumbGen(
                 $width,

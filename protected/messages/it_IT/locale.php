@@ -106,11 +106,12 @@
 		'You cannot signup to the event!'=>'Non puoi iscriverti all\'evento!',
 		'<h5>The event has expired.</h5>'=>'<h5>L\'evento &egrave; scaduto.</h5>',
 	
-		// traduzioni controller "Raid" viste "create, _form"
+		// traduzioni controller "Raid" viste "create, _form, _view"
 		'Create new raid'=>'Crea nuovo raid',	
 		'Heroic raid ?'=>'Raid eroico ?',
 		'Active ?'=>'Attivo ?',
-		'Select a raid'=>'Scegli un raid',	
+		'Select a raid'=>'Scegli un raid',
+        'Do you really want to delete'=>'Vuoi veramente eliminare',
 		
 		// Character viste createStep1, createStep2, confirm, update
 		'Create Character <small>step 1 of 2</small>'=>'Aggiungi Personaggio <small>passo 1 di 2</small>',
@@ -229,8 +230,8 @@
 		'Img'=>'Img',
 		'No characters found'=>'Nessun personaggio trovato',
 
-        // ArmoryRaiderMobile2013
-        'Main Menu'=>'Main Menù',
+        // Theme ArmoryRaiderMobile2013
+        'Main Menu'=>'Men&ugrave; Principale',
 	);
 	
 ?>

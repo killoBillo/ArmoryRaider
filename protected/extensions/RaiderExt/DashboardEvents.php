@@ -221,9 +221,9 @@ class DashboardEvents extends CWidget {
     private function getFullBoxHtml() {
 		$this->getCharactersSubscriptions();    	
     	$text = ($this->params['description']) ? $this->params['description'] : $this->params['raidDescription'];
-    	$this->params['userImgSize']= array('height'=>50, 'width'=>50);
-		$this->params['userImgSize']['class'] = 'img-polaroid';
-		$this->params['userImgSize']['style'] = 'margin-right: 10px;';
+    	$this->params['userImgSize']= array('height'=>64, 'width'=>64);
+		$this->params['userImgSize']['class'] = 'img-circle';
+		$this->params['userImgSize']['style'] = 'margin-right: 5px;';
 		
 		$path = $_SERVER['SERVER_NAME'] . '/' . $_SERVER['REQUEST_URI'];		
 		
@@ -232,34 +232,33 @@ class DashboardEvents extends CWidget {
 					
 				$this->html.= "<div class='row-fluid'>";
 					$this->html.= "<div class='span8'>";
-						$this->html.= "<div class='dashboard-box-full-header uppercase'>";
-							$this->html.= "<div class='pull-left'>".CHtml::image($this->params['assetsUrl'].'/user/'.$this->params['portrait'], 'portrait of '.$this->params['username'], $this->params['userImgSize']).$this->params['username'] ." [ ".$this->params['userGuildRole']." ]</div>";
-							// stampo il pulsante di iscrizione solo se non si è già iscritti neppure con un PG.
-							if(!$this->params['isAlreadyMember']) $this->html.= "<div class='pull-right'>".CHtml::link(Yii::t('locale', 'Sign up'), array('characterEvent/signup', 'id'=>$this->params['id']), array('class'=>'btn btn-success'))."</div>";
-							$this->html.= "<div class='clearbox clearfix'></div>";
-						$this->html.= "</div><!-- /dashboard-box-full-header -->";
-
 						$this->html.= "<div class='row-fluid'>";
-							$this->html.= "<div class='span3 dashboard-box-full-header'>";
-								$this->html.= "<div class='raid-infos'><small><i class='icon-fire'></i> ".Yii::t('locale', 'Members: ')." ".$this->params['members']."</small></div>";
-								$this->html.= "<div class='raid-infos'><small><i class='icon-ok-sign'></i> ".Yii::t('locale', 'Available: ')." ".$this->params['available']."</small></div>";
-								$this->html.= "<div class='raid-infos'><small><i class='icon-ban-circle'></i> ".Yii::t('locale', 'Unavailable: ')." ".$this->params['unavailable']."</small></div>";
-								$this->html.= "<div class='clearbox clearfix'></div>";
-							$this->html.= "</div>";
+                            $this->html.= "<div class='span3 uppercase'>";
+                                $this->html.= "<div>".CHtml::image($this->params['assetsUrl'].'/user/'.$this->params['portrait-mobile'], 'portrait of '.$this->params['username'], $this->params['userImgSize']).$this->params['username'] . "</div>";       //." [ ".$this->params['userGuildRole']." ]</div>";
+                                $this->html.= "<div class='clearbox clearfix'></div>";
+                            $this->html.= "</div><!-- /dashboard-box-full-header -->";
 
 							$this->html.= "<div class='span9'>";
-								$this->html.= "<blockquote><p>$text</p></blockquote>";
+								$this->html.= $text;
 							$this->html.= "</div><!-- /span9 -->";
-							
 						$this->html.= "</div><!-- /row-fluid -->";
 					$this->html.= "</div><!-- /span8 -->";
 					
 					$this->html.= "<div class='span4'>";
-						$this->html.= CHtml::image($this->params['assetsUrl'].'/raid/'.$this->params['raidImgFolder'].'/thumb640x360-'.$this->params['raidImg'], 'image of '.$this->params['raidName'].' raid', array('class'=>'img-rounded'));
+                        $this->html.= "<div class='dashboard-box-full-header'>";
+                            $this->html.= "<div class='raid-infos'><small><i class='icon-fire'></i> ".Yii::t('locale', 'Members: ')." ".$this->params['members']."</small></div>";
+                            $this->html.= "<div class='raid-infos'><small><i class='icon-ok-sign'></i> ".Yii::t('locale', 'Available: ')." ".$this->params['available']."</small></div>";
+                            $this->html.= "<div class='raid-infos'><small><i class='icon-ban-circle'></i> ".Yii::t('locale', 'Unavailable: ')." ".$this->params['unavailable']."</small></div>";
+                            $this->html.= "<div class='clearbox clearfix'></div>";
+                            // stampo il pulsante di iscrizione solo se non si è già iscritti neppure con un PG.
+                            if(!$this->params['isAlreadyMember']) $this->html.= "<div>".CHtml::link(Yii::t('locale', 'Sign up'), array('characterEvent/signup', 'id'=>$this->params['id']), array('class'=>'btn btn-success display-block'))."</div>";
+                        $this->html.= "</div><!-- /dashboard-box-full-header -->";
+
+						$this->html.= CHtml::image($this->params['assetsUrl'].'/raid/'.$this->params['raidImgFolder'].'/thumb640x360-'.$this->params['raidImg'], 'image of '.$this->params['raidName'].' raid');
 						if(RaiderFunctions::isRaidleader()) {
 							$this->html.= "<div class='row-fluid'>";
 								$this->html.= "<div class='span12 dashboard-box-full-header'>";
-									$this->html.= CHtml::link(Yii::t('locale', 'Add another event'), array('event/create', 'date'=>$this->params['event_dateTime']->format('Y-m-d')), array('class'=>'btn btn-mini'))." ";								
+									$this->html.= CHtml::link(Yii::t('locale', 'Add another event'), array('event/create', 'date'=>$this->params['event_dateTime']->format('Y-m-d')), array('class'=>'btn btn-mini'))." ";
 									$this->html.= CHtml::link(Yii::t('locale', 'Delete'), array('event/confirmDelete', 'id'=>$this->params['id']), array('class'=>'btn btn-mini'))." ";
 									$this->html.= CHtml::link(Yii::t('locale', 'Update'), array('event/update', 'id'=>$this->params['id']), array('class'=>'btn btn-mini'));
 								$this->html.= "</div><!-- /span12 -->";

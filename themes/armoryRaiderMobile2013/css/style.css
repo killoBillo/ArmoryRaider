@@ -327,7 +327,8 @@ ul, ol {
 	font-style: italic;
 }
 .dashboard-box-full .raid-infos {
-	padding: 5px 0;
+	padding: 5px 10px 10px;
+    float: left;
 }
 .dashboard-box-full-header {
 	background-color: #F0F0F0;

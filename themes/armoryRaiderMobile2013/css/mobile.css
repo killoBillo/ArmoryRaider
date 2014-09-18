@@ -196,10 +196,6 @@ a.brand:hover {
         padding: 0 20px;
         width: auto;
     }
-    .dashboard-box-full .raid-infos {
-        padding: 0 10px;
-        float: left;
-    }
 }
 
 /* Landscape phones and down */

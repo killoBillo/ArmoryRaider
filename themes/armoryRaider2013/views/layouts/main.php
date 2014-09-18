@@ -1,18 +1,4 @@
-<?php /* @var $this Controller */
- 
-Yii::app()->clientScript->registerScript('popovers', "
-	$('.notify-icon').popover({
-		trigger: 'hover',
-		placement: 'bottom',
-		container: 'body',
-		html: true,
-		title: '".Yii::t('locale', 'Planned events')."',
-		content: function() {
-			return $(this).find('.popover-content').html();
-		}
-	});
-");
-?>
+<?php /* @var $this Controller */ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

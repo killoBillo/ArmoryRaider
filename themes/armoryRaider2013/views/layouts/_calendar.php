@@ -1,4 +1,17 @@
-<?php 
+<?php
+    Yii::app()->clientScript->registerScript('popovers', "
+        $('.notify-icon').popover({
+            trigger: 'hover',
+            placement: 'bottom',
+            container: 'body',
+            html: true,
+            title: '".Yii::t('locale', 'Planned events')."',
+            content: function() {
+                return $(this).find('.popover-content').html();
+            }
+        });
+    ");
+
 	Yii::app()->clientScript->registerScript('toggleCalendar', "
 	$('.close-calendar').click(function(){
 		$('#main-calendar').slideUp(500);
