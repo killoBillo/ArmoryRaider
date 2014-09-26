@@ -476,7 +476,8 @@ class Calendar extends CWidget {
            * NB: creo i link alla pagina di creazione degli eventi soltanto se l'utente � admin e/o raidleader
            * e il giorno non � passato
            */
- 		  $interval = $this->dayX->diff($this->today);		
+ 		  $interval = $this->dayX->diff($this->today);
+//        var_dump($interval->format('%R%a'));exit;
 		  
  		  /**
  		   *  notare l'encode del link tramite CHtml::encode() altrimenti il carattere & (di &date)
@@ -485,7 +486,7 @@ class Calendar extends CWidget {
  		   */
           if(!empty($this->event)){
           	$link = "href='".CHtml::encode(Yii::app()->controller->createUrl('/event/viewDay', array('date'=>$this->dayX->format($this->format))))."'";
-          }elseif(RaiderFunctions::isAdmin() || RaiderFunctions::isRaidleader() && $interval->format('%R%a') <= 0) {
+          }elseif((RaiderFunctions::isAdmin() || RaiderFunctions::isRaidleader()) && $interval->format('%R%a') <= 0) {
 			$link = "href='".CHtml::encode(Yii::app()->controller->createUrl('/event/create', array('date'=>$this->dayX->format($this->format))))."'";          	
           }else{
           	$link = '';
