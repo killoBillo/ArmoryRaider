@@ -9,6 +9,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	
 	<meta name="ArmoryRaider" content="A PHP Raider for World of WarCraft linked with Blizzard Armory">
+
+    <!-- Favicon icon -->
+    <link rel="shortcut icon" href="<?php echo Yii::app()->theme->baseUrl;?>/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="<?php echo Yii::app()->theme->baseUrl;?>/favicon.ico" type="image/x-icon">
 	
 	<link rel="stylesheet" media="screen" href="<?php echo Yii::app()->theme->baseUrl;?>/css/bootstrap.min.css">
 	<link rel="stylesheet" media="screen" href="<?php echo Yii::app()->theme->baseUrl;?>/css/font-awesome.min.css">
