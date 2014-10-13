@@ -720,6 +720,7 @@ INSERT INTO `spec` (`id`, `class_id`, `name`) VALUES (30, 10, 'Unholy');
 INSERT INTO `spec` (`id`, `class_id`, `name`) VALUES (31, 11, 'Brewmaster');
 INSERT INTO `spec` (`id`, `class_id`, `name`) VALUES (32, 11, 'Mistweaver');
 INSERT INTO `spec` (`id`, `class_id`, `name`) VALUES (33, 11, 'Windwalker');
+INSERT INTO `spec` (`id`, `class_id`, `name`) VALUES (34, 1, 'Guardian');
 
 COMMIT;
 
